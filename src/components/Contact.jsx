@@ -11,13 +11,17 @@ const fadeUp = {
 }
 
 const links = [
-  { label: 'Email', value: '[your@email.com]', href: 'mailto:[your@email.com]' },
+  {
+    label: 'Email',
+    value: 'sanchezcesar106@gmail.com',
+    href: 'mailto:sanchezcesar106@gmail.com',
+  },
   {
     label: 'LinkedIn',
     value: 'linkedin.com/in/csanchez65',
     href: 'https://www.linkedin.com/in/csanchez65',
   },
-  { label: 'GitHub', value: 'github.com/[handle]', href: '[GitHub URL]' },
+  { label: 'GitHub', value: 'github.com/Saner108', href: 'https://github.com/Saner108' },
 ]
 
 export default function Contact() {
@@ -92,8 +96,8 @@ export default function Contact() {
             custom={4}
           >
             <a
-              href="[/resume.pdf]"
-              download
+              href="/resume.pdf"
+              download="Cesar_Sanchez_Resume.pdf"
               className="inline-flex items-center gap-3 border border-offwhite/20 px-7 py-4 text-sm font-body font-medium text-offwhite hover:border-offwhite/40 transition-colors duration-300 group"
             >
               <span>Download Resume</span>
