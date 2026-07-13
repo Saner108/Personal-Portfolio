@@ -12,37 +12,45 @@ const fadeUp = {
 
 const groups = [
   {
-    category: 'Data & Analytics',
+    category: 'Programming',
+    skills: ['Python', 'SQL', 'JavaScript', 'HTML', 'CSS'],
+  },
+  {
+    category: 'Data Analytics',
     skills: [
-      'Excel / VBA',
-      'Python (pandas, NumPy)',
-      'SQL',
-      'Power BI / Tableau',
+      'Microsoft Excel',
+      'Tableau',
+      'Microsoft Access',
+      'VBA',
+      'Data Analysis',
+      'Database Design',
+      'Business Analytics',
+    ],
+  },
+  {
+    category: 'Finance',
+    skills: [
       'Financial Modeling',
-      'Statistical Analysis',
+      'Financial Forecasting',
+      'Investment Analysis',
+      'Business Analysis',
+      'Finance',
     ],
   },
   {
-    category: 'AI & Dev Tools',
+    category: 'Artificial Intelligence',
     skills: [
-      'Claude API',
-      'ChatGPT / Prompt Engineering',
+      'Artificial Intelligence',
+      'Prompt Engineering',
+      'Claude',
+      'ChatGPT',
       'Base44',
-      'React / Vite',
-      'Framer Motion',
-      'Git / GitHub',
+      'AI Product Development',
     ],
   },
   {
-    category: 'Domain Expertise',
-    skills: [
-      'Nutrition Science',
-      'Program Design',
-      'Client Behavior Change',
-      'Macro / Caloric Planning',
-      'Corporate Finance',
-      'Business Operations',
-    ],
+    category: 'Professional',
+    skills: ['Project Management', 'Problem Solving', 'Analytical Thinking'],
   },
 ]
 
@@ -74,11 +82,11 @@ export default function Skills() {
           What I work with.
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-offwhite/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-offwhite/10 border-t border-offwhite/10">
           {groups.map((group, gi) => (
             <motion.div
               key={group.category}
-              className="py-10 md:pr-12 border-b md:border-b-0 md:border-r border-offwhite/10 last:border-r-0 last:border-b-0 md:last:pr-0 md:pl-10 first:pl-0"
+              className="py-10 px-6 sm:px-8 bg-graphite"
               variants={fadeUp}
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}

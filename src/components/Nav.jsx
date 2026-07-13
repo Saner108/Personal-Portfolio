@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -34,10 +36,10 @@ export default function Nav() {
           href="#hero"
           className="font-display font-semibold text-offwhite text-sm tracking-wide"
         >
-          [Your Name]
+          Cesar Sanchez
         </a>
 
-        <nav className="hidden sm:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map(({ label, href }) => (
             <a
               key={label}
@@ -47,7 +49,12 @@ export default function Nav() {
               {label}
             </a>
           ))}
+          <ThemeToggle />
         </nav>
+
+        <div className="md:hidden">
+          <ThemeToggle />
+        </div>
       </div>
     </motion.header>
   )

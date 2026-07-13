@@ -12,7 +12,11 @@ const fadeUp = {
 
 const links = [
   { label: 'Email', value: '[your@email.com]', href: 'mailto:[your@email.com]' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/[handle]', href: '[LinkedIn URL]' },
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/csanchez65',
+    href: 'https://www.linkedin.com/in/csanchez65',
+  },
   { label: 'GitHub', value: 'github.com/[handle]', href: '[GitHub URL]' },
 ]
 

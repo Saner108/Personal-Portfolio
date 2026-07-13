@@ -12,58 +12,61 @@ const fadeUp = {
 
 const projects = [
   {
-    id: 'meal-planner',
+    id: 'nutricook-ai',
     label: 'Flagship',
-    name: '[App Name]',
-    tagline: 'An AI-powered meal planning app that generates weekly plans, adjusts macros on the fly, and learns your preferences.',
+    name: 'NutriCook AI',
+    tagline:
+      'An AI-powered meal planning platform that generates personalized meal recommendations based on nutrition goals, available ingredients, dietary preferences, and budget constraints.',
     description:
-      "This started as a spreadsheet I made for my own clients. It grew into a full product idea when I realized how much time coaches spend doing what a model could do in seconds. I built the MVP using Base44 for the backend, wired in the Claude API for meal generation, and iterated with ChatGPT as a rubber duck. It's not perfect — the UX still needs work — but the core logic is solid and clients who've used it actually stick to their plans.",
-    tech: ['Base44', 'Claude API', 'ChatGPT', 'React'],
+      'Designed the application using modern AI workflows, integrating ChatGPT, Claude, and Base44 to power prompt engineering, recommendation logic, and iterative product development. Building a scalable MVP that combines AI-assisted decision making, nutrition optimization, and budget tracking while following an end-to-end product development process from concept to deployment.',
+    tech: ['Artificial Intelligence', 'Prompt Engineering', 'ChatGPT', 'Claude', 'Base44'],
     status: 'In Development',
-    link: '[GitHub / Live URL]',
+    link: '[GitHub URL]',
+    demo: '[Live Demo URL]',
     flagship: true,
   },
   {
-    id: 'excel-models',
+    id: 'nutrition-db',
     label: 'Project',
-    name: 'Excel/VBA Financial Models',
-    tagline: 'Inventory tracking system and financial models built in Excel with custom VBA automation.',
+    name: 'Animal Diet & Nutrition Tracking Database',
+    tagline:
+      'A relational database built in Microsoft Access to organize and manage animal diet and nutrition records for operational tracking.',
     description:
-      "Built to solve real operational problems — one model tracks inventory with automatic reorder alerts and variance reporting, another handles budget-vs-actual analysis with dynamic visualizations. The VBA scripts cut manual update time from [X hours] to [X minutes] per week.",
-    tech: ['Excel', 'VBA', 'Financial Modeling', 'Data Visualization'],
+      'Created normalized tables, relationships, queries, forms, and VBA-driven interface components to improve data accuracy, simplify record management, and streamline reporting. Applied database design principles to replace manual workflows with a structured information system that supports faster data retrieval and improved operational efficiency.',
+    tech: ['Microsoft Access', 'SQL Queries', 'VBA', 'Relational Database Design', 'Database Normalization'],
     status: 'Completed',
-    link: '[GitHub / Portfolio Link]',
+    link: '[GitHub URL]',
     flagship: false,
   },
   {
-    id: 'placeholder',
-    label: 'Coming Soon',
-    name: '[Next Project]',
-    tagline: 'Placeholder for the next thing I build. Check back.',
-    description: '',
-    tech: [],
-    status: 'Planned',
-    link: null,
+    id: 'financial-forecast',
+    label: 'Project',
+    name: 'Financial Forecasting Model',
+    tagline:
+      'A dynamic financial forecasting model in Microsoft Excel to analyze cash flow, income, expenses, debt, savings, and investment growth within a single decision-support dashboard.',
+    description:
+      'Implemented scenario analysis to evaluate the long-term financial impact of different spending, saving, and investment strategies, transforming a traditional budget into an interactive forecasting and planning tool.',
+    tech: ['Microsoft Excel', 'Financial Modeling', 'Forecasting', 'Scenario Analysis'],
+    status: 'Completed',
+    link: '[GitHub URL]',
     flagship: false,
-    placeholder: true,
+  },
+  {
+    id: 'inventory-tracking',
+    label: 'Project',
+    name: 'Inventory Tracking System',
+    tagline:
+      'An Excel-based inventory management system to monitor ingredients and supplies for recurring nutrition program classes.',
+    description:
+      'Automated inventory tracking with structured data entry, improving stock visibility, reducing manual errors, and supporting more efficient weekly meal-preparation planning. The system streamlined inventory management and provided a repeatable process for operational decision-making.',
+    tech: ['Microsoft Excel', 'Inventory Management', 'Process Improvement', 'Data Organization'],
+    status: 'Completed',
+    link: '[GitHub URL]',
+    flagship: false,
   },
 ]
 
 function ProjectCard({ project, index, inView }) {
-  if (project.placeholder) {
-    return (
-      <motion.div
-        className="border border-dashed border-offwhite/10 p-8 flex items-center justify-center min-h-[200px]"
-        variants={fadeUp}
-        initial="hidden"
-        animate={inView ? 'visible' : 'hidden'}
-        custom={index}
-      >
-        <p className="text-offwhite/25 font-body text-sm tracking-wide">[Next project — TBD]</p>
-      </motion.div>
-    )
-  }
-
   return (
     <motion.article
       className={`border border-offwhite/10 hover:border-offwhite/20 transition-colors duration-500 ${
@@ -108,14 +111,24 @@ function ProjectCard({ project, index, inView }) {
             </div>
           )}
 
-          {project.link && (
-            <a
-              href={project.link}
-              className="text-sm font-body text-offwhite/40 hover:text-offwhite transition-colors duration-200 tracking-wide"
-            >
-              {project.link} →
-            </a>
-          )}
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {project.link && (
+              <a
+                href={project.link}
+                className="text-sm font-body text-offwhite/40 hover:text-offwhite transition-colors duration-200 tracking-wide"
+              >
+                {project.link} →
+              </a>
+            )}
+            {project.demo && (
+              <a
+                href={project.demo}
+                className="text-sm font-body text-offwhite/40 hover:text-offwhite transition-colors duration-200 tracking-wide"
+              >
+                {project.demo} →
+              </a>
+            )}
+          </div>
         </div>
 
         {project.flagship && project.description && (
@@ -155,17 +168,12 @@ export default function Projects() {
           animate={inView ? 'visible' : 'hidden'}
           custom={1}
         >
-          Things I've built.
+          Featured Projects.
         </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-offwhite/5">
           {projects.map((project, i) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              index={i + 2}
-              inView={inView}
-            />
+            <ProjectCard key={project.id} project={project} index={i + 2} inView={inView} />
           ))}
         </div>
       </div>

@@ -23,7 +23,7 @@ export default function Hero() {
           animate="visible"
           custom={0}
         >
-          [Your Name]
+          Cesar Sanchez
         </motion.p>
 
         <motion.h1
@@ -34,15 +34,11 @@ export default function Hero() {
           animate="visible"
           custom={1}
         >
-          Built a career
+          Finance.
           <br />
-          helping people
+          Business Analytics.
           <br />
-          <span className="text-offwhite/30">optimize their bodies.</span>
-          <br />
-          Now I do it
-          <br />
-          with data.
+          <span className="text-offwhite/30">AI.</span>
         </motion.h1>
 
         <motion.p
@@ -52,8 +48,10 @@ export default function Hero() {
           animate="visible"
           custom={2}
         >
-          Business Analytics & Finance student. Former personal trainer and nutrition coach.
-          Building AI tools that close the gap between human performance and intelligent systems.
+          I build data-driven applications that combine finance, business analytics, and
+          artificial intelligence to solve real-world problems — quantitative finance, financial
+          modeling, AI applications, and business intelligence. I'm passionate about turning data
+          into better decisions through technology.
         </motion.p>
 
         <motion.div

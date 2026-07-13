@@ -2,23 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-bg: 11 13 16;
+  --color-text: 245 243 238;
+}
+
+:root.light {
+  --color-bg: 245 243 238;
+  --color-text: 11 13 16;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    background-color: #0B0D10;
-    color: #F5F3EE;
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
     background-color: #E8785A;
-    color: #0B0D10;
+    color: rgb(var(--color-bg));
   }
 }
 

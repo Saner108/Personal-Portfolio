@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        graphite: '#0B0D10',
-        offwhite: '#F5F3EE',
+        graphite: 'rgb(var(--color-bg) / <alpha-value>)',
+        offwhite: 'rgb(var(--color-text) / <alpha-value>)',
         clay: '#E8785A',
         electric: '#3D8BFF',
       },

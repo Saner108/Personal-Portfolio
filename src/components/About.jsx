@@ -10,11 +10,10 @@ const fadeUp = {
   }),
 }
 
-const stat = (label, value) => ({ label, value })
 const stats = [
-  stat('Years coaching', '[X+]'),
-  stat('Clients trained', '[X+]'),
-  stat('Current GPA', '[X.X]'),
+  { label: 'Years Coaching & Leadership', value: '3+' },
+  { label: 'Technical Projects', value: '4+' },
+  { label: 'Business Degrees', value: '2' },
 ]
 
 export default function About() {
@@ -57,21 +56,26 @@ export default function About() {
               custom={2}
             >
               <p>
-                I spent [X] years in personal training and nutrition coaching because I was obsessed
-                with one problem: how do you get the most out of a human system? Macro splits,
-                progressive overload, recovery windows — it's all just applied data science before
-                anyone calls it that.
+                I'm a Finance and Business Analytics student at Texas A&M University–Corpus
+                Christi with interests in quantitative finance, artificial intelligence,
+                financial modeling, and business analytics.
               </p>
               <p>
-                Somewhere along the way I realized the tools I was building in my head — meal
-                plan generators, intake trackers, performance models — were software problems. So I
-                started learning to build them.
+                My projects range from AI-powered applications and financial forecasting models
+                to relational databases and Python-based analytics tools. I enjoy solving business
+                problems by combining programming, finance, and data analysis to create practical,
+                scalable solutions.
               </p>
               <p>
-                Now I'm a Business Analytics & Finance student who codes on the side and uses AI
-                as a co-pilot, not a shortcut. I'm interested in the space where domain expertise
-                meets intelligent systems — places where knowing the problem deeply is still the
-                hardest part.
+                Outside of technology, I've spent several years leading nutrition coaching,
+                personal training, and group fitness programs. These experiences strengthened my
+                leadership, communication, and project management skills while reinforcing the
+                importance of using data to guide decision-making and improve outcomes.
+              </p>
+              <p>
+                I'm currently building a portfolio of finance, analytics, and AI projects while
+                seeking opportunities in finance, business analytics, data analytics, AI, and
+                fintech.
               </p>
             </motion.div>
           </div>
@@ -98,9 +102,9 @@ export default function About() {
             <div className="border-t border-offwhite/10 pt-6">
               <div className="text-sm text-offwhite/40 font-body tracking-wide mb-3">Currently</div>
               <div className="text-offwhite/70 font-body text-sm leading-relaxed">
-                [University Name] — Business Analytics & Finance
+                Texas A&M University–Corpus Christi
                 <br />
-                Expected graduation: [Month Year]
+                Expected graduation: December 2026
               </div>
             </div>
           </motion.div>
