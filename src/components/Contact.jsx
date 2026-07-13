@@ -96,8 +96,8 @@ export default function Contact() {
             custom={4}
           >
             <a
-              href="[/resume.pdf]"
-              download
+              href="/resume.pdf"
+              download="Cesar_Sanchez_Resume.pdf"
               className="inline-flex items-center gap-3 border border-offwhite/20 px-7 py-4 text-sm font-body font-medium text-offwhite hover:border-offwhite/40 transition-colors duration-300 group"
             >
               <span>Download Resume</span>
