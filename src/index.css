@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: 11 13 16;
+  --color-text: 245 243 238;
+}
+
+:root.light {
+  --color-bg: 245 243 238;
+  --color-text: 11 13 16;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background-color: #E8785A;
+    color: rgb(var(--color-bg));
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'General Sans', system-ui, sans-serif;
+  }
+
+  .gradient-thread {
+    background: linear-gradient(180deg, #E8785A 0%, #3D8BFF 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #E8785A 0%, #3D8BFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0D10;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2d33;
+  border-radius: 2px;
+}
