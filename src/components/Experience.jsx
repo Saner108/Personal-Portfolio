@@ -13,21 +13,33 @@ const fadeUp = {
 const roles = [
   {
     title: 'Head Nutrition Coach',
-    org: 'Texas A&M University–Corpus Christi',
+    org: 'TAMUCC · Jun 2025–Present',
     description:
-      'Lead nutrition coaching, inventory management, and wellness programming while using operational data to improve client outcomes. Coordinate nutrition education initiatives, oversee inventory systems, and organize wellness events that promote healthier lifestyles.',
+      'Oversee personalized nutrition coaching and cooking classes for the campus community, designing individualized guidance around sustainable, realistic habits rather than one-size-fits-all plans.',
   },
   {
     title: 'Group Fitness Instructor',
-    org: null,
+    org: 'TAMUCC · Sep 2024–Present',
     description:
-      'Design and lead scalable HIIT and strength-focused group fitness classes. Develop structured training programs that emphasize safety, performance, motivation, and measurable progress for participants of all fitness levels.',
+      'Lead high-energy HIIT classes focused on functional movement and cardio conditioning for a recurring member base.',
   },
   {
     title: 'Personal Trainer',
-    org: null,
+    org: 'TAMUCC · Aug 2023–Present',
     description:
-      'Create personalized fitness and nutrition programs tailored to client goals while tracking progress through data-driven coaching methods. Focus on sustainable habit development, functional movement, and long-term health outcomes.',
+      'Design individualized training programs tailored to client goals — fat loss, muscle gain, and general performance — with ongoing program adjustments based on progress.',
+  },
+  {
+    title: 'Member Ambassador',
+    org: 'Orangetheory Fitness · Oct 2022–Aug 2023',
+    description:
+      'Managed sales transactions and class scheduling logistics, improving accuracy in a high-volume environment and contributing to fewer no-shows.',
+  },
+  {
+    title: 'Sales and Service Expert',
+    org: '24 Hour Fitness · Dec 2021–Oct 2022',
+    description:
+      'Advised customers on fitness products and services, supporting informed purchasing decisions in a fast-paced retail environment.',
   },
 ]
 

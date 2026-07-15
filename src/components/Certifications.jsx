@@ -10,18 +10,33 @@ const fadeUp = {
   }),
 }
 
-const certifications = [
-  'GitHub Foundations (In Progress)',
-  'Claude Code 101',
-  'Claude 101',
-  'AI Fluency: Framework & Foundations',
-  'Mining Quality Prediction Using Machine & Deep Learning',
-  'Tableau Essential Training',
-  'Learning SAP Analytics Cloud',
-  'Texas Insurance Broker License',
-  'NASM Nutrition Coach',
-  'NASM Certified Personal Trainer',
-  'CPR & AED',
+const groups = [
+  {
+    category: 'AI & Technical',
+    items: [
+      { name: 'Claude Code 101 — Anthropic (2026)' },
+      { name: 'Claude 101 — Anthropic (2026)' },
+      { name: 'AI Fluency: Framework & Foundations — Anthropic (2026)' },
+      { name: 'Mining Quality Prediction Using Machine & Deep Learning — Coursera (2026)' },
+      { name: 'Tableau Essential Training — LinkedIn Learning (2023)' },
+      { name: 'Learning SAP Analytics Cloud — LinkedIn Learning (2023)' },
+      { name: 'GitHub Foundations', inProgress: true },
+    ],
+  },
+  {
+    category: 'Fitness & Coaching',
+    items: [
+      { name: 'NASM Nutrition Coach Certification (2025–2027)' },
+      { name: 'NASM Personal Trainer Certification (expires Jan 2028)' },
+      { name: 'CPR & AED — American Red Cross' },
+    ],
+  },
+  {
+    category: 'Professional',
+    items: [
+      { name: 'Texas Insurance Broker License (2026–2028) — pursuing a related internship starting fall 2026' },
+    ],
+  },
 ]
 
 export default function Certifications() {
@@ -52,17 +67,35 @@ export default function Certifications() {
           Credentials.
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-0 border-t border-offwhite/10">
-          {certifications.map((cert, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12 border-t border-offwhite/10 pt-10">
+          {groups.map((group, gi) => (
             <motion.div
-              key={cert}
-              className="py-5 border-b border-offwhite/10 font-body text-offwhite/65 text-sm md:text-base"
+              key={group.category}
               variants={fadeUp}
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
-              custom={i + 2}
+              custom={gi + 2}
             >
-              {cert}
+              <h3 className="font-body font-medium text-xs uppercase tracking-[0.18em] text-offwhite/35 mb-5">
+                {group.category}
+              </h3>
+              <ul className="space-y-3">
+                {group.items.map((item) => (
+                  <li
+                    key={item.name}
+                    className="font-body text-sm md:text-base leading-snug flex items-start gap-2"
+                  >
+                    <span className={item.inProgress ? 'text-offwhite/35' : 'text-offwhite/65'}>
+                      {item.name}
+                    </span>
+                    {item.inProgress && (
+                      <span className="shrink-0 text-[10px] uppercase tracking-wide text-clay/80 border border-clay/30 px-1.5 py-0.5">
+                        In Progress
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
