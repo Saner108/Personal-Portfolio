@@ -10,9 +10,17 @@ const fadeUp = {
   }),
 }
 
-const degrees = [
-  'Bachelor of Business Administration — Finance',
-  'Bachelor of Business Administration — Business Analytics Information Systems',
+const schools = [
+  {
+    name: 'Texas A&M University–Corpus Christi',
+    degree: 'Dual BBA — Finance; Business Analytics & Information Systems',
+    dates: 'Expected Spring 2027',
+  },
+  {
+    name: 'Tarrant County College',
+    degree: 'Associate of Arts, Management Information Systems',
+    dates: 'Aug 2021 – Apr 2023',
+  },
 ]
 
 export default function Education() {
@@ -32,42 +40,29 @@ export default function Education() {
           Education
         </motion.p>
 
-        <motion.h2
-          className="font-display font-semibold text-offwhite leading-tight tracking-tight mb-10"
-          style={{ fontSize: 'clamp(1.9rem, 4vw, 3.2rem)' }}
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          custom={1}
-        >
-          Texas A&M University
-          <br />
-          –Corpus Christi
-        </motion.h2>
-
-        <motion.div
-          className="space-y-3 mb-8"
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          custom={2}
-        >
-          {degrees.map((degree) => (
-            <p key={degree} className="text-offwhite/60 font-body text-base md:text-lg">
-              {degree}
-            </p>
+        <div className="space-y-12">
+          {schools.map((school, i) => (
+            <motion.div
+              key={school.name}
+              variants={fadeUp}
+              initial="hidden"
+              animate={inView ? 'visible' : 'hidden'}
+              custom={i + 1}
+              className="border-t border-offwhite/10 pt-8"
+            >
+              <h2
+                className="font-display font-semibold text-offwhite leading-tight tracking-tight mb-3"
+                style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)' }}
+              >
+                {school.name}
+              </h2>
+              <p className="text-offwhite/60 font-body text-base md:text-lg mb-2">
+                {school.degree}
+              </p>
+              <p className="text-offwhite/35 font-body text-sm tracking-wide">{school.dates}</p>
+            </motion.div>
           ))}
-        </motion.div>
-
-        <motion.p
-          className="text-offwhite/35 font-body text-sm tracking-wide"
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          custom={3}
-        >
-          Expected Graduation: December 2026
-        </motion.p>
+        </div>
       </div>
     </section>
   )

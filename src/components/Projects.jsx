@@ -16,13 +16,12 @@ const projects = [
     label: 'Flagship',
     name: 'NutriCook AI',
     tagline:
-      'An AI-powered meal planning platform that generates personalized meal recommendations based on nutrition goals, available ingredients, dietary preferences, and budget constraints.',
-    description:
-      'Designed the application using modern AI workflows, integrating ChatGPT, Claude, and Base44 to power prompt engineering, recommendation logic, and iterative product development. Building a scalable MVP that combines AI-assisted decision making, nutrition optimization, and budget tracking while following an end-to-end product development process from concept to deployment.',
+      'An AI-powered meal planning app that generates personalized plans from user goals, dietary needs, and budget — built by integrating Claude, ChatGPT, and Base44 into one working prototype, end to end.',
     tech: ['Artificial Intelligence', 'Prompt Engineering', 'ChatGPT', 'Claude', 'Base44'],
     status: 'In Development',
     link: 'https://github.com/Saner108/nutricook-ai',
     demo: 'https://nutricook-ai-kappa.vercel.app/',
+    image: '/images/nutricook-ai-screenshot.jpg',
     flagship: true,
   },
   {
@@ -30,12 +29,11 @@ const projects = [
     label: 'Project',
     name: 'Animal Diet & Nutrition Tracking Database',
     tagline:
-      'A relational database built in Microsoft Access to organize and manage animal diet and nutrition records for operational tracking.',
-    description:
-      'Created normalized tables, relationships, queries, forms, and VBA-driven interface components to improve data accuracy, simplify record management, and streamline reporting. Applied database design principles to replace manual workflows with a structured information system that supports faster data retrieval and improved operational efficiency.',
-    tech: ['Microsoft Access', 'SQL Queries', 'VBA', 'Relational Database Design', 'Database Normalization'],
+      'A relational database that replaced a fully manual tracking process — normalized schema, VBA interface, built for real aquarium staff to use.',
+    tech: ['Microsoft Access', 'SQL Queries', 'VBA', 'Relational Database Design'],
     status: 'Completed',
     link: 'https://github.com/Saner108/Excel-Business-Analytics-Portfolio',
+    image: null,
     flagship: false,
   },
   {
@@ -43,12 +41,11 @@ const projects = [
     label: 'Project',
     name: 'Financial Forecasting Model',
     tagline:
-      'A dynamic financial forecasting model in Microsoft Excel to analyze cash flow, income, expenses, debt, savings, and investment growth within a single decision-support dashboard.',
-    description:
-      'Implemented scenario analysis to evaluate the long-term financial impact of different spending, saving, and investment strategies, transforming a traditional budget into an interactive forecasting and planning tool.',
+      'A scenario-analysis tool that turns a static budget into a decision-support system — model out debt payoff vs. investing, before you commit.',
     tech: ['Microsoft Excel', 'Financial Modeling', 'Forecasting', 'Scenario Analysis'],
     status: 'Completed',
     link: 'https://github.com/Saner108/Excel-Business-Analytics-Portfolio',
+    image: '/images/financial-forecasting-screenshot.jpg',
     flagship: false,
   },
   {
@@ -56,12 +53,11 @@ const projects = [
     label: 'Project',
     name: 'Inventory Tracking System',
     tagline:
-      'An Excel-based inventory management system to monitor ingredients and supplies for recurring nutrition program classes.',
-    description:
-      'Automated inventory tracking with structured data entry, improving stock visibility, reducing manual errors, and supporting more efficient weekly meal-preparation planning. The system streamlined inventory management and provided a repeatable process for operational decision-making.',
-    tech: ['Microsoft Excel', 'Inventory Management', 'Process Improvement', 'Data Organization'],
+      'The first structured inventory process for a weekly nutrition program that had none — built from scratch, not retrofitted.',
+    tech: ['Microsoft Excel', 'Inventory Management', 'Process Improvement'],
     status: 'Completed',
     link: 'https://github.com/Saner108/Excel-Business-Analytics-Portfolio',
+    image: '/images/inventory-tracker-screenshot.jpg',
     flagship: false,
   },
 ]
@@ -131,10 +127,31 @@ function ProjectCard({ project, index, inView }) {
           </div>
         </div>
 
-        {project.flagship && project.description && (
-          <div className="mt-8 lg:mt-0 pt-8 lg:pt-0 border-t lg:border-t-0 lg:border-l border-offwhite/8 lg:pl-16">
-            <p className="text-offwhite/45 font-body text-sm leading-relaxed">
-              {project.description}
+        {project.flagship && project.image && (
+          <div className="mt-8 lg:mt-0 pt-8 lg:pt-0 border-t lg:border-t-0 lg:border-l border-offwhite/8 lg:pl-16 flex items-center justify-center">
+            <img
+              src={project.image}
+              alt={`${project.name} screenshot`}
+              loading="lazy"
+              className="max-h-[420px] w-auto border border-offwhite/10"
+            />
+          </div>
+        )}
+
+        {!project.flagship && project.image && (
+          <img
+            src={project.image}
+            alt={`${project.name} screenshot`}
+            loading="lazy"
+            className="w-full mt-6 border border-offwhite/10"
+          />
+        )}
+
+        {!project.flagship && !project.image && (
+          <div className="mt-6 border border-dashed border-offwhite/10 py-10 flex items-center justify-center">
+            {/* TODO: add Aquarium DB screenshot when provided */}
+            <p className="text-offwhite/25 font-body text-sm tracking-wide">
+              Screenshot pending
             </p>
           </div>
         )}

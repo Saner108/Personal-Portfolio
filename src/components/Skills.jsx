@@ -12,45 +12,42 @@ const fadeUp = {
 
 const groups = [
   {
-    category: 'Programming',
-    skills: ['Python', 'SQL', 'JavaScript', 'HTML', 'CSS'],
-  },
-  {
-    category: 'Data Analytics',
+    category: 'Data Analytics & Business Systems',
     skills: [
-      'Microsoft Excel',
-      'Tableau',
-      'Microsoft Access',
-      'VBA',
-      'Data Analysis',
-      'Database Design',
-      'Business Analytics',
+      'Microsoft Excel (financial modeling, scenario analysis)',
+      'Microsoft Access (relational databases, VBA)',
+      'Tableau (Essential Training cert)',
+      'SAP Analytics Cloud',
     ],
   },
   {
     category: 'Finance',
     skills: [
       'Financial Modeling',
-      'Financial Forecasting',
-      'Investment Analysis',
-      'Business Analysis',
-      'Finance',
+      'Scenario / Forecasting Analysis',
+      'Personal Financial Systems Design',
     ],
   },
   {
     category: 'Artificial Intelligence',
     skills: [
-      'Artificial Intelligence',
+      'Claude (Claude 101, Claude Code 101, AI Fluency: Framework & Foundations)',
       'Prompt Engineering',
-      'Claude',
-      'ChatGPT',
-      'Base44',
-      'AI Product Development',
+      'AI-Assisted Product Development',
     ],
   },
   {
+    category: 'Programming',
+    skills: ['Python (coursework — machine learning applications)', 'VBA'],
+  },
+  {
     category: 'Professional',
-    skills: ['Project Management', 'Problem Solving', 'Analytical Thinking'],
+    skills: [
+      'Client-Facing Program Design',
+      'Nutrition Coaching',
+      'Group Instruction',
+      'Sales & Customer Communication',
+    ],
   },
 ]
 

@@ -11,9 +11,9 @@ const fadeUp = {
 }
 
 const stats = [
-  { label: 'Years Coaching & Leadership', value: '3+' },
-  { label: 'Technical Projects', value: '4+' },
-  { label: 'Business Degrees', value: '2' },
+  { label: 'Years Coaching/Training Experience', value: '3+' },
+  { label: 'Built Systems, Zero to Production', value: '4' },
+  { label: 'Business Degrees (Finance + Business Analytics)', value: '2' },
 ]
 
 export default function About() {
@@ -49,34 +49,40 @@ export default function About() {
             </motion.h2>
 
             <motion.div
-              className="space-y-5 text-offwhite/65 font-body leading-relaxed text-base md:text-lg"
+              className="space-y-5 text-offwhite/65 font-body leading-relaxed text-base md:text-lg mb-10"
               variants={fadeUp}
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
               custom={2}
             >
               <p>
-                I'm a Finance and Business Analytics student at Texas A&M University–Corpus
-                Christi with interests in quantitative finance, artificial intelligence,
-                financial modeling, and business analytics.
+                I'm a double major in Finance and Business Analytics at Texas A&M
+                University–Corpus Christi — and outside of that, fitness has always been a
+                genuine hobby, not just a resume line. That hobby turned into real jobs: three
+                years as a personal trainer, group fitness instructor, and now Head Nutrition
+                Coach, designing individualized programs and coaching clients through nutrition
+                change.
               </p>
               <p>
-                My projects range from AI-powered applications and financial forecasting models
-                to relational databases and Python-based analytics tools. I enjoy solving business
-                problems by combining programming, finance, and data analysis to create practical,
-                scalable solutions.
+                As I've continued through school, I've gotten to develop the nutrition coaching
+                program at TAMUCC, build a database for the Texas State Aquarium as a business
+                project, earn certifications along the way, and build working Excel systems for
+                my everyday job.
               </p>
-              <p>
-                Outside of technology, I've spent several years leading nutrition coaching,
-                personal training, and group fitness programs. These experiences strengthened my
-                leadership, communication, and project management skills while reinforcing the
-                importance of using data to guide decision-making and improve outcomes.
-              </p>
-              <p>
-                I'm currently building a portfolio of finance, analytics, and AI projects while
-                seeking opportunities in finance, business analytics, data analytics, AI, and
-                fintech.
-              </p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate={inView ? 'visible' : 'hidden'}
+              custom={3}
+            >
+              <img
+                src="/images/team-photo.jpg"
+                alt="TAMUCC Recreational Sports staff team"
+                loading="lazy"
+                className="w-full border border-offwhite/10"
+              />
             </motion.div>
           </div>
 
@@ -85,7 +91,7 @@ export default function About() {
             variants={fadeUp}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            custom={3}
+            custom={4}
           >
             {stats.map(({ label, value }) => (
               <div key={label} className="border-t border-offwhite/10 pt-6">
@@ -104,7 +110,7 @@ export default function About() {
               <div className="text-offwhite/70 font-body text-sm leading-relaxed">
                 Texas A&M University–Corpus Christi
                 <br />
-                Expected graduation: December 2026
+                Expected graduation: Spring 2027
               </div>
             </div>
           </motion.div>
