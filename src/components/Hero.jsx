@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
+import HeroAmbient from './HeroAmbient'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -29,83 +30,101 @@ export default function Hero() {
     <section
       ref={ref}
       id="hero"
-      className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-24 pb-16"
+      className="relative overflow-hidden min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-24 pb-16"
     >
+      {/* Diagonal two-tone split, ~17° off vertical. Tone derives from the
+          text token at low alpha so it inverts correctly with the theme. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(107deg, transparent 55%, rgb(var(--color-text) / 0.05) 55.6%)',
+        }}
+      />
+
+      {/* Ambient shapes fade with the same scroll recede as the content */}
       <motion.div
-        style={recede}
-        className="max-w-6xl grid lg:grid-cols-[1fr_320px] gap-16 items-center"
+        className="absolute inset-0"
+        style={reduceMotion ? undefined : { opacity }}
       >
-        <div className="max-w-2xl">
-          <motion.p
-            className="text-sm uppercase tracking-[0.2em] text-offwhite/60 mb-8 font-body"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0}
-          >
-            Cesar Sanchez
-          </motion.p>
+        <HeroAmbient />
+      </motion.div>
 
-          <motion.h1
-            className="font-display font-semibold text-offwhite leading-[1.02] tracking-tight mb-8"
-            style={{ fontSize: 'clamp(2.8rem, 6vw, 5.5rem)' }}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={1}
-          >
-            Finance.
-            <br />
-            Business Analytics.
-            <br />
-            <span className="text-offwhite/50">AI.</span>
-          </motion.h1>
-
-          <motion.p
-            className="font-body text-offwhite/60 text-lg md:text-xl max-w-xl leading-relaxed mb-12"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={2}
-          >
-            Building data-driven applications that combine finance, analytics, and AI.
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={3}
-          >
-            <a
-              href="#projects"
-              className="inline-block border border-offwhite/20 px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite hover:border-offwhite/50 active:scale-[0.98] transition duration-200"
-            >
-              See the work
-            </a>
-            <a
-              href="#contact"
-              className="inline-block px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite/60 hover:text-offwhite active:scale-[0.98] transition duration-200"
-            >
-              Get in touch →
-            </a>
-          </motion.div>
-        </div>
-
-        <motion.div
-          className="hidden lg:block"
+      <motion.div style={recede} className="relative max-w-6xl">
+        <motion.p
+          className="text-sm uppercase tracking-[0.2em] text-offwhite/60 mb-6 font-body"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          custom={1.5}
+          custom={0}
         >
-          <img
-            src="/images/headshot.jpg"
-            alt="Cesar Sanchez"
-            className="w-full max-w-xs mx-auto border border-offwhite/10 grayscale-0"
-          />
-        </motion.div>
+          Cesar Sanchez
+        </motion.p>
+
+        <motion.h1
+          className="font-display font-bold text-offwhite leading-[0.98] tracking-[-0.02em] mb-8"
+          style={{ fontSize: 'clamp(2.9rem, 7.5vw, 6.9rem)' }}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={1}
+        >
+          Finance.
+          <br />
+          Business Analytics.
+          <br />
+          <span className="text-offwhite/50">AI.</span>
+        </motion.h1>
+
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-20 items-center">
+          <div className="max-w-xl">
+            <motion.p
+              className="font-body text-offwhite/60 text-lg md:text-xl leading-relaxed mb-10"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={2}
+            >
+              Building data-driven applications that combine finance, analytics, and AI.
+            </motion.p>
+
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={3}
+            >
+              <a
+                href="#projects"
+                className="inline-block border border-offwhite/20 px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite hover:border-offwhite/50 active:scale-[0.98] transition duration-200"
+              >
+                See the work
+              </a>
+              <a
+                href="#contact"
+                className="inline-block px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite/60 hover:text-offwhite active:scale-[0.98] transition duration-200"
+              >
+                Get in touch →
+              </a>
+            </motion.div>
+          </div>
+
+          <motion.div
+            className="hidden lg:block"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={2.5}
+          >
+            <img
+              src="/images/headshot.jpg"
+              alt="Cesar Sanchez"
+              className="w-40 xl:w-48 border border-offwhite/10"
+            />
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* Subtle scroll indicator */}
