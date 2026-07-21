@@ -1,6 +1,6 @@
 # 💼 Personal Brand Website
 
-A modern, animated personal portfolio website showcasing expertise in **finance**, **business analytics**, and **artificial intelligence**. Built with cutting-edge web technologies and designed for high performance and beautiful interactions.
+A modern, animated personal portfolio website showcasing expertise in **finance**, **business analytics**, and **artificial intelligence**. Built with cutting-edge web technologies and designed for[...]
 
 **[View Live Site →](https://personal-brand-six-coral.vercel.app)**
 
@@ -54,6 +54,22 @@ A modern, animated personal portfolio website showcasing expertise in **finance*
 ├── postcss.config.js     # PostCSS configuration
 └── package.json          # Project dependencies
 ```
+
+---
+
+## 🧩 Project Highlights
+
+### Personal Brand Website (This Repository)
+This project is a polished single-page React portfolio that presents your background in finance, business analytics, and AI through animated storytelling and structured personal sections. It includes responsive navigation, scroll-based motion, dark/light theming, and contact pathways so visitors can quickly understand your profile and reach out.
+
+### NutriCook AI
+NutriCook AI is represented in the site’s visual language as a nutrition-focused product concept, tied to the macro ring motif and your coaching domain expertise. It communicates your ability to blend AI-assisted workflows with practical health coaching to support sustainable, personalized nutrition decisions.
+
+### Financial Forecasting Model
+The portfolio references a financial forecasting model through chart-oriented visuals, signaling your capability in scenario analysis and business planning. It reflects your applied finance skill set in modeling outcomes and turning data into decision-ready insights.
+
+### Inventory Tracker Spreadsheet/System
+The site also highlights spreadsheet/system thinking through grid-inspired visuals that point to inventory and operational tracking work. This demonstrates your strength in building practical business systems that improve organization, visibility, and day-to-day execution.
 
 ---
 
