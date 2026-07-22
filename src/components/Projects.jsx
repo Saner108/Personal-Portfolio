@@ -32,7 +32,8 @@ const projects = [
       'A relational database that replaced a fully manual tracking process — normalized schema, VBA interface, built for real aquarium staff to use.',
     tech: ['Microsoft Access', 'SQL Queries', 'VBA', 'Relational Database Design'],
     status: 'Completed',
-    link: 'https://github.com/Saner108/Excel-Business-Analytics-Portfolio',
+    // No public repo for this institutional client project — omit link per spec.
+    link: null,
     image: null,
     flagship: false,
   },
@@ -119,6 +120,7 @@ function ProjectCard({ project, index, inView }) {
             </div>
           )}
 
+          {(project.link || project.demo) && (
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {project.link && (
               <a
@@ -137,6 +139,7 @@ function ProjectCard({ project, index, inView }) {
               </a>
             )}
           </div>
+          )}
         </div>
 
         {project.flagship && project.image && (
