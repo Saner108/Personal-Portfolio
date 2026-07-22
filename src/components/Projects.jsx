@@ -16,7 +16,7 @@ const projects = [
     label: 'Flagship',
     name: 'NutriCook AI',
     problem:
-      "Meal planning that actually accounts for a person's goals, dietary constraints, and budget takes real time and expertise most people don't have.",
+      'Meal planning that actually accounts for a person\'s goals, dietary constraints, and budget takes real time and expertise most people don\'t have.',
     method:
       'Built an AI-powered meal planning app integrating Claude, ChatGPT, and Base44 — end-to-end prototype from concept to working product, generating personalized plans with real macro/nutrition tracking.',
     value:
@@ -50,7 +50,7 @@ const projects = [
     label: 'Project',
     name: 'Financial Forecasting Model',
     problem:
-      "A static budget can't show how different financial decisions — debt payoff pace, savings rate, major purchases — play out over time.",
+      'A static budget can\'t show how different financial decisions — debt payoff pace, savings rate, major purchases — play out over time.',
     method:
       'Built a scenario-analysis model in Excel that projects income, expenses, and net worth under different assumptions, turning a static budget into a dynamic decision-support tool.',
     value:
@@ -150,24 +150,24 @@ function ProjectCard({ project, index, inView }) {
           )}
 
           {(project.link || project.demo) && (
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
-            {project.link && (
-              <a
-                href={project.link}
-                className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide"
-              >
-                {project.link} →
-              </a>
-            )}
-            {project.demo && (
-              <a
-                href={project.demo}
-                className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide"
-              >
-                {project.demo} →
-              </a>
-            )}
-          </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              {project.link && (
+                <a
+                  href={project.link}
+                  className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide"
+                >
+                  {project.link} →
+                </a>
+              )}
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide"
+                >
+                  {project.demo} →
+                </a>
+              )}
+            </div>
           )}
         </div>
 
