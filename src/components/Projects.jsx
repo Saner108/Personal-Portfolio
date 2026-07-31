@@ -50,7 +50,7 @@ const projects = [
     ],
     status: 'Completed',
     link: 'https://github.com/Saner108/NorthStar-Enterprise-Analytics',
-    image: null,
+    image: '/images/northstar-dashboard.jpg',
     flagship: false,
   },
   {
@@ -243,7 +243,6 @@ function ProjectCard({ project, index, inView }) {
         {!project.flagship && !project.image && (
           <div className="mt-6 border border-dashed border-offwhite/10 py-10 flex items-center justify-center">
             {/* TODO: add Aquarium DB screenshot when provided */}
-            {/* TODO: add NorthStar dashboard screenshot once verified/provided */}
             <p className="text-offwhite/60 font-body text-sm tracking-wide">
               Screenshot pending
             </p>
