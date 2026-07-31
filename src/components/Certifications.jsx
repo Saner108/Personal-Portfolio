@@ -89,7 +89,7 @@ export default function Certifications() {
                       {item.name}
                     </span>
                     {item.inProgress && (
-                      <span className="shrink-0 text-[10px] uppercase tracking-wide text-clay border border-clay/30 px-1.5 py-0.5">
+                      <span className="shrink-0 text-[10px] uppercase tracking-wide text-accent border border-accent/30 px-1.5 py-0.5">
                         In Progress
                       </span>
                     )}

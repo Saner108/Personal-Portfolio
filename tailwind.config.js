@@ -8,6 +8,7 @@ export default {
         graphite: 'rgb(var(--color-bg) / <alpha-value>)',
         offwhite: 'rgb(var(--color-text) / <alpha-value>)',
         clay: '#E8785A',
+        accent: 'rgb(var(--color-accent) / <alpha-value>)',
         electric: '#3D8BFF',
       },
       fontFamily: {

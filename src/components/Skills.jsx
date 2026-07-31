@@ -18,6 +18,9 @@ const groups = [
       'Microsoft Access (relational databases, VBA)',
       'Tableau (Essential Training cert)',
       'SAP Analytics Cloud',
+      'SQL',
+      'Power BI',
+      'Dimensional / Star-Schema Data Modeling',
     ],
   },
   {

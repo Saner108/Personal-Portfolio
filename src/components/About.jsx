@@ -12,7 +12,7 @@ const fadeUp = {
 
 const stats = [
   { label: 'Years Coaching/Training Experience', value: '3+' },
-  { label: 'Built Systems, Zero to Production', value: '4' },
+  { label: 'Built Systems, Zero to Production', value: '5' },
   { label: 'Business Degrees (Finance + Business Analytics)', value: '2' },
 ]
 
