@@ -147,8 +147,8 @@ function ProjectCard({ project, index, inView }) {
           {/* Portfolio honesty disclosure — must stay visible on the card itself,
               never collapsed behind a link. */}
           {project.disclosure && (
-            <p className="flex items-start gap-2.5 border-l-2 border-clay/50 bg-clay/[0.06] pl-3 pr-3 py-2.5 mb-6 font-body text-[13px] leading-relaxed text-offwhite/75">
-              <span className="mt-px shrink-0 text-[10px] uppercase tracking-[0.14em] font-medium text-clay">
+            <p className="flex items-start gap-2.5 border-l-2 border-accent/50 bg-accent/[0.06] pl-3 pr-3 py-2.5 mb-6 font-body text-[13px] leading-relaxed text-offwhite/75">
+              <span className="mt-px shrink-0 text-[10px] uppercase tracking-[0.14em] font-medium text-accent">
                 Note
               </span>
               <span>{project.disclosure}</span>
