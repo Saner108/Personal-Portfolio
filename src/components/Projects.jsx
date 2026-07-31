@@ -29,6 +29,31 @@ const projects = [
     flagship: true,
   },
   {
+    id: 'northstar',
+    label: 'Project',
+    name: 'NorthStar Retail Group — Inventory Visibility Pilot',
+    problem:
+      'A regional retailer\'s stockouts look like a supply shortage — but is it that, or inventory sitting in the wrong place?',
+    method:
+      'Built a full analytics pipeline on synthetic, deterministic data — star-schema modeling, SQL (schema → load → validate → analyze), and an executive dashboard — to test the hypothesis against ~1.6M rows, with 17 automated validation checks.',
+    value:
+      'Found that 79.7% of stockouts traced to distribution issues, not true shortages — a finding that changes the fix from "buy more inventory" to "redistribute what exists." Demonstrates full-cycle analytics: business framing, data modeling, SQL development, and executive-ready storytelling.',
+    disclosure:
+      'Synthetic data pilot — a scoped practice exercise modeling a fictional retailer, not a client engagement.',
+    tech: [
+      'SQL',
+      'Star Schema Design',
+      'Power BI',
+      'Data Validation',
+      'Synthetic Data Generation',
+      'Python',
+    ],
+    status: 'Completed',
+    link: 'https://github.com/Saner108/NorthStar-Enterprise-Analytics',
+    image: null,
+    flagship: false,
+  },
+  {
     id: 'nutrition-db',
     label: 'Project',
     name: 'Animal Diet & Nutrition Tracking Database',
@@ -119,6 +144,17 @@ function ProjectCard({ project, index, inView }) {
             {project.name}
           </h3>
 
+          {/* Portfolio honesty disclosure — must stay visible on the card itself,
+              never collapsed behind a link. */}
+          {project.disclosure && (
+            <p className="flex items-start gap-2.5 border-l-2 border-clay/50 bg-clay/[0.06] pl-3 pr-3 py-2.5 mb-6 font-body text-[13px] leading-relaxed text-offwhite/75">
+              <span className="mt-px shrink-0 text-[10px] uppercase tracking-[0.14em] font-medium text-clay">
+                Note
+              </span>
+              <span>{project.disclosure}</span>
+            </p>
+          )}
+
           <dl className="mb-8 space-y-5">
             {[
               ['Problem', project.problem],
@@ -207,6 +243,7 @@ function ProjectCard({ project, index, inView }) {
         {!project.flagship && !project.image && (
           <div className="mt-6 border border-dashed border-offwhite/10 py-10 flex items-center justify-center">
             {/* TODO: add Aquarium DB screenshot when provided */}
+            {/* TODO: add NorthStar dashboard screenshot once verified/provided */}
             <p className="text-offwhite/60 font-body text-sm tracking-wide">
               Screenshot pending
             </p>
