@@ -95,7 +95,7 @@ const projects = [
     method:
       'Built the first structured inventory tracking system from scratch, with category organization, variance tracking, and stock-level visibility.',
     value:
-      'Shows the ability to design a system where none existed — structuring ambiguous, ad hoc processes into repeatable operations.',
+      'Shows the ability to design a system where none existed — structuring ambiguous, ad hoc processes into repeatable operations. Manages 50+ items across recurring weekly sessions.',
     tech: ['Excel', 'Pivot Tables', 'Variance Analysis', 'Process Design'],
     status: 'Completed',
     link: 'https://github.com/Saner108/Excel-Business-Analytics-Portfolio',
