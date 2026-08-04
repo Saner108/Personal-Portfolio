@@ -34,7 +34,7 @@ const groups = [
   {
     category: 'Professional',
     items: [
-      { name: 'Texas Insurance Broker License (2026–2028) — pursuing a related internship starting fall 2026' },
+      { name: 'Texas Insurance Broker License (2026–2028)' },
     ],
   },
 ]

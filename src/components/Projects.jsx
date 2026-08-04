@@ -50,6 +50,7 @@ const projects = [
     ],
     status: 'Completed',
     link: 'https://github.com/Saner108/NorthStar-Enterprise-Analytics',
+    demo: 'https://north-star-enterprise-analytics.vercel.app/',
     image: '/images/northstar-dashboard.jpg',
     flagship: false,
   },
