@@ -12,10 +12,16 @@ const fadeUp = {
 
 const roles = [
   {
+    title: 'Licensed Insurance Agent (Internship)',
+    org: 'New York Life · Jul 2026–Present',
+    description:
+      'Applying finance principles to analyze client needs and develop strategies focused on financial protection and long-term wealth building, while expanding expertise in insurance and investment concepts within financial services.',
+  },
+  {
     title: 'Head Nutrition Coach',
     org: 'TAMUCC · Jun 2025–Present',
     description:
-      'Oversee personalized nutrition coaching and cooking classes for the campus community, designing individualized guidance around sustainable, realistic habits rather than one-size-fits-all plans.',
+      'Oversee personalized nutrition coaching and cooking classes for the campus community, designing individualized guidance around sustainable, realistic habits rather than one-size-fits-all plans. Trained and enabled 3 staff members to run coaching workflows independently.',
   },
   {
     title: 'Group Fitness Instructor',
