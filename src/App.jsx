@@ -1,6 +1,7 @@
 import { LazyMotion, domAnimation, MotionConfig } from 'framer-motion'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import Nav from './components/Nav'
+import ScrollToTop from './components/ScrollToTop'
 import Hero from './components/Hero'
 import About from './components/About'
 import GradientThread from './components/GradientThread'
@@ -44,6 +45,7 @@ export default function App() {
             </Section>
           </main>
           <SpeedInsights />
+          <ScrollToTop />
         </div>
       </MotionConfig>
     </LazyMotion>

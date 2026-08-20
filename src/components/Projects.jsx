@@ -193,7 +193,7 @@ function ProjectCard({ project, index, inView }) {
                   href={project.link}
                   className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide"
                 >
-                  {project.link} →
+                  GitHub →
                 </a>
               )}
               {project.demo && (
@@ -201,7 +201,7 @@ function ProjectCard({ project, index, inView }) {
                   href={project.demo}
                   className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide"
                 >
-                  {project.demo} →
+                  Live Demo →
                 </a>
               )}
             </div>
