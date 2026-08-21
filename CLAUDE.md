@@ -26,6 +26,7 @@ Marketing-first personal site for recruiter/hiring-manager audience. One-page sc
 - No form submissions or backend — contact links only
 - Reduced motion: all animations wrapped with `useReducedMotion()`
 - Mobile: hamburger menu handles nav; headshot `hidden lg:block` is intentional
+- **Custom domain:** when a custom domain is added, update `og:url` AND `<link rel="canonical">` in `index.html` — both currently point to the auto-generated Vercel URL
 
 ## Commands
 ```bash
