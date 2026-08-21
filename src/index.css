@@ -54,7 +54,7 @@
   }
 }
 
-/* Reduced motion */
+/* Reduced motion — covers animations, transitions, AND native scroll */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -63,16 +63,30 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  html {
+    scroll-behavior: auto !important;
+  }
 }
 
-/* Scrollbar */
+/* Focus-visible — keyboard users get a clear ring on any focusable element */
+:focus-visible {
+  outline: 2px solid rgb(var(--color-accent));
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Scrollbar — adapts to light/dark via CSS custom property */
 ::-webkit-scrollbar {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B0D10;
+  background: rgb(var(--color-bg));
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2d33;
+  background: rgb(var(--color-text) / 0.18);
   border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-text) / 0.32);
 }
