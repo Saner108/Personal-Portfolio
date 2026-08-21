@@ -191,6 +191,8 @@ function ProjectCard({ project, index, inView }) {
               {project.link && (
                 <a
                   href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide"
                 >
                   GitHub →
@@ -199,6 +201,8 @@ function ProjectCard({ project, index, inView }) {
               {project.demo && (
                 <a
                   href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide"
                 >
                   Live Demo →

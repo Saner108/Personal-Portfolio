@@ -79,6 +79,8 @@ export default function Contact() {
                   </span>
                   <a
                     href={href}
+                    target={href.startsWith('http') ? '_blank' : undefined}
+                    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 text-sm"
                   >
                     {value}
