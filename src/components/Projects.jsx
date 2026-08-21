@@ -69,6 +69,7 @@ const projects = [
     // No public repo for this institutional client project — omit link per spec.
     link: null,
     image: null,
+    noScreenshot: true, // institutional project — screenshot pending client approval
     flagship: false,
   },
   {
@@ -247,9 +248,8 @@ function ProjectCard({ project, index, inView }) {
 
         {!project.flagship && !project.image && (
           <div className="mt-6 border border-dashed border-offwhite/10 py-10 flex items-center justify-center">
-            {/* TODO: add Aquarium DB screenshot when provided */}
             <p className="text-offwhite/60 font-body text-sm tracking-wide">
-              Screenshot pending
+              {project.noScreenshot ? 'Screenshot pending client approval' : 'Screenshot coming soon'}
             </p>
           </div>
         )}
