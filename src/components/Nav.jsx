@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
 
@@ -18,6 +18,8 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const { scrollY } = useScroll()
+  const hamburgerRef = useRef(null)
+  const drawerRef = useRef(null)
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const prev = scrollY.getPrevious()
@@ -25,30 +27,79 @@ export default function Nav() {
     setAtTop(latest < 40)
   })
 
-  // Track active section via IntersectionObserver.
-  // rootMargin: top offset keeps the header from blocking detection;
-  // -60% bottom bias means a section is "active" when its top third is visible.
+  // Active section tracking via IntersectionObserver
   useEffect(() => {
     const ids = navLinks.map(l => l.href.slice(1))
     const sections = ids.map(id => document.getElementById(id)).filter(Boolean)
     if (!sections.length) return
-
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
+          if (entry.isIntersecting) setActiveSection(entry.target.id)
         })
       },
       { rootMargin: '-10% 0px -62% 0px', threshold: 0 }
     )
-
     sections.forEach(s => observer.observe(s))
     return () => observer.disconnect()
   }, [])
 
-  const closeMenu = () => setMenuOpen(false)
+  // Keyboard trap for mobile drawer:
+  // - Escape closes the menu and returns focus to the hamburger button
+  // - Tab cycles only within the drawer's focusable elements
+  useEffect(() => {
+    if (!menuOpen) return
+
+    // Move focus into the drawer on open
+    const firstLink = drawerRef.current?.querySelector('a')
+    firstLink?.focus()
+
+    const handleKey = e => {
+      if (e.key === 'Escape') {
+        e.preventDefault()
+        setMenuOpen(false)
+        hamburgerRef.current?.focus()
+        return
+      }
+
+      if (e.key !== 'Tab') return
+
+      const focusable = Array.from(
+        drawerRef.current?.querySelectorAll('a[href], button, [tabindex="0"]') || []
+      ).filter(el => !el.disabled)
+
+      if (!focusable.length) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKey)
+    // Prevent scrolling body while menu is open
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.removeEventListener('keydown', handleKey)
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
+  const closeMenu = () => {
+    setMenuOpen(false)
+    hamburgerRef.current?.focus()
+  }
 
   return (
     <>
@@ -101,8 +152,11 @@ export default function Nav() {
           <div className="md:hidden flex items-center gap-5">
             <ThemeToggle />
             <button
+              ref={hamburgerRef}
               onClick={() => setMenuOpen((o) => !o)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav-drawer"
               className="relative w-6 h-4 flex flex-col justify-between"
             >
               <motion.span
@@ -143,6 +197,11 @@ export default function Nav() {
 
             {/* Slide-in panel */}
             <motion.nav
+              ref={drawerRef}
+              id="mobile-nav-drawer"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Site navigation"
               className="absolute top-16 left-0 right-0 bg-graphite/95 border-b border-offwhite/10 backdrop-blur-md"
               initial={{ y: -16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
