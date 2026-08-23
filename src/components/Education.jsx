@@ -108,7 +108,7 @@ export default function Education() {
                     {school.coursework.map(course => (
                       <span
                         key={course}
-                        className="text-xs font-body text-offwhite/65 border border-offwhite/12 px-3 py-1.5 leading-none"
+                        className="text-xs font-body text-offwhite/75 border border-offwhite/15 px-3 py-1.5 leading-none"
                       >
                         {course}
                       </span>

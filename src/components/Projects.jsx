@@ -191,13 +191,13 @@ function ProjectCard({ project, index, inView }) {
             <div className="flex items-center gap-5">
               {project.link && (
                 <a href={project.link} target="_blank" rel="noopener noreferrer"
-                  className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide">
+                  className="text-sm font-body text-offwhite/70 hover:text-offwhite transition-colors duration-200 tracking-wide">
                   GitHub →
                 </a>
               )}
               {project.demo && (
                 <a href={project.demo} target="_blank" rel="noopener noreferrer"
-                  className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide">
+                  className="text-sm font-body text-offwhite/70 hover:text-offwhite transition-colors duration-200 tracking-wide">
                   Live Demo →
                 </a>
               )}
@@ -301,13 +301,13 @@ function ProjectCard({ project, index, inView }) {
       <div className="flex items-center gap-5 mt-6">
         {project.link && (
           <a href={project.link} target="_blank" rel="noopener noreferrer"
-            className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide">
+            className="text-sm font-body text-offwhite/70 hover:text-offwhite transition-colors duration-200 tracking-wide">
             GitHub →
           </a>
         )}
         {project.demo && (
           <a href={project.demo} target="_blank" rel="noopener noreferrer"
-            className="text-sm font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 tracking-wide">
+            className="text-sm font-body text-offwhite/70 hover:text-offwhite transition-colors duration-200 tracking-wide">
             Live Demo →
           </a>
         )}

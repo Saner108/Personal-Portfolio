@@ -111,7 +111,7 @@ export default function About() {
 
             <div className="border-t border-offwhite/10 pt-6">
               <div className="text-sm text-offwhite/60 font-body tracking-wide mb-3">Currently</div>
-              <div className="text-offwhite/70 font-body text-sm leading-relaxed">
+              <div className="text-offwhite/75 font-body text-sm leading-relaxed">
                 Texas A&M University–Corpus Christi
                 <br />
                 Expected graduation: Spring 2027
