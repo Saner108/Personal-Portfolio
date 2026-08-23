@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { ProficiencyDots } from './DataVisual'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -60,19 +61,6 @@ const groups = [
   },
 ]
 
-// 5-dot proficiency indicator
-function ProficiencyDots({ level }) {
-  return (
-    <div className="flex gap-0.5 mt-1.5" aria-label={`Proficiency: ${level} out of 5`}>
-      {[1,2,3,4,5].map(i => (
-        <span
-          key={i}
-          className={`w-1.5 h-1.5 rounded-full ${i <= level ? 'bg-accent/70' : 'bg-offwhite/12'}`}
-        />
-      ))}
-    </div>
-  )
-}
 
 export default function Skills() {
   const ref = useRef(null)
@@ -99,7 +87,7 @@ export default function Skills() {
           animate={inView ? 'visible' : 'hidden'}
           custom={1}
         >
-          What I work with.
+          The toolkit.
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-offwhite/10 border-t border-offwhite/10">

@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { useInView } from 'framer-motion'
-import { useReducedMotion } from 'framer-motion'
+import { useInView, useReducedMotion } from 'framer-motion'
 
-// Animated donut chart showing the NorthStar 79.7% / 20.3% finding.
-// Pure SVG — no chart library dependency.
+// Animated donut chart for the NorthStar 79.7% / 20.3% finding.
+// Pure SVG — no chart library. Uses portfolio electric blue (#3D8BFF)
+// so it reads as a data element, consistent with the gradient system.
 export function StockoutDonut() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-10% 0px' })
@@ -15,7 +15,7 @@ export function StockoutDonut() {
     if (reduceMotion) { setProgress(1); return }
     let start = null
     const duration = 1400
-    const ease = t => 1 - Math.pow(1 - t, 3) // ease-out-cubic
+    const ease = t => 1 - Math.pow(1 - t, 3)
     const frame = ts => {
       if (!start) start = ts
       const p = Math.min((ts - start) / duration, 1)
@@ -25,104 +25,79 @@ export function StockoutDonut() {
     requestAnimationFrame(frame)
   }, [inView, reduceMotion])
 
-  const r = 54
-  const cx = 70
-  const cy = 70
+  const r = 54, cx = 70, cy = 70
   const circ = 2 * Math.PI * r
   const dist = 0.797
-  const distOff = circ * (1 - dist * progress)
-  const otherOff = circ * (1 - (1 - dist) * progress)
+  const distDash = circ * (1 - dist * progress)
+  const otherDash = circ * (1 - (1 - dist) * progress)
 
   return (
-    <div ref={ref} className="flex flex-col items-center gap-6 py-6">
+    <div ref={ref} className="flex flex-col items-center gap-5 py-8 px-4">
       <div className="relative">
-        <svg width="140" height="140" viewBox="0 0 140 140" role="img" aria-label="Donut chart: 79.7% distribution failures, 20.3% true supply shortages">
+        <svg width="140" height="140" viewBox="0 0 140 140"
+          role="img"
+          aria-label="Donut chart: 79.7% distribution failures, 20.3% true supply shortages">
           {/* Track */}
-          <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="14" />
-          {/* Other: 20.3% */}
-          <circle
-            cx={cx} cy={cy} r={r}
-            fill="none"
-            stroke="rgba(255,255,255,0.18)"
-            strokeWidth="14"
-            strokeDasharray={circ}
-            strokeDashoffset={otherOff}
-            strokeLinecap="butt"
-            transform={`rotate(-90 ${cx} ${cy})`}
-            style={{ transition: reduceMotion ? 'none' : undefined }}
-          />
-          {/* Primary: 79.7% */}
-          <circle
-            cx={cx} cy={cy} r={r}
-            fill="none"
-            stroke="#3EC98A"
-            strokeWidth="14"
-            strokeDasharray={circ}
-            strokeDashoffset={distOff}
-            strokeLinecap="butt"
-            transform={`rotate(${-90 + 360 * (1 - dist) * progress} ${cx} ${cy})`}
-            style={{ transition: reduceMotion ? 'none' : undefined }}
-          />
-          {/* Centre label */}
-          <text x={cx} y={cy - 6} textAnchor="middle" fill="white" fontSize="18" fontWeight="700" fontFamily="system-ui">
+          <circle cx={cx} cy={cy} r={r} fill="none"
+            stroke="rgba(255,255,255,0.06)" strokeWidth="13" />
+          {/* Other segment: 20.3% */}
+          <circle cx={cx} cy={cy} r={r} fill="none"
+            stroke="rgba(255,255,255,0.16)" strokeWidth="13"
+            strokeDasharray={circ} strokeDashoffset={otherDash}
+            transform={`rotate(-90 ${cx} ${cy})`} />
+          {/* Primary segment: 79.7% — electric blue */}
+          <circle cx={cx} cy={cy} r={r} fill="none"
+            stroke="#3D8BFF" strokeWidth="13"
+            strokeDasharray={circ} strokeDashoffset={distDash}
+            transform={`rotate(${-90 + 360 * (1 - dist) * progress} ${cx} ${cy})`} />
+          {/* Centre */}
+          <text x={cx} y={cy - 7} textAnchor="middle"
+            fill="white" fontSize="18" fontWeight="700" fontFamily="system-ui">
             79.7%
           </text>
-          <text x={cx} y={cy + 12} textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="9" fontFamily="system-ui" letterSpacing="0.05em">
+          <text x={cx} y={cy + 11} textAnchor="middle"
+            fill="rgba(255,255,255,0.4)" fontSize="9"
+            fontFamily="system-ui" letterSpacing="0.06em">
             DISTRIBUTION
           </text>
         </svg>
       </div>
 
-      <div className="grid grid-cols-2 gap-x-8 gap-y-3 text-center w-full max-w-[260px]">
-        <div>
+      <div className="grid grid-cols-2 gap-x-6 gap-y-3 w-full max-w-[260px]">
+        <div className="text-center">
           <div className="flex items-center justify-center gap-1.5 mb-1">
-            <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
-            <span className="text-[10px] uppercase tracking-[0.12em] text-offwhite/50 font-body">Distribution</span>
+            <span className="w-2 h-2 rounded-full shrink-0" style={{ background: '#3D8BFF' }} />
+            <span className="text-[10px] uppercase tracking-[0.12em] text-offwhite/45 font-body">Distribution</span>
           </div>
           <p className="text-offwhite font-display font-semibold text-xl">79.7%</p>
-          <p className="text-offwhite/50 font-body text-[11px] leading-snug mt-0.5">routing & allocation<br />failures</p>
+          <p className="text-offwhite/45 font-body text-[11px] leading-snug mt-0.5">routing &<br />allocation failures</p>
         </div>
-        <div>
+        <div className="text-center">
           <div className="flex items-center justify-center gap-1.5 mb-1">
-            <span className="w-2 h-2 rounded-full bg-offwhite/30 shrink-0" />
-            <span className="text-[10px] uppercase tracking-[0.12em] text-offwhite/50 font-body">True Gap</span>
+            <span className="w-2 h-2 rounded-full bg-offwhite/25 shrink-0" />
+            <span className="text-[10px] uppercase tracking-[0.12em] text-offwhite/45 font-body">True Gap</span>
           </div>
-          <p className="text-offwhite/60 font-display font-semibold text-xl">20.3%</p>
-          <p className="text-offwhite/50 font-body text-[11px] leading-snug mt-0.5">actual supply<br />shortages</p>
+          <p className="text-offwhite/55 font-display font-semibold text-xl">20.3%</p>
+          <p className="text-offwhite/45 font-body text-[11px] leading-snug mt-0.5">actual supply<br />shortages</p>
         </div>
       </div>
 
-      <p className="text-[11px] text-offwhite/35 font-body text-center max-w-[240px] leading-snug">
-        Finding from ~1.6M rows · NorthStar Retail Pilot
+      <p className="text-[10px] text-offwhite/30 font-body text-center leading-snug">
+        ~1.6M rows · NorthStar Retail Analytics Pilot
       </p>
     </div>
   )
 }
 
-// Horizontal bar chart for skills proficiency
-export function SkillBars({ skills }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-10% 0px' })
-  const reduceMotion = useReducedMotion()
-
+// Five-dot proficiency indicator used in Skills
+export function ProficiencyDots({ level }) {
   return (
-    <div ref={ref} className="space-y-3">
-      {skills.map(({ label, pct }, i) => (
-        <div key={label}>
-          <div className="flex justify-between mb-1">
-            <span className="text-xs font-body text-offwhite/70">{label}</span>
-            <span className="text-xs font-body text-offwhite/40">{pct}%</span>
-          </div>
-          <div className="h-1 bg-offwhite/8 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-accent/70 rounded-full"
-              style={{
-                width: inView ? `${pct}%` : '0%',
-                transition: reduceMotion ? 'none' : `width ${0.6 + i * 0.1}s cubic-bezier(.22,.68,0,1) ${i * 0.07}s`,
-              }}
-            />
-          </div>
-        </div>
+    <div className="flex gap-0.5 mt-1.5" aria-label={`Proficiency ${level} of 5`}>
+      {[1,2,3,4,5].map(i => (
+        <span key={i}
+          className={`w-1.5 h-1.5 rounded-full ${
+            i <= level ? 'bg-accent/80' : 'bg-offwhite/10'
+          }`} />
       ))}
     </div>
   )

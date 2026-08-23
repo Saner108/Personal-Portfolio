@@ -10,31 +10,37 @@ const fadeUp = {
   }),
 }
 
+// Data & analytics certs lead — most relevant to the target role.
+// AI & coding certs second — differentiator for modern DA roles.
+// Professional and fitness last — context, not the hook.
 const groups = [
   {
-    category: 'AI & Technical',
+    category: 'Data & Analytics',
+    note: 'Core credentials',
     items: [
-      { name: 'Claude Code 101 — Anthropic (2026)' },
-      { name: 'Claude 101 — Anthropic (2026)' },
-      { name: 'AI Fluency: Framework & Foundations — Anthropic (2026)' },
-      { name: 'Mining Quality Prediction Using Machine & Deep Learning — Coursera (2026)' },
       { name: 'Tableau Essential Training — LinkedIn Learning (2023)' },
       { name: 'Learning SAP Analytics Cloud — LinkedIn Learning (2023)' },
+      { name: 'Mining Quality Prediction Using Machine & Deep Learning — Coursera (2026)' },
       { name: 'GitHub Foundations', inProgress: true },
     ],
   },
   {
-    category: 'Fitness & Coaching',
+    category: 'AI & Technical',
+    note: 'Applied AI skills',
     items: [
-      { name: 'NASM Nutrition Coach Certification (2025–2027)' },
-      { name: 'NASM Personal Trainer Certification (expires Jan 2028)' },
-      { name: 'CPR & AED — American Red Cross' },
+      { name: 'Claude Code 101 — Anthropic (2026)' },
+      { name: 'Claude 101 — Anthropic (2026)' },
+      { name: 'AI Fluency: Framework & Foundations — Anthropic (2026)' },
     ],
   },
   {
-    category: 'Professional',
+    category: 'Fitness & Professional',
+    note: null,
     items: [
+      { name: 'NASM Nutrition Coach Certification (2025–2027)' },
+      { name: 'NASM Personal Trainer Certification (expires Jan 2028)' },
       { name: 'Texas Insurance Broker License (2026–2028)' },
+      { name: 'CPR & AED — American Red Cross' },
     ],
   },
 ]
@@ -76,20 +82,25 @@ export default function Certifications() {
               animate={inView ? 'visible' : 'hidden'}
               custom={gi + 2}
             >
-              <h3 className="font-body font-medium text-xs uppercase tracking-[0.18em] text-offwhite/60 mb-5">
-                {group.category}
-              </h3>
-              <ul className="space-y-3">
+              <div className="mb-5">
+                <h3 className="font-body font-medium text-xs uppercase tracking-[0.18em] text-offwhite/70 mb-1">
+                  {group.category}
+                </h3>
+                {group.note && (
+                  <p className="text-[10px] text-offwhite/35 font-body tracking-wide">{group.note}</p>
+                )}
+              </div>
+              <ul className="space-y-4">
                 {group.items.map((item) => (
                   <li
                     key={item.name}
-                    className="font-body text-sm md:text-base leading-snug flex items-start gap-2"
+                    className="font-body text-sm leading-snug flex items-start gap-2"
                   >
-                    <span className={item.inProgress ? 'text-offwhite/60' : 'text-offwhite/80'}>
+                    <span className={item.inProgress ? 'text-offwhite/50' : 'text-offwhite/80'}>
                       {item.name}
                     </span>
                     {item.inProgress && (
-                      <span className="shrink-0 text-[10px] uppercase tracking-wide text-accent border border-accent/30 px-1.5 py-0.5">
+                      <span className="shrink-0 text-[10px] uppercase tracking-wide text-accent border border-accent/30 px-1.5 py-0.5 mt-0.5">
                         In Progress
                       </span>
                     )}

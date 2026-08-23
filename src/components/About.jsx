@@ -11,9 +11,9 @@ const fadeUp = {
 }
 
 const stats = [
-  { label: 'Dual BBA degrees (Finance + Business Analytics)', value: '2' },
   { label: 'Data, analytics & AI projects shipped to production', value: '5+' },
-  { label: 'Years designing systems and coaching clients', value: '3+' },
+  { label: 'Dual BBA degrees — Finance + Business Analytics', value: '2' },
+  { label: 'Years designing systems and coaching real clients', value: '3+' },
 ]
 
 export default function About() {
@@ -83,6 +83,8 @@ export default function About() {
                 src="/images/team-photo.jpg"
                 alt="TAMUCC Recreational Sports staff team"
                 loading="lazy"
+                width="1200"
+                height="800"
                 className="w-full border border-offwhite/10"
               />
             </motion.div>

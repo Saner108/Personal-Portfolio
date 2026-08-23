@@ -209,6 +209,8 @@ function ProjectCard({ project, index, inView }) {
                 src={project.image}
                 alt={`${project.name} screenshot`}
                 loading="lazy"
+                width="1200"
+                height="750"
                 className="w-full object-cover"
               />
               {/* Inline data visualization — the key finding, made visual */}
@@ -240,6 +242,19 @@ function ProjectCard({ project, index, inView }) {
           {project.status}
         </span>
       </div>
+
+      {project.image && (
+        <div className="mb-6 overflow-hidden border border-offwhite/10">
+          <img
+            src={project.image}
+            alt={`${project.name} screenshot`}
+            loading="lazy"
+            width="1200"
+            height="750"
+            className="w-full object-cover"
+          />
+        </div>
+      )}
 
       <h3 className="font-display font-semibold text-offwhite text-xl md:text-2xl leading-tight tracking-tight mb-5">
         {project.name}
@@ -273,15 +288,6 @@ function ProjectCard({ project, index, inView }) {
           </span>
         ))}
       </div>
-
-      {project.image && (
-        <img
-          src={project.image}
-          alt={`${project.name} screenshot`}
-          loading="lazy"
-          className="w-full mt-6 border border-offwhite/10"
-        />
-      )}
 
       {!project.flagship && !project.image && (
         <div className="mt-6 border border-dashed border-offwhite/10 py-10 flex items-center justify-center">

@@ -51,7 +51,7 @@ export default function Contact() {
               animate={inView ? 'visible' : 'hidden'}
               custom={1}
             >
-              Let's talk.
+              Open to work.
             </motion.h2>
 
             <motion.p
