@@ -3,10 +3,10 @@ import { motion, useReducedMotion } from 'framer-motion'
 const CLAY = '#E8785A'
 const ELECTRIC = '#3D8BFF'
 
-// Ambient background shapes for the hero: a macro ring (NutriCook AI's kcal
-// ring), a bar cluster (Financial Forecasting Model charts), and a grid
-// fragment (Inventory Tracker spreadsheet). Low-opacity texture only — the
-// gradient at full strength belongs to GradientThread.
+// Ambient background shapes echoing the analytics work:
+// a ring (data cycle / progress tracking), a bar cluster (chart output),
+// and a grid fragment (spreadsheet / database schema).
+// Low-opacity texture — visible but never competing with content.
 export default function HeroAmbient() {
   const reduceMotion = useReducedMotion()
 

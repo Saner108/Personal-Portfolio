@@ -80,7 +80,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-20 items-center">
           <div className="max-w-xl">
             <motion.p
-              className="font-body text-offwhite/60 text-lg md:text-xl leading-relaxed mb-10"
+              className="font-body text-offwhite/75 text-lg md:text-xl leading-relaxed mb-10"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
@@ -139,7 +139,7 @@ export default function Hero() {
       >
         <motion.div
           className="w-px h-8 bg-offwhite/20"
-          animate={{ scaleY: [1, 0.4, 1] }}
+          animate={reduceMotion ? undefined : { scaleY: [1, 0.4, 1] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           style={{ originY: 0 }}
         />

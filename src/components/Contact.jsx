@@ -81,7 +81,7 @@ export default function Contact() {
                     href={href}
                     target={href.startsWith('http') ? '_blank' : undefined}
                     rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="font-body text-offwhite/60 hover:text-offwhite transition-colors duration-200 text-sm"
+                    className="font-body text-offwhite/75 hover:text-offwhite transition-colors duration-200 text-sm"
                   >
                     {value}
                   </a>
@@ -130,7 +130,7 @@ export default function Contact() {
           custom={5}
         >
           <span>Cesar Sanchez © {new Date().getFullYear()}</span>
-          <span>Built with React + Vite + Framer Motion</span>
+          <span className="text-offwhite/40">SQL · Excel · Power BI · Python · React</span>
         </motion.div>
       </div>
     </section>

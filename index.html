@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cesar Sanchez | Finance, Business Analytics & AI</title>
+    <title>Cesar Sanchez | Business Analytics & Data Analysis</title>
     <meta name="description" content="Cesar Sanchez — Business Analytics & Finance student at TAMUCC. Data analyst with hands-on SQL, Power BI, Excel modeling, and AI product experience. Available for data analyst internships and analytics roles." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://personal-brand-six-coral.vercel.app/" />
@@ -19,17 +19,30 @@
     <meta name="twitter:image" content="https://personal-brand-six-coral.vercel.app/og-image.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="https://personal-brand-six-coral.vercel.app/" />
-    <!-- Preload the hero headshot — it's the LCP element on most viewports.
-         Without this the browser discovers it only after JS parses, which
-         delays the Largest Contentful Paint score. -->
+
+    <!-- Hero headshot: preload so browser fetches it during HTML parse, not
+         after JS executes. Biggest single LCP win available. -->
     <link rel="preload" as="image" href="/images/headshot.jpg" fetchpriority="high" />
+
+    <!-- Font connections: establish early so both font sources are ready
+         before the browser needs them. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <style>
-      /* General Sans via Fontshare CDN */
-      @import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
-    </style>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+
+    <!-- Inter (body) — Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- General Sans (display) — Fontshare
+         Use a <link> tag instead of CSS @import: @import is render-blocking
+         and can't be discovered until the CSS file is parsed; a <link> in
+         <head> is discovered during HTML parse and fetched in parallel. -->
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="root"></div>
