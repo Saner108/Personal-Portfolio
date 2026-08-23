@@ -98,7 +98,7 @@ export default function Experience() {
                   {role.title}
                 </h3>
                 {role.org && (
-                  <p className="text-offwhite/60 font-body text-sm mb-3">{role.org}</p>
+                  <p className="text-offwhite/70 font-body text-sm mb-3">{role.org}</p>
                 )}
                 {role.tags && (
                   <div className="flex flex-wrap gap-1.5">

@@ -74,7 +74,7 @@ export default function Contact() {
             >
               {links.map(({ label, value, href }) => (
                 <div key={label} className="flex items-baseline gap-6 border-t border-offwhite/8 pt-5">
-                  <span className="text-xs uppercase tracking-[0.15em] text-offwhite/60 font-body w-16 shrink-0">
+                  <span className="text-xs uppercase tracking-[0.15em] text-offwhite/60 font-body w-20 shrink-0">
                     {label}
                   </span>
                   <a

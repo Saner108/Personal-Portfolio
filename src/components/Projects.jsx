@@ -176,7 +176,7 @@ function ProjectCard({ project, index, inView }) {
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Impact</p>
-                <p className="text-offwhite/70 font-body text-sm leading-relaxed">{project.value}</p>
+                <p className="text-offwhite/80 font-body text-sm leading-relaxed">{project.value}</p>
               </div>
             </div>
 

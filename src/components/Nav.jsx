@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
 
@@ -16,6 +16,7 @@ export default function Nav() {
   const [hidden, setHidden] = useState(false)
   const [atTop, setAtTop] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -23,6 +24,29 @@ export default function Nav() {
     setHidden(latest > prev && latest > 80 && !menuOpen)
     setAtTop(latest < 40)
   })
+
+  // Track active section via IntersectionObserver.
+  // rootMargin: top offset keeps the header from blocking detection;
+  // -60% bottom bias means a section is "active" when its top third is visible.
+  useEffect(() => {
+    const ids = navLinks.map(l => l.href.slice(1))
+    const sections = ids.map(id => document.getElementById(id)).filter(Boolean)
+    if (!sections.length) return
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      { rootMargin: '-10% 0px -62% 0px', threshold: 0 }
+    )
+
+    sections.forEach(s => observer.observe(s))
+    return () => observer.disconnect()
+  }, [])
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -48,15 +72,28 @@ export default function Nav() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="text-xs uppercase tracking-[0.15em] text-offwhite/60 hover:text-offwhite transition-colors duration-200 font-body"
-              >
-                {label}
-              </a>
-            ))}
+            {navLinks.map(({ label, href }) => {
+              const isActive = activeSection === href.slice(1)
+              return (
+                <a
+                  key={label}
+                  href={href}
+                  className={`relative text-xs uppercase tracking-[0.15em] font-body transition-colors duration-200 ${
+                    isActive ? 'text-offwhite' : 'text-offwhite/50 hover:text-offwhite'
+                  }`}
+                >
+                  {label}
+                  {/* Underline dot for active section */}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-active"
+                      className="absolute -bottom-1 left-0 right-0 h-px bg-accent"
+                      transition={{ type: 'spring', stiffness: 380, damping: 34 }}
+                    />
+                  )}
+                </a>
+              )
+            })}
             <ThemeToggle />
           </nav>
 
@@ -112,19 +149,27 @@ export default function Nav() {
               exit={{ y: -16, opacity: 0 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             >
-              {navLinks.map(({ label, href }, i) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  onClick={closeMenu}
-                  className="flex items-center px-8 py-5 text-sm uppercase tracking-[0.18em] text-offwhite/70 hover:text-offwhite border-b border-offwhite/5 font-body transition-colors duration-150"
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.04, duration: 0.25 }}
-                >
-                  {label}
-                </motion.a>
-              ))}
+              {navLinks.map(({ label, href }, i) => {
+                const isActive = activeSection === href.slice(1)
+                return (
+                  <motion.a
+                    key={label}
+                    href={href}
+                    onClick={closeMenu}
+                    className={`flex items-center justify-between px-8 py-5 text-sm uppercase tracking-[0.18em] border-b border-offwhite/5 font-body transition-colors duration-150 ${
+                      isActive ? 'text-offwhite' : 'text-offwhite/60 hover:text-offwhite'
+                    }`}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.04, duration: 0.25 }}
+                  >
+                    {label}
+                    {isActive && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                    )}
+                  </motion.a>
+                )
+              })}
             </motion.nav>
           </motion.div>
         )}
