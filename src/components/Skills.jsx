@@ -11,12 +11,15 @@ const fadeUp = {
   }),
 }
 
+// 4 groups — fits a clean 2×2 grid at lg.
+// SQL was duplicated across Data Analytics and Programming; consolidated here.
+// AI and Programming merged into Technical to remove the orphaned 5th slot.
 const groups = [
   {
     category: 'Data Analytics & Business Systems',
     skills: [
-      { name: 'Microsoft Excel (financial modeling, scenario analysis, pivot tables)', level: 5 },
       { name: 'SQL (schema design, CTEs, window functions, validation)', level: 4 },
+      { name: 'Microsoft Excel (financial modeling, scenario analysis, pivot tables)', level: 5 },
       { name: 'Power BI (dashboard design, DAX, executive reporting)', level: 4 },
       { name: 'Star Schema / Dimensional Data Modeling', level: 4 },
       { name: 'Microsoft Access (relational databases, VBA)', level: 4 },
@@ -34,17 +37,11 @@ const groups = [
     ],
   },
   {
-    category: 'Programming',
+    category: 'Technical & AI',
     skills: [
       { name: 'Python (pandas, data manipulation, ML coursework)', level: 3 },
       { name: 'VBA (Excel & Access automation)', level: 4 },
       { name: 'React / JavaScript (front-end for data products)', level: 3 },
-      { name: 'SQL scripting & automation', level: 4 },
-    ],
-  },
-  {
-    category: 'Artificial Intelligence',
-    skills: [
       { name: 'Prompt Engineering & AI Workflow Design', level: 5 },
       { name: 'AI-Assisted Product Development', level: 5 },
       { name: 'Claude API, Claude Code (certified)', level: 4 },
@@ -55,12 +52,11 @@ const groups = [
     skills: [
       { name: 'Client-Facing Program Design', level: 5 },
       { name: 'Operational Process Documentation', level: 4 },
-      { name: 'Nutrition Coaching', level: 5 },
+      { name: 'Nutrition Coaching & Program Management', level: 5 },
       { name: 'Sales & Customer Communication', level: 4 },
     ],
   },
 ]
-
 
 export default function Skills() {
   const ref = useRef(null)
@@ -90,11 +86,12 @@ export default function Skills() {
           The toolkit.
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-offwhite/10 border-t border-offwhite/10">
+        {/* 2×2 grid at lg — 4 groups fill it cleanly with no orphaned gap */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-offwhite/10 border-t border-offwhite/10">
           {groups.map((group, gi) => (
             <motion.div
               key={group.category}
-              className="py-10 px-6 sm:px-8 bg-graphite"
+              className="py-10 px-6 sm:px-10 bg-graphite"
               variants={fadeUp}
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}

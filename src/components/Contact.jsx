@@ -108,6 +108,7 @@ export default function Contact() {
                 height="14"
                 viewBox="0 0 14 14"
                 fill="none"
+                aria-hidden="true"
                 className="group-hover:translate-y-0.5 transition-transform duration-200"
               >
                 <path

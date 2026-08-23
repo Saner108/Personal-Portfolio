@@ -41,6 +41,7 @@ const projects = [
     id: 'nutricook-ai',
     label: 'AI Product',
     name: 'NutriCook AI',
+    highlight: 'Weight-aware generation — input "8 oz chicken" and per-serving macros calculate from actual portions, not estimates',
     problem:
       'Personalized meal planning that accounts for a user\'s goals, dietary constraints, and exact ingredient weights takes expertise most people don\'t have on demand.',
     method:
@@ -157,8 +158,8 @@ function ProjectCard({ project, index, inView }) {
 
             {/* Key finding callout */}
             {project.highlight && (
-              <div className="border-l-2 border-accent pl-4 mb-6">
-                <p className="text-sm font-body text-accent/90 font-medium leading-snug">
+              <div className="border-l-2 border-electric pl-4 mb-6">
+                <p className="text-sm font-body text-electric/90 font-medium leading-snug">
                   {project.highlight}
                 </p>
               </div>
