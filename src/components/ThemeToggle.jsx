@@ -22,23 +22,29 @@ export default function ThemeToggle() {
   const label = theme === 'dark' ? 'Light' : 'Dark'
 
   return (
+    // min-h/w of 44px gives a comfortable tap target on mobile.
+    // The visible text area (h-4 w-12) is kept inside a child span
+    // so the overflow-hidden clip only applies to the text animation,
+    // not to the full button surface — taps near the edges still register.
     <button
       onClick={toggle}
-      aria-label="Toggle color theme"
-      className="relative text-xs uppercase tracking-[0.15em] text-offwhite/60 hover:text-offwhite transition-colors duration-200 font-body overflow-hidden inline-block h-4 w-12"
+      aria-label={`Switch to ${label.toLowerCase()} mode`}
+      className="relative flex items-center justify-center min-h-[44px] min-w-[44px] text-offwhite/60 hover:text-offwhite transition-colors duration-200"
     >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={label}
-          className="absolute inset-0 flex items-center justify-end"
-          initial={{ opacity: 0, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -4 }}
-          transition={{ duration: 0.14, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {label}
-        </motion.span>
-      </AnimatePresence>
+      <span className="relative overflow-hidden inline-block h-4 w-12 text-xs uppercase tracking-[0.15em] font-body">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={label}
+            className="absolute inset-0 flex items-center justify-end"
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.14, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {label}
+          </motion.span>
+        </AnimatePresence>
+      </span>
     </button>
   )
 }
