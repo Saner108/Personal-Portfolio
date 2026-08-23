@@ -15,11 +15,29 @@ const schools = [
     name: 'Texas A&M University–Corpus Christi',
     degree: 'Dual BBA — Finance; Business Analytics & Information Systems',
     dates: 'Expected Spring 2027',
+    detail: 'Corpus Christi, TX',
+    coursework: [
+      'Database Management',
+      'Business Statistics',
+      'Data Mining & Analysis',
+      'Financial Analysis',
+      'Financial Modeling',
+      'Management Information Systems',
+      'Operations Management',
+      'Business Intelligence',
+    ],
   },
   {
     name: 'Tarrant County College',
     degree: 'Associate of Arts, Management Information Systems',
     dates: 'Aug 2021 – Apr 2023',
+    detail: 'Fort Worth, TX',
+    coursework: [
+      'Introduction to Programming',
+      'Systems Analysis & Design',
+      'Principles of Accounting',
+      'Business Communications',
+    ],
   },
 ]
 
@@ -40,7 +58,7 @@ export default function Education() {
           Education
         </motion.p>
 
-        <div className="space-y-12">
+        <div className="space-y-16">
           {schools.map((school, i) => (
             <motion.div
               key={school.name}
@@ -48,18 +66,45 @@ export default function Education() {
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
               custom={i + 1}
-              className="border-t border-offwhite/10 pt-8"
+              className="border-t border-offwhite/10 pt-10"
             >
-              <h2
-                className="font-display font-semibold text-offwhite leading-tight tracking-tight mb-3"
-                style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)' }}
-              >
-                {school.name}
-              </h2>
-              <p className="text-offwhite/60 font-body text-base md:text-lg mb-2">
-                {school.degree}
-              </p>
-              <p className="text-offwhite/60 font-body text-sm tracking-wide">{school.dates}</p>
+              <div className="grid md:grid-cols-[1fr_auto] gap-4 md:gap-16 mb-6">
+                <div>
+                  <h2
+                    className="font-display font-semibold text-offwhite leading-tight tracking-tight mb-2"
+                    style={{ fontSize: 'clamp(1.4rem, 2.8vw, 2rem)' }}
+                  >
+                    {school.name}
+                  </h2>
+                  <p className="text-offwhite/75 font-body text-base md:text-lg mb-1">
+                    {school.degree}
+                  </p>
+                  <p className="text-offwhite/50 font-body text-sm tracking-wide">{school.detail}</p>
+                </div>
+                <div className="text-right">
+                  <span className="text-offwhite/50 font-body text-sm tracking-wide whitespace-nowrap">
+                    {school.dates}
+                  </span>
+                </div>
+              </div>
+
+              {school.coursework && (
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.18em] text-offwhite/40 font-body mb-3">
+                    Relevant Coursework
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {school.coursework.map(course => (
+                      <span
+                        key={course}
+                        className="text-xs font-body text-offwhite/65 border border-offwhite/12 px-3 py-1.5 leading-none"
+                      >
+                        {course}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

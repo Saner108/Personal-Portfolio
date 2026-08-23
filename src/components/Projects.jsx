@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { StockoutDonut } from './DataVisual'
 import { motion, useInView, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 
 const fadeUp = {
@@ -203,13 +204,19 @@ function ProjectCard({ project, index, inView }) {
           </div>
 
           {project.image && (
-            <div className="relative border-t lg:border-t-0 lg:border-l border-offwhite/10 overflow-hidden bg-offwhite/[0.02] flex items-center justify-center p-6">
+            <div className="relative border-t lg:border-t-0 lg:border-l border-offwhite/10 overflow-hidden bg-offwhite/[0.02] flex flex-col items-center justify-start gap-0">
               <img
                 src={project.image}
                 alt={`${project.name} screenshot`}
                 loading="lazy"
-                className="max-h-[420px] w-auto"
+                className="w-full object-cover"
               />
+              {/* Inline data visualization — the key finding, made visual */}
+              {project.id === 'northstar' && (
+                <div className="w-full border-t border-offwhite/10 bg-offwhite/[0.02]">
+                  <StockoutDonut />
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -247,15 +254,15 @@ function ProjectCard({ project, index, inView }) {
       <div className="space-y-3 mb-6">
         <div>
           <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Problem</p>
-          <p className="text-offwhite/55 font-body text-sm leading-relaxed">{project.problem}</p>
+          <p className="text-offwhite/75 font-body text-sm leading-relaxed">{project.problem}</p>
         </div>
         <div>
           <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Method</p>
-          <p className="text-offwhite/55 font-body text-sm leading-relaxed">{project.method}</p>
+          <p className="text-offwhite/75 font-body text-sm leading-relaxed">{project.method}</p>
         </div>
         <div>
           <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Impact</p>
-          <p className="text-offwhite/65 font-body text-sm leading-relaxed">{project.value}</p>
+          <p className="text-offwhite/80 font-body text-sm leading-relaxed">{project.value}</p>
         </div>
       </div>
 

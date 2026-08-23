@@ -14,38 +14,44 @@ const roles = [
   {
     title: 'Licensed Insurance Agent (Internship)',
     org: 'New York Life · Jul 2026–Present',
+    tags: ['Financial Analysis', 'Client Advisory'],
     description:
-      'Applying finance principles to analyze client needs and develop strategies focused on financial protection and long-term wealth building, while expanding expertise in insurance and investment concepts within financial services.',
+      'Applying finance fundamentals to analyze client financial positions and develop protection and wealth-building strategies. Building fluency in insurance products, investment vehicles, and the regulatory side of financial services.',
   },
   {
     title: 'Head Nutrition Coach',
     org: 'TAMUCC · Jun 2025–Present',
+    tags: ['Systems Design', 'Data Tracking', 'Operations'],
     description:
-      'Oversee personalized nutrition coaching and cooking classes for the campus community, designing individualized guidance around sustainable, realistic habits rather than one-size-fits-all plans. Trained and enabled 3 staff members to run coaching workflows independently.',
+      'Built and own the analytics infrastructure for the program: an Excel system tracking 50+ ingredient SKUs, session consumption rates, and reorder thresholds across weekly recurring sessions. Designed the coaching intake and progress tracking workflow from scratch, enabling 3 staff members to run sessions independently. Deliver personalized nutrition guidance to the campus community with measurable habit-change outcomes.',
   },
   {
     title: 'Group Fitness Instructor',
     org: 'TAMUCC · Sep 2024–Present',
+    tags: ['Program Design'],
     description:
-      'Lead high-energy HIIT classes focused on functional movement and cardio conditioning for a recurring member base.',
+      'Design and lead HIIT sessions for a consistent recurring member base. Track attendance trends and member retention patterns to adjust session structure and timing.',
   },
   {
     title: 'Personal Trainer',
     org: 'TAMUCC · Aug 2023–Present',
+    tags: ['Data-Driven Coaching', 'Progress Analytics'],
     description:
-      'Design individualized training programs tailored to client goals — fat loss, muscle gain, and general performance — with ongoing program adjustments based on progress.',
+      'Design individualized programs using structured intake data (baseline measurements, movement assessment, goal timelines). Adjust programs based on logged progress metrics — the same hypothesis-test-adjust loop that applies to any analytical workflow.',
   },
   {
     title: 'Member Ambassador',
     org: 'Orangetheory Fitness · Oct 2022–Aug 2023',
+    tags: ['Operations', 'Scheduling'],
     description:
-      'Managed sales transactions and class scheduling logistics, improving accuracy in a high-volume environment and contributing to fewer no-shows.',
+      'Managed sales transactions and class scheduling in a high-volume studio environment. Reduced scheduling errors by standardizing the booking confirmation process.',
   },
   {
     title: 'Sales and Service Expert',
     org: '24 Hour Fitness · Dec 2021–Oct 2022',
+    tags: ['Customer Advisory'],
     description:
-      'Advised customers on fitness products and services, supporting informed purchasing decisions in a fast-paced retail environment.',
+      'Advised members on fitness products and services in a fast-paced retail environment, focusing on needs-based recommendations over volume.',
   },
 ]
 
@@ -88,14 +94,23 @@ export default function Experience() {
               custom={i + 2}
             >
               <div>
-                <h3 className="font-display font-semibold text-offwhite text-lg md:text-xl mb-1">
+                <h3 className="font-display font-semibold text-offwhite text-lg md:text-xl mb-1 leading-snug">
                   {role.title}
                 </h3>
                 {role.org && (
-                  <p className="text-offwhite/60 font-body text-sm">{role.org}</p>
+                  <p className="text-offwhite/60 font-body text-sm mb-3">{role.org}</p>
+                )}
+                {role.tags && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {role.tags.map(tag => (
+                      <span key={tag} className="text-[10px] uppercase tracking-[0.1em] text-offwhite/40 border border-offwhite/10 px-2 py-0.5 font-body">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 )}
               </div>
-              <p className="text-offwhite/55 font-body text-sm md:text-base leading-relaxed">
+              <p className="text-offwhite/75 font-body text-sm md:text-base leading-relaxed">
                 {role.description}
               </p>
             </motion.div>

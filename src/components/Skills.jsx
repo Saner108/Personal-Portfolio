@@ -14,50 +14,65 @@ const groups = [
   {
     category: 'Data Analytics & Business Systems',
     skills: [
-      'SQL (schema design, CTEs, window functions, validation)',
-      'Microsoft Excel (financial modeling, scenario analysis, pivot tables)',
-      'Power BI (dashboard design, DAX, executive reporting)',
-      'Tableau (Essential Training certified)',
-      'Star Schema / Dimensional Data Modeling',
-      'Microsoft Access (relational databases, VBA)',
-      'SAP Analytics Cloud',
+      { name: 'Microsoft Excel (financial modeling, scenario analysis, pivot tables)', level: 5 },
+      { name: 'SQL (schema design, CTEs, window functions, validation)', level: 4 },
+      { name: 'Power BI (dashboard design, DAX, executive reporting)', level: 4 },
+      { name: 'Star Schema / Dimensional Data Modeling', level: 4 },
+      { name: 'Microsoft Access (relational databases, VBA)', level: 4 },
+      { name: 'Tableau (Essential Training certified)', level: 3 },
+      { name: 'SAP Analytics Cloud', level: 3 },
     ],
   },
   {
     category: 'Finance',
     skills: [
-      'Financial Modeling',
-      'Scenario & Sensitivity Analysis',
-      'Forecasting',
-      'Budget vs. Actual Variance Analysis',
+      { name: 'Financial Modeling', level: 5 },
+      { name: 'Scenario & Sensitivity Analysis', level: 5 },
+      { name: 'Budget vs. Actual Variance Analysis', level: 4 },
+      { name: 'Forecasting', level: 4 },
     ],
   },
   {
     category: 'Programming',
     skills: [
-      'Python (pandas, data manipulation, ML coursework)',
-      'VBA (Excel & Access automation)',
-      'React / JavaScript (front-end for data products)',
+      { name: 'Python (pandas, data manipulation, ML coursework)', level: 3 },
+      { name: 'VBA (Excel & Access automation)', level: 4 },
+      { name: 'React / JavaScript (front-end for data products)', level: 3 },
+      { name: 'SQL scripting & automation', level: 4 },
     ],
   },
   {
     category: 'Artificial Intelligence',
     skills: [
-      'Prompt Engineering & AI Workflow Design',
-      'AI-Assisted Product Development',
-      'Claude API, Claude Code (certified)',
+      { name: 'Prompt Engineering & AI Workflow Design', level: 5 },
+      { name: 'AI-Assisted Product Development', level: 5 },
+      { name: 'Claude API, Claude Code (certified)', level: 4 },
     ],
   },
   {
     category: 'Professional',
     skills: [
-      'Client-Facing Program Design',
-      'Operational Process Documentation',
-      'Nutrition Coaching',
-      'Sales & Customer Communication',
+      { name: 'Client-Facing Program Design', level: 5 },
+      { name: 'Operational Process Documentation', level: 4 },
+      { name: 'Nutrition Coaching', level: 5 },
+      { name: 'Sales & Customer Communication', level: 4 },
     ],
   },
 ]
+
+// 5-dot proficiency indicator
+function ProficiencyDots({ level }) {
+  return (
+    <div className="flex gap-0.5 mt-1.5" aria-label={`Proficiency: ${level} out of 5`}>
+      {[1,2,3,4,5].map(i => (
+        <span
+          key={i}
+          className={`w-1.5 h-1.5 rounded-full ${i <= level ? 'bg-accent/70' : 'bg-offwhite/12'}`}
+        />
+      ))}
+    </div>
+  )
+}
 
 export default function Skills() {
   const ref = useRef(null)
@@ -100,10 +115,11 @@ export default function Skills() {
               <h3 className="font-body font-medium text-xs uppercase tracking-[0.18em] text-offwhite/60 mb-6">
                 {group.category}
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {group.skills.map((skill) => (
-                  <li key={skill} className="font-body text-offwhite/70 text-sm leading-snug">
-                    {skill}
+                  <li key={skill.name} className="font-body text-offwhite/75 text-sm leading-snug">
+                    {skill.name}
+                    <ProficiencyDots level={skill.level} />
                   </li>
                 ))}
               </ul>

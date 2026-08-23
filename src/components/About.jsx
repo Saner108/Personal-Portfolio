@@ -49,7 +49,7 @@ export default function About() {
             </motion.h2>
 
             <motion.div
-              className="space-y-5 text-offwhite/65 font-body leading-relaxed text-base md:text-lg mb-10"
+              className="space-y-5 text-offwhite/80 font-body leading-relaxed text-base md:text-lg mb-10"
               variants={fadeUp}
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
