@@ -121,6 +121,9 @@ export default function Hero() {
             <img
               src="/images/headshot.jpg"
               alt="Cesar Sanchez"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
               className="w-40 xl:w-48 border border-offwhite/10"
             />
           </motion.div>
