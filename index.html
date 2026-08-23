@@ -19,6 +19,10 @@
     <meta name="twitter:image" content="https://personal-brand-six-coral.vercel.app/og-image.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="https://personal-brand-six-coral.vercel.app/" />
+    <!-- Preload the hero headshot — it's the LCP element on most viewports.
+         Without this the browser discovers it only after JS parses, which
+         delays the Largest Contentful Paint score. -->
+    <link rel="preload" as="image" href="/images/headshot.jpg" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
