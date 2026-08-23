@@ -11,9 +11,9 @@ const fadeUp = {
 }
 
 const stats = [
-  { label: 'Years Coaching/Training Experience', value: '3+' },
-  { label: 'Built Systems, Zero to Production', value: '5' },
-  { label: 'Business Degrees (Finance + Business Analytics)', value: '2' },
+  { label: 'Dual BBA degrees (Finance + Business Analytics)', value: '2' },
+  { label: 'Data, analytics & AI projects shipped to production', value: '5+' },
+  { label: 'Years designing systems and coaching clients', value: '3+' },
 ]
 
 export default function About() {
@@ -57,17 +57,19 @@ export default function About() {
             >
               <p>
                 I'm a double major in Finance and Business Analytics at Texas A&M
-                University–Corpus Christi — and outside of that, fitness has always been a
-                genuine hobby, not just a resume line. That hobby turned into real jobs: three
-                years as a personal trainer, group fitness instructor, and now Head Nutrition
-                Coach, designing individualized programs and coaching clients through nutrition
-                change.
+                University–Corpus Christi. My focus is applied analytics — taking messy data
+                and turning it into decisions that change what someone actually does next. That
+                means SQL pipelines, financial models, dashboards, and increasingly, AI-powered
+                tools that make the analysis accessible to people who don't live in spreadsheets.
               </p>
               <p>
-                As I've continued through school, I've gotten to develop the nutrition coaching
-                program at TAMUCC, build a database for the Texas State Aquarium as a business
-                project, earn certifications along the way, and build working Excel systems for
-                my everyday job.
+                Outside of school, fitness has been a genuine hobby that turned into real work:
+                three years as a personal trainer, group fitness instructor, and now Head
+                Nutrition Coach at TAMUCC — designing individualized programs and building the
+                systems (including the Excel tracking infrastructure) that make the program run.
+                That's where most of my real operational analytics experience comes from: an
+                environment with no existing systems, real users, and a need to make data
+                actionable fast.
               </p>
             </motion.div>
 

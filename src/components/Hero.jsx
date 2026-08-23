@@ -70,9 +70,9 @@ export default function Hero() {
           animate="visible"
           custom={1}
         >
-          Finance.
-          <br />
           Business Analytics.
+          <br />
+          Finance.
           <br />
           <span className="text-offwhite/50">AI.</span>
         </motion.h1>
@@ -86,7 +86,7 @@ export default function Hero() {
               animate="visible"
               custom={2}
             >
-              Building data-driven applications that combine finance, analytics, and AI.
+              Turning raw data into decisions — through analytics, financial modeling, and AI-powered tools.
             </motion.p>
 
             <motion.div

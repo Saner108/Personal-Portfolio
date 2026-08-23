@@ -61,8 +61,8 @@ export default function Contact() {
               animate={inView ? 'visible' : 'hidden'}
               custom={2}
             >
-              Open to internships, freelance analytics work, and conversations about AI, data,
-              or anything at the intersection of health and tech.
+              Open to data analyst internships, analytics roles, and conversations about
+              turning messy data into decisions that matter.
             </motion.p>
 
             <motion.div

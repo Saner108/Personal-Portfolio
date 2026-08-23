@@ -14,41 +14,46 @@ const groups = [
   {
     category: 'Data Analytics & Business Systems',
     skills: [
-      'Microsoft Excel (financial modeling, scenario analysis)',
+      'SQL (schema design, CTEs, window functions, validation)',
+      'Microsoft Excel (financial modeling, scenario analysis, pivot tables)',
+      'Power BI (dashboard design, DAX, executive reporting)',
+      'Tableau (Essential Training certified)',
+      'Star Schema / Dimensional Data Modeling',
       'Microsoft Access (relational databases, VBA)',
-      'Tableau (Essential Training cert)',
       'SAP Analytics Cloud',
-      'SQL',
-      'Power BI',
-      'Dimensional / Star-Schema Data Modeling',
     ],
   },
   {
     category: 'Finance',
     skills: [
       'Financial Modeling',
-      'Scenario / Forecasting Analysis',
-      'Personal Financial Systems Design',
+      'Scenario & Sensitivity Analysis',
+      'Forecasting',
+      'Budget vs. Actual Variance Analysis',
+    ],
+  },
+  {
+    category: 'Programming',
+    skills: [
+      'Python (pandas, data manipulation, ML coursework)',
+      'VBA (Excel & Access automation)',
+      'React / JavaScript (front-end for data products)',
     ],
   },
   {
     category: 'Artificial Intelligence',
     skills: [
-      'Claude (Claude 101, Claude Code 101, AI Fluency: Framework & Foundations)',
-      'Prompt Engineering',
+      'Prompt Engineering & AI Workflow Design',
       'AI-Assisted Product Development',
+      'Claude API, Claude Code (certified)',
     ],
-  },
-  {
-    category: 'Programming',
-    skills: ['Python (coursework — machine learning applications)', 'VBA'],
   },
   {
     category: 'Professional',
     skills: [
       'Client-Facing Program Design',
+      'Operational Process Documentation',
       'Nutrition Coaching',
-      'Group Instruction',
       'Sales & Customer Communication',
     ],
   },
