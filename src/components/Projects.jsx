@@ -168,11 +168,11 @@ function ProjectCard({ project, index, inView }) {
             <div className="space-y-4 mb-8">
               <div>
                 <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Problem</p>
-                <p className="text-offwhite/60 font-body text-sm leading-relaxed">{project.problem}</p>
+                <p className="text-offwhite/75 font-body text-sm leading-relaxed">{project.problem}</p>
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Method</p>
-                <p className="text-offwhite/60 font-body text-sm leading-relaxed">{project.method}</p>
+                <p className="text-offwhite/75 font-body text-sm leading-relaxed">{project.method}</p>
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Impact</p>
@@ -263,7 +263,7 @@ function ProjectCard({ project, index, inView }) {
 
       {project.highlight && (
         <div className="border-l-2 border-offwhite/20 pl-4 mb-5">
-          <p className="text-sm font-body text-offwhite/60 font-medium leading-snug">{project.highlight}</p>
+          <p className="text-sm font-body text-offwhite/85 font-medium leading-snug">{project.highlight}</p>
         </div>
       )}
 
@@ -292,7 +292,7 @@ function ProjectCard({ project, index, inView }) {
 
       {!project.flagship && !project.image && (
         <div className="mt-6 border border-dashed border-offwhite/10 py-10 flex items-center justify-center">
-          <p className="text-offwhite/60 font-body text-sm tracking-wide">
+          <p className="text-offwhite/75 font-body text-sm tracking-wide">
             {project.noScreenshot ? 'Screenshot pending client approval' : 'Screenshot coming soon'}
           </p>
         </div>

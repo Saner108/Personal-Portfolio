@@ -58,6 +58,17 @@ export default function Education() {
           Education
         </motion.p>
 
+        <motion.h2
+          className="font-display font-semibold text-offwhite leading-tight tracking-tight mb-16"
+          style={{ fontSize: 'clamp(1.9rem, 4vw, 3.2rem)' }}
+          variants={fadeUp}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          custom={1}
+        >
+          Where I studied.
+        </motion.h2>
+
         <div className="space-y-16">
           {schools.map((school, i) => (
             <motion.div
@@ -65,7 +76,7 @@ export default function Education() {
               variants={fadeUp}
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
-              custom={i + 1}
+              custom={i + 2}
               className="border-t border-offwhite/10 pt-10"
             >
               <div className="grid md:grid-cols-[1fr_auto] gap-4 md:gap-16 mb-6">
