@@ -1,150 +1,148 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
-import HeroAmbient from './HeroAmbient'
+import { motion, useReducedMotion } from 'framer-motion'
+import { projects } from '../data/projects'
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.12, duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-  }),
+// ─── Ambient gradient blob ────────────────────────────────────────────────────
+function GradientBlob({ className }) {
+  return (
+    <div
+      aria-hidden="true"
+      className={['pointer-events-none absolute rounded-full blur-3xl', className].join(' ')}
+    />
+  )
 }
 
-export default function Hero() {
-  const ref = useRef(null)
-  const reduceMotion = useReducedMotion()
+// ─── Single project card ──────────────────────────────────────────────────────
+// Cards are visual — the image (or a placeholder icon when none exists yet)
+// does the talking, with the project name as a hover/focus-revealed caption.
+// Every card scrolls to the full Problem → Method → Value writeup below.
+function ProjectCard({ project, index, shouldAnimate }) {
+  return (
+    <motion.a
+      href="#projects"
+      onClick={(e) => {
+        e.preventDefault()
+        document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })
+      }}
+      initial={shouldAnimate ? { opacity: 0, y: 24 } : false}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.3 + index * 0.08, ease: 'easeOut' }}
+      className="group relative flex flex-col overflow-hidden rounded-2xl bg-offwhite/5 border border-offwhite/10 hover:border-offwhite/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+    >
+      {/* Image area */}
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-offwhite/10 flex items-center justify-center">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.name}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          /* Placeholder */
+          <div className="flex flex-col items-center gap-2 text-offwhite/25">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="36"
+              height="36"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+          </div>
+        )}
 
-  // As the user scrolls past, the hero settles back and dims behind the
-  // incoming About section rather than sliding away as a static block.
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  })
-  const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.96])
-  const y = useTransform(scrollYProgress, [0, 1], [0, -40])
-  const recede = reduceMotion ? {} : { opacity, scale, y }
+        {/* Name caption — hidden at rest, revealed on hover/focus */}
+        <div className="absolute inset-x-0 bottom-0 px-3 py-3 bg-gradient-to-t from-graphite/90 via-graphite/40 to-transparent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300">
+          <p className="text-offwhite text-xs font-body font-medium leading-snug line-clamp-2">
+            {project.name}
+          </p>
+        </div>
+      </div>
+    </motion.a>
+  )
+}
+
+// ─── Hero ─────────────────────────────────────────────────────────────────────
+export default function Hero() {
+  const reduceMotion = useReducedMotion()
+  const shouldAnimate = !reduceMotion
 
   return (
     <section
-      ref={ref}
       id="hero"
-      className="relative overflow-hidden min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-24 pb-16"
+      className="relative min-h-screen overflow-hidden bg-graphite flex flex-col"
     >
-      {/* Diagonal two-tone split, ~17° off vertical. Tone derives from the
-          text token at low alpha so it inverts correctly with the theme. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'linear-gradient(107deg, transparent 55%, rgb(var(--color-text) / 0.05) 55.6%)',
-        }}
-      />
+      {/* Ambient blobs */}
+      <GradientBlob className="left-[-15%] top-[10%] w-[45vw] h-[60vh] bg-emerald-500/20" />
+      <GradientBlob className="right-[-15%] top-[5%]  w-[40vw] h-[55vh] bg-emerald-400/15" />
+      <GradientBlob className="left-[20%]  bottom-0   w-[30vw] h-[30vh] bg-emerald-300/10" />
 
-      {/* Ambient shapes fade with the same scroll recede as the content */}
-      <motion.div
-        className="absolute inset-0"
-        style={reduceMotion ? undefined : { opacity }}
-      >
-        <HeroAmbient />
-      </motion.div>
-
-      <motion.div style={recede} className="relative max-w-6xl">
+      {/* ── Content ── */}
+      <div className="relative z-10 flex flex-col flex-1 px-6 md:px-10 pt-28 pb-12">
         <motion.p
+          initial={shouldAnimate ? { opacity: 0, y: 16 } : false}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className="text-sm uppercase tracking-[0.2em] text-offwhite/60 mb-6 font-body"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0}
         >
           Cesar Sanchez
         </motion.p>
 
+        {/* Headline */}
         <motion.h1
-          className="font-display font-bold text-offwhite leading-[0.98] tracking-[-0.02em] mb-8"
-          style={{ fontSize: 'clamp(2.9rem, 7.5vw, 6.9rem)' }}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={1}
+          initial={shouldAnimate ? { opacity: 0, y: 20 } : false}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+          className="max-w-4xl text-[clamp(2.5rem,6vw,5rem)] font-display font-bold leading-[1.05] tracking-tight text-offwhite mb-3"
         >
-          Business Analytics.
-          <br />
-          Finance.
-          <br />
-          <span className="text-offwhite/50">AI.</span>
+          Finance. Business Analytics. AI.
         </motion.h1>
 
-        <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-20 items-center">
-          <div className="max-w-xl">
-            <motion.p
-              className="font-body text-offwhite/75 text-lg md:text-xl leading-relaxed mb-10"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={2}
-            >
-              Turning raw data into decisions — through analytics, financial modeling, and AI-powered tools.
-            </motion.p>
+        <motion.p
+          initial={shouldAnimate ? { opacity: 0, y: 16 } : false}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
+          className="max-w-xl font-body text-offwhite/75 text-base md:text-lg leading-relaxed mb-12"
+        >
+          Building data-driven applications that combine finance, analytics, and AI.
+        </motion.p>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={3}
-            >
-              <a
-                href="#projects"
-                className="inline-block border border-offwhite/20 px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite hover:border-offwhite/50 active:scale-[0.98] transition duration-200"
-              >
-                See the work
-              </a>
-              <a
-                href="#contact"
-                className="inline-block px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite/60 hover:text-offwhite active:scale-[0.98] transition duration-200"
-              >
-                Get in touch →
-              </a>
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="hidden lg:block"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={2.5}
-          >
-            <img
-              src="/images/headshot.jpg"
-              alt="Cesar Sanchez"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-              className="w-40 xl:w-48 border border-offwhite/10"
+        {/* Project card grid — real project data, links down to the full writeups */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 flex-1">
+          {projects.map((project, i) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={i}
+              shouldAnimate={shouldAnimate}
             />
-          </motion.div>
+          ))}
         </div>
-      </motion.div>
 
-      {/* Subtle scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-6 md:left-12 lg:left-20 flex items-center gap-3 text-offwhite/60 text-xs tracking-widest uppercase font-body"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 1 }}
-      >
+        {/* Scroll hint */}
         <motion.div
-          className="w-px h-8 bg-offwhite/20"
-          animate={reduceMotion ? undefined : { scaleY: [1, 0.4, 1] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ originY: 0 }}
-        />
-        Scroll
-      </motion.div>
+          initial={shouldAnimate ? { opacity: 0 } : false}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.6 }}
+          className="mt-8 flex items-center gap-2 text-xs text-offwhite/40 font-body uppercase tracking-widest"
+        >
+          <span>Scroll to explore</span>
+          <motion.div
+            animate={shouldAnimate ? { y: [0, 4, 0] } : {}}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-px h-4 bg-current"
+          />
+        </motion.div>
+      </div>
     </section>
   )
 }
