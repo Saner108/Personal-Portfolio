@@ -78,7 +78,7 @@ The site highlights five projects presented as Problem → Method → Value.
 
 - NutriCook AI — Full-stack AI meal-planning app with real macro and nutrition tracking. <a href="https://github.com/Saner108/nutricook-ai">Repo</a> · <a href="https://nutricook-ai-kappa.vercel.app/">Demo</a>
 - NorthStar Retail Group — Retail analytics pilot (star-schema modeling, SQL, dashboard over ~1.6M synthetic rows). <a href="https://github.com/Saner108/NorthStar-Enterprise-Analytics">Repo</a>
-- Animal Diet &amp; Nutrition Database — Normalized Access database with VBA for the Texas State Aquarium (client work).
+- Animal Diet &amp; Nutrition Database — Normalized Access database with VBA for the Texas State Aquarium (client work). [Near-final representative Access download and demo passwords](projects/waveware/README.md).
 - Financial Forecasting Model — Excel scenario-analysis model for forecasting income, expenses, and net worth. <a href="https://github.com/Saner108/Excel-Business-Analytics-Portfolio">Repo</a>
 - Inventory Tracking System — Inventory process and tracking for a weekly nutrition program. <a href="https://github.com/Saner108/Excel-Business-Analytics-Portfolio">Repo</a>
 
