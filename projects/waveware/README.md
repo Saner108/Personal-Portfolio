@@ -4,17 +4,17 @@ Microsoft Access coursework project developed around the Texas State Aquarium's 
 
 ## Version
 
-This download is a **near-final representative copy**, not the actual final submission. The source filename contained "FINAL6.11", but that filename does not establish final-submission status. This is a historical portfolio artifact, not a current aquarium system or animal-care recommendation.
+The prepared demo is a **near-final representative copy**, not the actual final submission. The source filename contained "FINAL6.11", but that filename does not establish final-submission status. This is a historical portfolio artifact, not a current aquarium system or animal-care recommendation.
 
-## Download
+## Download Status
 
-[Download WaveWare_NearFinal_Employee_Demo.accdb](https://github.com/Saner108/Personal-Portfolio/releases/download/waveware-near-final-demo-2026-10-28/WaveWare_NearFinal_Employee_Demo.accdb)
+The database file **has not been published**. An employee-name-replaced copy is prepared locally, but the remaining aquarium records are unchanged. Public distribution is on hold pending explicit approval to share that retained real data.
 
-[Release notes](https://github.com/Saner108/Personal-Portfolio/releases/tag/waveware-near-final-demo-2026-10-28)
+Prepared filename: `WaveWare_NearFinal_Employee_Demo.accdb`.
 
-[SHA-256 checksum](https://github.com/Saner108/Personal-Portfolio/blob/main/projects/waveware/CHECKSUMS.sha256)
+[SHA-256 checksum for the prepared copy](CHECKSUMS.sha256)
 
-The database is distributed as a release attachment rather than included in the website source tree.
+If publication is approved, the database is intended to be distributed as a release attachment rather than included in the website source tree. No database is included in this repository.
 
 ## Demo Passwords
 
@@ -23,7 +23,7 @@ The database is distributed as a release attachment rather than included in the 
 | Open the database file | `2710` |
 | Manager menu | `1234` |
 
-These codes are intentionally public for this demonstration. They provide no confidentiality for the downloadable copy and must not be reused for a real deployment.
+These codes are intentionally public for this demonstration. They would provide no confidentiality for a future downloadable copy and must not be reused for a real deployment.
 
 ## Employee Replacement Scope
 
@@ -33,9 +33,11 @@ These codes are intentionally public for this demonstration. They provide no con
 - Existing tables, fields, indexes, relationships, queries, forms, reports, macros, and database settings were preserved.
 - The original USB database was left unchanged.
 
-## Open the Demo
+## Open a Demo Copy
 
-1. Download the `.accdb` attachment and open a working copy in Microsoft Access on Windows.
+These steps apply to a separately provided copy; there is no public download yet.
+
+1. Open a working copy of the `.accdb` file in Microsoft Access on Windows.
 2. Enter `2710` when prompted for the database password.
 3. Begin at the main menu. The **MANAGER DIET ADJUSTMENTS** option uses code `1234`.
 4. Review the saved code and macros before enabling active content. Only enable content you trust.
