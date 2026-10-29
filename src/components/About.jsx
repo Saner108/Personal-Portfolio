@@ -119,28 +119,24 @@ export default function About() {
           <div className="space-y-8">
             <section aria-labelledby="academic-focus-heading" className="data-card border border-offwhite/15 p-6">
               <h3 id="academic-focus-heading" className="font-display text-xl font-semibold text-offwhite mb-4">
-                School & academic focus
+                Academic foundation
               </h3>
-              <ul className="space-y-3 font-body text-sm md:text-base text-offwhite/80 leading-relaxed">
-                <li>Dual BBA in Finance and Business Analytics & Information Systems at Texas A&M University–Corpus Christi. Expected graduation: Spring 2027.</li>
-                <li>Coursework includes database management, financial modeling, business intelligence, and data mining & analysis.</li>
-                <li>Associate of Arts, Management Information Systems — Tarrant County College, August 2021–April 2023.</li>
-              </ul>
+              <p className="font-body text-sm md:text-base text-offwhite/80 leading-relaxed">
+                I’m pursuing dual BBAs in Finance and Business Analytics & Information Systems at Texas A&M University–Corpus Christi, with graduation expected in Spring 2027. My coursework connects databases, financial modeling, business intelligence, and data analysis.
+              </p>
               <a href="#education" className="inline-block mt-4 py-3 font-body text-sm text-offwhite/75 underline underline-offset-4 hover:text-offwhite">
-                View education & coursework
+                View degrees & coursework
               </a>
             </section>
 
             <section aria-labelledby="leadership-heading" className="data-card border border-offwhite/15 p-6">
               <h3 id="leadership-heading" className="font-display text-xl font-semibold text-offwhite mb-2">
-                Teams, events & operations
+                Leadership in practice
               </h3>
-              <p className="font-body text-xs text-offwhite/60 mb-4">Campus wellness & program support</p>
-              <ul className="space-y-3 font-body text-sm md:text-base text-offwhite/80 leading-relaxed">
-                <li><strong className="font-medium text-offwhite">Team development:</strong> Trained a small team to run nutrition-coaching workflows independently.</li>
-                <li><strong className="font-medium text-offwhite">Events & classes:</strong> Organized wellness events, oversaw cooking classes, and led HIIT sessions.</li>
-                <li><strong className="font-medium text-offwhite">Inventory:</strong> Managed inventory as part of the nutrition-coaching program.</li>
-                <li><strong className="font-medium text-offwhite">Coaching & youth activities:</strong> Designed individualized training programs and led seasonal sports and fitness activities for children.</li>
+              <ul className="mt-4 space-y-3 font-body text-sm md:text-base text-offwhite/80 leading-relaxed">
+                <li><strong className="font-medium text-offwhite">Small-team leadership:</strong> Trained a small team to run nutrition-coaching workflows independently.</li>
+                <li><strong className="font-medium text-offwhite">Events & programs:</strong> Organized wellness events, oversaw cooking classes, and led group fitness and youth activities.</li>
+                <li><strong className="font-medium text-offwhite">Daily operations:</strong> Managed program inventory and developed individualized training plans.</li>
               </ul>
             </section>
           </div>

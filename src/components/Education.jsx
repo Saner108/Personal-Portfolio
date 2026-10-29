@@ -31,54 +31,35 @@ const schools = [
 
 export default function Education() {
   return (
-    <>
-      {schools.map((school, index) => (
-        <article
-          key={school.name}
-          id={index === 0 ? 'education' : undefined}
-          aria-labelledby={`degree-${index}`}
-          className="data-card h-full min-w-0 border border-offwhite/15 bg-graphite p-6 sm:p-8"
-        >
-          <p className="font-body text-xs uppercase tracking-[0.18em] text-offwhite/60 mb-3">Degree</p>
-          <div className="space-y-3 mb-6">
-            <div>
-              <h3
-                id={`degree-${index}`}
-                className="font-display font-semibold text-lg text-offwhite leading-tight sm:min-h-[2.5em] mb-6"
-              >
-                {school.name}
-              </h3>
-              <p className="text-offwhite/75 font-body text-sm leading-relaxed mb-1">
-                {school.degree}
-              </p>
-              <p className="text-offwhite/50 font-body text-sm tracking-wide">{school.detail}</p>
-            </div>
-            <div>
-              <span className="text-offwhite/50 font-body text-sm tracking-wide whitespace-nowrap">
-                {school.dates}
-              </span>
-            </div>
-          </div>
+    <article id="education" aria-labelledby="education-heading" className="data-card h-full min-w-0 border border-offwhite/15 bg-graphite p-6 sm:p-8">
+      <h3 id="education-heading" className="font-display font-semibold text-xl text-offwhite mb-6">Degrees</h3>
+      <div className="divide-y divide-offwhite/10">
+        {schools.map((school, index) => (
+          <section
+            key={school.name}
+            aria-labelledby={`degree-${index}`}
+            className="py-5 first:pt-0 last:pb-0"
+          >
+            <h4
+              id={`degree-${index}`}
+              className="font-display font-semibold text-base text-offwhite leading-snug mb-2"
+            >
+              {school.name}
+            </h4>
+            <p className="text-offwhite/75 font-body text-sm leading-relaxed mb-1">
+              {school.degree}
+            </p>
+            <p className="text-offwhite/60 font-body text-xs leading-relaxed">{school.detail} · {school.dates}</p>
 
-          {school.coursework && (
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-offwhite/40 font-body mb-3">
-                Relevant Coursework
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {school.coursework.map(course => (
-                  <span
-                    key={course}
-                    className="text-xs font-body text-offwhite/75 border border-offwhite/15 px-3 py-1.5 leading-none"
-                  >
-                    {course}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-        </article>
-      ))}
-    </>
+            {school.coursework && (
+              <details className="mt-2">
+                <summary className="mx-auto min-h-[44px] w-fit cursor-pointer py-3 font-body text-xs text-accent hover:text-offwhite">View coursework<span className="sr-only"> for {school.name}</span></summary>
+                <p className="font-body text-sm text-offwhite/75 leading-relaxed">{school.coursework.join(' · ')}</p>
+              </details>
+            )}
+          </section>
+        ))}
+      </div>
+    </article>
   )
 }

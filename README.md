@@ -34,7 +34,8 @@ The portfolio has been revised in small, source-backed updates through October 2
 | Project showcase | Added the six project repositories with accurate summaries, real screenshots where available, an explicit SLP image placeholder, and direct highlights of the three Python scripts. NorthStar remains the flagship; NutriCook keeps its full-width image-and-details layout. |
 | Personal introduction | Added the supplied fitness, cooking, and group photos, then combined them with the headshot and campus team image into one five-photo collage. School and small-team/event/inventory highlights accompany the images. |
 | Experience wording | Aligned campus-role descriptions with the supplied LinkedIn excerpt, then removed the displayed past-jobs section at the owner's request. The short team-development statement now refers to training a small team, without a numerical staff claim. |
-| Toolkit and degrees | Combined both schools and four toolkit categories into six matching rectangular cards. Retained coursework, existing proficiency ratings, ChatGPT, Claude, Vercel, and Supabase. Removed the separate Credentials section and its navigation link. |
+| Toolkit and degrees | Initially combined both schools and four toolkit categories into six cards, then condensed them into two balanced panels: Degrees and Toolkit. Kept school details and expandable coursework; replaced visual proficiency ratings and repeated tags with short grouped lists. Retained ChatGPT, Claude, Vercel, and Supabase. No separate Credentials section is displayed. |
+| Concise introduction | Rephrased the school summary as Academic foundation and the team/event/operations summary as Leadership in practice. Kept supported responsibilities and small-team wording; project content and photos are unchanged. |
 | Centered visual design | Centered the section containers, typography, card content, tags, buttons, and proficiency dots. Added a hero banner, gradient headline/card accents, decorative rings, dots, chart bars, a database symbol, and subtle side patterns while retaining the block layout. |
 | Dark-only appearance | Kept the graphite background and light text permanently. Removed desktop/mobile theme switches and light-mode styles; saved theme choices and device appearance no longer change the portfolio. |
 | Public domain | Corrected Namecheap website DNS from GitHub Pages to Vercel, restored HTTPS for the custom domain, and verified the bare-domain redirect to `www.cesarsanchez1.me`. No database migration was involved. |
@@ -53,7 +54,7 @@ Project facts and sample/synthetic/demo disclosures are retained. Original photo
 - ♿ Accessibility-minded markup and ARIA where appropriate
 - 🔍 SEO-friendly semantic structure
 - 📷 One personal photo collage in About, with education and team/event experience alongside it on desktop and stacked on mobile
-- 🎓 A single Toolkit & Degrees grid with six matching rectangular cards: two degrees and four toolkit groups. Cards share desktop/tablet heights and stack naturally on phones; no separate past-jobs or credentials section is displayed.
+- 🎓 One compact Toolkit & Degrees section with two rectangular panels: Degrees and Toolkit. Coursework expands on request; grouped tool lists replace ratings and individual tags. Panels sit side by side on desktop and stack on smaller screens; no separate past-jobs or credentials section is displayed.
 - 🎯 Centered section frames and text, balanced card layouts, centered links/tags, and a prominent introductory banner
 - ◌ Data-inspired SVG/CSS decoration: rings, dots, chart bars, a database outline, and wide-screen side patterns. Decoration is non-interactive, hidden from assistive technology, and animated hero shapes respect reduced-motion preferences.
 
@@ -166,14 +167,14 @@ npm run lint
 
 ## ✏️ Customization
 
-- The toolkit lists ChatGPT, Claude, Vercel (hosting and deployment), and Supabase (database and authentication) under AI & Development Platforms, without assigning proficiency ratings to those tools.
+- The toolkit lists ChatGPT, Claude / Claude Code, Vercel, and Supabase under Platforms I use, without assigning proficiency ratings.
 - Edit text and content in `src/components/` (e.g., `Nav.jsx`, `Hero.jsx`, `About.jsx`, `Projects.jsx`).
 - Change colors and tokens in `tailwind.config.js`.
 - Global styles: `src/index.css`.
 - Centered typography is set in `src/App.jsx`; each displayed section centers its own maximum-width frame. The shared `data-card` styling, banner background, and wide-screen side patterns live in `src/index.css`. Hero-only data illustrations live in `src/components/HeroAmbient.jsx` and are decorative, not project metrics.
 - The introductory photo collage in `src/components/About.jsx` combines the headshot, campus team photo, fitness, cooking, and group-training photos from `public/images/`. Images load lazily and open the original photo in a new tab. All five personal photos appear once in this section, rather than being split across the hero and separate galleries. School/coursework and supported team-development, event, inventory, and coaching highlights sit beside the collage on desktop and below it on mobile. Project screenshots remain in Projects.
 - About keeps a concise leadership summary, including training a small team to run nutrition-coaching workflows independently. Past-job history is no longer rendered or linked in navigation; `src/components/Experience.jsx` remains in the repository for reference.
-- `src/components/Skills.jsx` renders the combined Toolkit & Degrees grid at `#skills`, reusing `src/components/Education.jsx` for two degree cards alongside four toolkit cards. Shared borders, padding, and equal grid rows keep the blocks aligned. The existing `#education` anchor points to the first degree card; school details, coursework, tools, and existing proficiency ratings are retained.
+- `src/components/Skills.jsx` renders the compact Toolkit & Degrees section at `#skills`, reusing `src/components/Education.jsx` for one Degrees panel beside one Toolkit panel. Matching borders and padding keep the blocks organized. The existing `#education` anchor points to the Degrees panel. Both schools, dates, locations and complete coursework lists are retained; native expandable coursework controls keep the initial view short. Toolkit categories use concise names without visual proficiency ratings or certification labels.
 - Credentials is no longer rendered or linked in navigation. `src/components/Certifications.jsx` remains in the repository for reference, without a displayed section.
 - Adjust Framer Motion timings and easing inside the animated components.
 
