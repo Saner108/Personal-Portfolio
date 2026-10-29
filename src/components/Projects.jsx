@@ -46,7 +46,7 @@ function ProjectCard({ project, index, inView }) {
 
         <div className="grid lg:grid-cols-2 gap-0">
           <div className="p-8 md:p-12 lg:p-16">
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex flex-wrap items-center gap-3 mb-8">
               <span className="text-[10px] uppercase tracking-[0.2em] text-accent font-body border border-accent/30 px-2 py-1">
                 {project.label}
               </span>
@@ -81,7 +81,7 @@ function ProjectCard({ project, index, inView }) {
                 <p className="text-offwhite/75 font-body text-sm leading-relaxed">{project.method}</p>
               </div>
               <div>
-                <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Impact</p>
+                <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Value & scope</p>
                 <p className="text-offwhite/80 font-body text-sm leading-relaxed">{project.value}</p>
               </div>
             </div>
@@ -135,13 +135,27 @@ function ProjectCard({ project, index, inView }) {
 
   return (
     <motion.div
-      className="border border-offwhite/10 p-8 md:p-10 bg-offwhite/[0.01] hover:bg-offwhite/[0.03] transition-colors duration-300"
+      className={`border border-offwhite/10 p-8 md:p-10 bg-offwhite/[0.01] hover:bg-offwhite/[0.03] transition-colors duration-300 ${project.id === 'nutricook-ai' ? 'md:col-span-2 md:grid md:grid-cols-2 md:items-center md:gap-10' : ''}`}
       variants={fadeUp}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
       custom={index}
     >
-      <div className="flex items-center gap-3 mb-6">
+      {project.image && (
+        <div className={`overflow-hidden border border-offwhite/10 ${project.id === 'nutricook-ai' ? 'mb-6 md:mb-0' : 'mb-6'}`}>
+          <img
+            src={project.image}
+            alt={`${project.name} screenshot`}
+            loading="lazy"
+            width="1200"
+            height="750"
+            className="w-full h-auto"
+          />
+        </div>
+      )}
+
+      <div className="min-w-0">
+      <div className="flex flex-wrap items-center gap-3 mb-6">
         <span className="text-[10px] uppercase tracking-[0.2em] text-offwhite/50 font-body border border-offwhite/15 px-2 py-1">
           {project.label}
         </span>
@@ -150,22 +164,33 @@ function ProjectCard({ project, index, inView }) {
         </span>
       </div>
 
-      {project.image && (
-        <div className="mb-6 overflow-hidden border border-offwhite/10">
-          <img
-            src={project.image}
-            alt={`${project.name} screenshot`}
-            loading="lazy"
-            width="1200"
-            height="750"
-            className="w-full object-cover"
-          />
-        </div>
-      )}
-
       <h3 className="font-display font-semibold text-offwhite text-xl md:text-2xl leading-tight tracking-tight mb-5">
         {project.name}
       </h3>
+
+      {project.images && (
+        <div className="space-y-5 mb-6">
+          {project.images.map((image) => (
+            <figure key={image.src}>
+              <a href={image.src} target="_blank" rel="noopener noreferrer"
+                className="block border border-offwhite/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
+                aria-label={`Open full-size image: ${image.caption}`}>
+                <img src={image.src} alt={image.caption} loading="lazy" className="w-full h-auto" />
+              </a>
+              <figcaption className="mt-2 text-xs font-body leading-relaxed text-offwhite/75">
+                {image.caption} · Open image for full size ↗
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
+
+      {project.imagePlaceholder && (
+        <div className="mb-6 aspect-video border border-dashed border-offwhite/25 bg-offwhite/[0.02] flex flex-col items-center justify-center gap-2 p-6 text-center">
+          <p className="font-body text-sm text-offwhite/75">{project.imagePlaceholder}</p>
+          <p className="font-body text-xs text-offwhite/60">Image placeholder</p>
+        </div>
+      )}
 
       {project.highlight && (
         <div className="border-l-2 border-offwhite/20 pl-4 mb-5">
@@ -173,6 +198,14 @@ function ProjectCard({ project, index, inView }) {
         </div>
       )}
 
+      {project.contents ? (
+        <div className="mb-6">
+          <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/60 font-body mb-3">What's inside</p>
+          <ul className="list-disc pl-5 space-y-3 text-offwhite/75 font-body text-sm leading-relaxed">
+            {project.contents.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </div>
+      ) : (
       <div className="space-y-3 mb-6">
         <div>
           <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Problem</p>
@@ -183,10 +216,11 @@ function ProjectCard({ project, index, inView }) {
           <p className="text-offwhite/75 font-body text-sm leading-relaxed">{project.method}</p>
         </div>
         <div>
-          <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Impact</p>
+          <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/40 font-body mb-1">Value & scope</p>
           <p className="text-offwhite/80 font-body text-sm leading-relaxed">{project.value}</p>
         </div>
       </div>
+      )}
 
       <div className="flex flex-wrap gap-2 mb-6">
         {project.tech.map((t) => (
@@ -195,14 +229,6 @@ function ProjectCard({ project, index, inView }) {
           </span>
         ))}
       </div>
-
-      {!project.flagship && !project.image && (
-        <div className="mt-6 border border-dashed border-offwhite/10 py-10 flex items-center justify-center">
-          <p className="text-offwhite/75 font-body text-sm tracking-wide">
-            {project.noScreenshot ? 'Screenshot pending client approval' : 'Screenshot coming soon'}
-          </p>
-        </div>
-      )}
 
       <div className="flex items-center gap-5 mt-6">
         {project.link && (
@@ -217,6 +243,7 @@ function ProjectCard({ project, index, inView }) {
             Live Demo →
           </a>
         )}
+      </div>
       </div>
     </motion.div>
   )
@@ -247,10 +274,10 @@ export default function Projects() {
           animate={inView ? 'visible' : 'hidden'}
           custom={1}
         >
-          The work.
+          Analytics, databases & applications.
         </motion.h2>
 
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 [&>*:first-child]:md:col-span-2">
           {projects.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i + 2} inView={inView} />
           ))}
