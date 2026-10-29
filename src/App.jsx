@@ -17,7 +17,8 @@ export default function App() {
   return (
     <LazyMotion features={domAnimation}>
       <MotionConfig reducedMotion="user">
-        <div className="bg-graphite text-offwhite min-h-screen">
+        <div className="portfolio-shell relative isolate bg-graphite text-offwhite text-center min-h-screen">
+          <div className="page-ornaments pointer-events-none fixed inset-0 -z-10" aria-hidden="true" />
           <Nav />
           <main>
             <Hero />

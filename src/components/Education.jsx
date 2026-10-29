@@ -37,7 +37,7 @@ export default function Education() {
           key={school.name}
           id={index === 0 ? 'education' : undefined}
           aria-labelledby={`degree-${index}`}
-          className="h-full min-w-0 border border-offwhite/15 bg-graphite p-6 sm:p-8"
+          className="data-card h-full min-w-0 border border-offwhite/15 bg-graphite p-6 sm:p-8"
         >
           <p className="font-body text-xs uppercase tracking-[0.18em] text-offwhite/60 mb-3">Degree</p>
           <div className="space-y-3 mb-6">
@@ -65,7 +65,7 @@ export default function Education() {
               <p className="text-[10px] uppercase tracking-[0.18em] text-offwhite/40 font-body mb-3">
                 Relevant Coursework
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap justify-center gap-2">
                 {school.coursework.map(course => (
                   <span
                     key={course}

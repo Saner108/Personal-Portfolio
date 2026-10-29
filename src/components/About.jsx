@@ -60,7 +60,7 @@ export default function About() {
 
   return (
     <section id="about" ref={ref} className="px-6 md:px-12 lg:px-20 py-28 md:py-36">
-      <div className="max-w-6xl">
+      <div className="mx-auto max-w-6xl">
         <motion.p
           className="text-sm uppercase tracking-[0.2em] text-offwhite/60 mb-10 font-body"
           variants={fadeUp}
@@ -117,11 +117,11 @@ export default function About() {
           </section>
 
           <div className="space-y-8">
-            <section aria-labelledby="academic-focus-heading" className="border-t border-offwhite/10 pt-6">
+            <section aria-labelledby="academic-focus-heading" className="data-card border border-offwhite/15 p-6">
               <h3 id="academic-focus-heading" className="font-display text-xl font-semibold text-offwhite mb-4">
                 School & academic focus
               </h3>
-              <ul className="list-disc pl-5 space-y-3 font-body text-sm md:text-base text-offwhite/80 leading-relaxed">
+              <ul className="space-y-3 font-body text-sm md:text-base text-offwhite/80 leading-relaxed">
                 <li>Dual BBA in Finance and Business Analytics & Information Systems at Texas A&M University–Corpus Christi. Expected graduation: Spring 2027.</li>
                 <li>Coursework includes database management, financial modeling, business intelligence, and data mining & analysis.</li>
                 <li>Associate of Arts, Management Information Systems — Tarrant County College, August 2021–April 2023.</li>
@@ -131,12 +131,12 @@ export default function About() {
               </a>
             </section>
 
-            <section aria-labelledby="leadership-heading" className="border-t border-offwhite/10 pt-6">
+            <section aria-labelledby="leadership-heading" className="data-card border border-offwhite/15 p-6">
               <h3 id="leadership-heading" className="font-display text-xl font-semibold text-offwhite mb-2">
                 Teams, events & operations
               </h3>
               <p className="font-body text-xs text-offwhite/60 mb-4">Campus wellness & program support</p>
-              <ul className="list-disc pl-5 space-y-3 font-body text-sm md:text-base text-offwhite/80 leading-relaxed">
+              <ul className="space-y-3 font-body text-sm md:text-base text-offwhite/80 leading-relaxed">
                 <li><strong className="font-medium text-offwhite">Team development:</strong> Trained a small team to run nutrition-coaching workflows independently.</li>
                 <li><strong className="font-medium text-offwhite">Events & classes:</strong> Organized wellness events, oversaw cooking classes, and led HIIT sessions.</li>
                 <li><strong className="font-medium text-offwhite">Inventory:</strong> Managed inventory as part of the nutrition-coaching program.</li>

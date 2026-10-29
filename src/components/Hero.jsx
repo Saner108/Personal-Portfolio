@@ -32,14 +32,12 @@ export default function Hero() {
       id="hero"
       className="relative overflow-hidden min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-24 pb-16"
     >
-      {/* Diagonal two-tone split, ~17° off vertical. Tone derives from the
-          text token at low alpha so it inverts correctly with the theme. */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(107deg, transparent 55%, rgb(var(--color-text) / 0.05) 55.6%)',
+            'radial-gradient(ellipse at 50% 40%, rgb(var(--color-accent) / 0.10), transparent 65%)',
         }}
       />
 
@@ -51,7 +49,12 @@ export default function Hero() {
         <HeroAmbient />
       </motion.div>
 
-      <motion.div style={recede} className="relative max-w-6xl">
+      <motion.div style={recede} className="relative mx-auto w-full max-w-6xl">
+        <div className="hero-banner mx-auto mb-8 flex max-w-2xl items-center justify-center gap-3 border border-accent/30 px-5 py-3">
+          <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent" />
+          <span className="min-w-0 font-body text-xs uppercase tracking-[0.16em] text-accent">Data-driven thinking. People-focused work.</span>
+          <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-accent" />
+        </div>
         <motion.p
           className="text-sm uppercase tracking-[0.2em] text-offwhite/60 mb-6 font-body"
           variants={fadeUp}
@@ -64,7 +67,7 @@ export default function Hero() {
 
         <motion.h1
           className="font-display font-bold text-offwhite leading-[0.98] tracking-[-0.02em] mb-8"
-          style={{ fontSize: 'clamp(2.9rem, 7.5vw, 6.9rem)' }}
+          style={{ fontSize: 'clamp(2.6rem, 7.5vw, 6.5rem)' }}
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -72,13 +75,11 @@ export default function Hero() {
         >
           Business Analytics.
           <br />
-          Finance.
-          <br />
-          <span className="text-offwhite/50">AI.</span>
+          <span className="text-gradient">Finance & AI.</span>
         </motion.h1>
 
         <motion.p
-          className="max-w-xl font-body text-offwhite/75 text-lg md:text-xl leading-relaxed mb-10"
+          className="mx-auto max-w-2xl font-body text-offwhite/75 text-lg md:text-xl leading-relaxed mb-10"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -88,7 +89,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -96,13 +97,13 @@ export default function Hero() {
         >
           <a
             href="#projects"
-            className="inline-block border border-offwhite/20 px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite hover:border-offwhite/50 active:scale-[0.98] transition duration-200"
+            className="inline-block border border-accent/50 bg-accent/10 px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite hover:bg-accent/20 active:scale-[0.98] transition duration-200"
           >
             See the work
           </a>
           <a
             href="#contact"
-            className="inline-block px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite/60 hover:text-offwhite active:scale-[0.98] transition duration-200"
+            className="inline-block border border-offwhite/20 px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite/75 hover:border-accent/50 hover:text-offwhite active:scale-[0.98] transition duration-200"
           >
             Get in touch →
           </a>
@@ -111,7 +112,7 @@ export default function Hero() {
 
       {/* Subtle scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-6 md:left-12 lg:left-20 flex items-center gap-3 text-offwhite/60 text-xs tracking-widest uppercase font-body"
+        className="absolute bottom-6 inset-x-0 flex items-center justify-center gap-3 text-offwhite/60 text-xs tracking-widest uppercase font-body"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 1 }}

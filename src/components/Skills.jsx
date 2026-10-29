@@ -63,7 +63,7 @@ export default function Skills() {
 
   return (
     <section id="skills" ref={ref} className="px-6 md:px-12 lg:px-20 py-28 md:py-36">
-      <div className="max-w-6xl">
+      <div className="mx-auto max-w-6xl">
         <motion.p
           className="text-sm uppercase tracking-[0.2em] text-offwhite/60 mb-10 font-body"
           variants={fadeUp}
@@ -90,7 +90,7 @@ export default function Skills() {
           {groups.map((group, gi) => (
             <motion.article
               key={group.category}
-              className="h-full min-w-0 border border-offwhite/15 bg-graphite p-6 sm:p-8"
+              className="data-card h-full min-w-0 border border-offwhite/15 bg-graphite p-6 sm:p-8"
               variants={fadeUp}
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
@@ -113,7 +113,7 @@ export default function Skills() {
                   <h4 className="font-body text-xs uppercase tracking-[0.15em] text-offwhite/60 mb-4">
                     AI & Development Platforms
                   </h4>
-                  <ul className="flex flex-wrap gap-2">
+                  <ul className="flex flex-wrap justify-center gap-2">
                     {group.tools.map((tool) => (
                       <li key={tool} className="border border-offwhite/15 px-3 py-2 font-body text-sm text-offwhite/75">
                         {tool}

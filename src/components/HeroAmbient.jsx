@@ -17,15 +17,15 @@ export default function HeroAmbient() {
     >
       <motion.div
         className="absolute inset-0"
-        initial={{ opacity: 0 }}
+        initial={reduceMotion ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.9, duration: 1.6, ease: 'easeOut' }}
+        transition={{ delay: reduceMotion ? 0 : 0.3, duration: reduceMotion ? 0 : 1.2, ease: 'easeOut' }}
       >
         {/* Macro ring — slow rotation */}
         <motion.svg
           viewBox="0 0 240 240"
           fill="none"
-          className="absolute -right-10 top-[8%] w-52 md:w-72 lg:w-80 opacity-[0.16]"
+          className="absolute -right-12 top-[12%] w-40 md:right-[2%] md:w-56 lg:w-64 opacity-25"
           animate={reduceMotion ? undefined : { rotate: 360 }}
           transition={{ duration: 48, repeat: Infinity, ease: 'linear' }}
         >
@@ -58,7 +58,7 @@ export default function HeroAmbient() {
         <motion.svg
           viewBox="0 0 160 140"
           fill="none"
-          className="absolute left-[58%] bottom-[7%] w-28 md:w-40 opacity-[0.15]"
+          className="absolute right-[5%] bottom-[8%] w-24 md:w-36 opacity-20"
           animate={reduceMotion ? undefined : { y: [0, -14, 0] }}
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
         >
@@ -78,7 +78,7 @@ export default function HeroAmbient() {
         <motion.svg
           viewBox="0 0 240 180"
           fill="none"
-          className="absolute left-[2%] top-[12%] w-44 md:w-60 opacity-[0.13]"
+          className="absolute -left-12 top-[12%] w-40 md:left-[2%] md:w-56 opacity-20"
           animate={reduceMotion ? undefined : { x: [0, 26, 0], y: [0, 20, 0] }}
           transition={{ duration: 32, repeat: Infinity, ease: 'easeInOut' }}
         >
@@ -94,6 +94,20 @@ export default function HeroAmbient() {
             d="M0 .5h240M0 45.5h240M0 90.5h240M0 135.5h240M0 179.5h240M.5 0v180M60.5 0v180M120.5 0v180M180.5 0v180M239.5 0v180"
           />
         </motion.svg>
+
+        <svg viewBox="0 0 160 180" fill="none" className="absolute left-[3%] bottom-[10%] hidden w-32 text-accent opacity-25 md:block lg:w-40">
+          <ellipse cx="80" cy="35" rx="56" ry="22" stroke="currentColor" strokeWidth="2" />
+          <path d="M24 35v84c0 12 25 22 56 22s56-10 56-22V35M24 77c0 12 25 22 56 22s56-10 56-22M24 119c0 12 25 22 56 22s56-10 56-22" stroke="currentColor" strokeWidth="2" />
+          <circle cx="50" cy="71" r="3" fill="currentColor" />
+          <circle cx="50" cy="113" r="3" fill="currentColor" />
+          <path d="M80 150v16m-30 0h60" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+
+        <div className="absolute left-[8%] top-[42%] hidden border border-accent/30 px-3 py-2 font-mono text-sm text-accent/60 lg:block">SQL</div>
+        <div className="absolute right-[8%] top-[55%] hidden border border-electric/30 px-3 py-2 font-mono text-sm text-electric/60 lg:block">{'{ data }'}</div>
+        <span className="absolute left-[18%] top-[28%] h-2 w-2 rounded-full bg-accent/50" />
+        <span className="absolute right-[20%] bottom-[20%] h-3 w-3 rounded-full border border-electric/50" />
+        <span className="absolute left-[38%] bottom-[8%] h-2 w-2 rounded-full bg-electric/40" />
       </motion.div>
     </div>
   )

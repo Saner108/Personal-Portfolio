@@ -92,7 +92,7 @@ export function StockoutDonut() {
 // Five-dot proficiency indicator used in Skills
 export function ProficiencyDots({ level }) {
   return (
-    <div className="flex gap-0.5 mt-1.5" aria-label={`Proficiency ${level} of 5`}>
+    <div className="flex justify-center gap-0.5 mt-1.5" aria-label={`Proficiency ${level} of 5`}>
       {[1,2,3,4,5].map(i => (
         <span key={i}
           className={`w-1.5 h-1.5 rounded-full ${

@@ -10,6 +10,7 @@ A modern, animated single-page React portfolio for Cesar Sanchez, created to sho
 
 ## Table of contents
 
+- [Recent updates](#recent-updates)
 - <a>Features</a>
 - <a>Tech stack</a>
 - <a>Project structure</a>
@@ -24,6 +25,23 @@ A modern, animated single-page React portfolio for Cesar Sanchez, created to sho
 
 ---
 
+## Recent updates
+
+The portfolio has been revised in small, source-backed updates through October 29, 2026:
+
+| Area | What changed |
+| --- | --- |
+| Project showcase | Added the six project repositories with accurate summaries, real screenshots where available, an explicit SLP image placeholder, and direct highlights of the three Python scripts. NorthStar remains the flagship; NutriCook keeps its full-width image-and-details layout. |
+| Personal introduction | Added the supplied fitness, cooking, and group photos, then combined them with the headshot and campus team image into one five-photo collage. School and small-team/event/inventory highlights accompany the images. |
+| Experience wording | Aligned campus-role descriptions with the supplied LinkedIn excerpt, then removed the displayed past-jobs section at the owner's request. The short team-development statement now refers to training a small team, without a numerical staff claim. |
+| Toolkit and degrees | Combined both schools and four toolkit categories into six matching rectangular cards. Retained coursework, existing proficiency ratings, ChatGPT, Claude, Vercel, and Supabase. Removed the separate Credentials section and its navigation link. |
+| Centered visual design | Centered the section containers, typography, card content, tags, buttons, and proficiency dots. Added a hero banner, gradient headline/card accents, decorative rings, dots, chart bars, a database symbol, and subtle side patterns while retaining the block layout. |
+| Public domain | Corrected Namecheap website DNS from GitHub Pages to Vercel, restored HTTPS for the custom domain, and verified the bare-domain redirect to `www.cesarsanchez1.me`. No database migration was involved. |
+
+Project facts and sample/synthetic/demo disclosures are retained. Original photos are not altered by the layout changes. Experience and Certifications source files remain in the repository for reference but are not rendered as separate sections.
+
+---
+
 ## 🎨 Features
 
 - ✨ Smooth Framer Motion animations for engaging UI
@@ -35,6 +53,8 @@ A modern, animated single-page React portfolio for Cesar Sanchez, created to sho
 - 🔍 SEO-friendly semantic structure
 - 📷 One personal photo collage in About, with education and team/event experience alongside it on desktop and stacked on mobile
 - 🎓 A single Toolkit & Degrees grid with six matching rectangular cards: two degrees and four toolkit groups. Cards share desktop/tablet heights and stack naturally on phones; no separate past-jobs or credentials section is displayed.
+- 🎯 Centered section frames and text, balanced card layouts, centered links/tags, and a prominent introductory banner
+- ◌ Data-inspired SVG/CSS decoration: rings, dots, chart bars, a database outline, and wide-screen side patterns. Decoration is non-interactive, hidden from assistive technology, and animated hero shapes respect reduced-motion preferences.
 
 ---
 
@@ -56,6 +76,7 @@ A modern, animated single-page React portfolio for Cesar Sanchez, created to sho
 │   ├── components/        # React components
 │   │   ├── Nav.jsx
 │   │   ├── Hero.jsx
+│   │   ├── HeroAmbient.jsx
 │   │   ├── About.jsx
 │   │   ├── Projects.jsx
 │   │   ├── Skills.jsx
@@ -63,8 +84,11 @@ A modern, animated single-page React portfolio for Cesar Sanchez, created to sho
 │   │   ├── Certifications.jsx
 │   │   ├── Education.jsx
 │   │   ├── Contact.jsx
+│   │   ├── DataVisual.jsx
 │   │   ├── GradientThread.jsx
 │   │   └── ThemeToggle.jsx
+│   ├── data/
+│   │   └── projects.js       # Project facts, links, and image references
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
@@ -87,7 +111,7 @@ The projects section highlights six project repositories on [Saner108's GitHub p
 - [Python Projects](https://github.com/Saner108/Python-Projects) — Rental calculator, credit payment schedule, and Lucky Sevens simulation on the `Python_Based_Assignments` default branch.
 - [NutriCook AI](https://github.com/Saner108/nutricook-ai) — React meal-planning application with Claude recipe generation and optional service integrations. Nutrition values are AI estimates; unconfigured services use demo data.
 
-Descriptions are based on each repository's README. Listings are maintained in `src/components/Projects.jsx`; they do not update automatically. Representative/coursework demos are labeled explicitly. The profile README is intentionally excluded.
+Descriptions are based on each repository's README. Listings are maintained in `src/data/projects.js` and rendered by `src/components/Projects.jsx`; they do not update automatically. Representative/coursework demos are labeled explicitly. The profile README is intentionally excluded.
 
 Excel includes the existing yearly budget and cooking inventory screenshots, with captions and full-size image links. WaveWare displays its main-menu screenshot directly from the public repository README asset; loading that image requires GitHub's raw-content host. SLP has an explicit image placeholder. NorthStar and NutriCook retain their screenshots. Add more screenshots to a card's `images` array using `src` and `caption`; use local assets in `public/images/` or verified project image URLs.
 
@@ -146,6 +170,7 @@ npm run lint
 - Edit text and content in `src/components/` (e.g., `Nav.jsx`, `Hero.jsx`, `About.jsx`, `Projects.jsx`).
 - Change colors and tokens in `tailwind.config.js`.
 - Global styles: `src/index.css`.
+- Centered typography is set in `src/App.jsx`; each displayed section centers its own maximum-width frame. The shared `data-card` styling, banner background, and wide-screen side patterns live in `src/index.css`. Hero-only data illustrations live in `src/components/HeroAmbient.jsx` and are decorative, not project metrics.
 - The introductory photo collage in `src/components/About.jsx` combines the headshot, campus team photo, fitness, cooking, and group-training photos from `public/images/`. Images load lazily and open the original photo in a new tab. All five personal photos appear once in this section, rather than being split across the hero and separate galleries. School/coursework and supported team-development, event, inventory, and coaching highlights sit beside the collage on desktop and below it on mobile. Project screenshots remain in Projects.
 - About keeps a concise leadership summary, including training a small team to run nutrition-coaching workflows independently. Past-job history is no longer rendered or linked in navigation; `src/components/Experience.jsx` remains in the repository for reference.
 - `src/components/Skills.jsx` renders the combined Toolkit & Degrees grid at `#skills`, reusing `src/components/Education.jsx` for two degree cards alongside four toolkit cards. Shared borders, padding, and equal grid rows keep the blocks aligned. The existing `#education` anchor points to the first degree card; school details, coursework, tools, and existing proficiency ratings are retained.
@@ -173,6 +198,12 @@ This site is deployed on Vercel and auto-deploys on pushes to the default branch
 | Alternate website address | [personal-brand-six-coral.vercel.app](https://personal-brand-six-coral.vercel.app/) |
 
 The website's DNS records point to Vercel, not GitHub Pages. Domain assignment and the redirect are configured in Vercel; the website A/CNAME records are managed in Namecheap. Use the DNS values recommended for the project in Vercel when making future changes, and preserve unrelated email records and nameserver settings.
+
+### Domain change, not a database migration
+
+The old DNS records sent visitors to GitHub Pages, which returned a missing-site page and a certificate that did not match the custom domain. The website A records and `www` CNAME were corrected in Namecheap to use the targets recommended by the existing Vercel project. Vercel then issued the domain certificates; `https://cesarsanchez1.me/` redirects to `https://www.cesarsanchez1.me/` with HTTP 308.
+
+This portfolio is a static React/Vite website. The domain repair changed website routing and HTTPS configuration, **not a database**: no schema, records, Supabase configuration, or credentials were migrated or changed. Email settings and nameservers were left unchanged.
 
 **Verified October 29, 2026:** HTTPS certificate validation passed against both configured Vercel addresses for each hostname. The bare domain returned HTTP 308 to `www`, which returned HTTP 200. The portfolio HTML and its JavaScript/CSS assets loaded successfully, and Chrome displayed all six project entries. This verifies the live website at that time, not every visitor's DNS cache or every application interaction.
 

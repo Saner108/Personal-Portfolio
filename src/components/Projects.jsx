@@ -26,7 +26,7 @@ function ProjectCard({ project, index, inView }) {
     return (
       <motion.div
         ref={cardRef}
-        className="relative overflow-hidden border border-offwhite/10 bg-offwhite/[0.02]"
+        className="data-card relative overflow-hidden border border-offwhite/15 bg-offwhite/[0.02]"
         variants={fadeUp}
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
@@ -46,7 +46,7 @@ function ProjectCard({ project, index, inView }) {
 
         <div className="grid lg:grid-cols-2 gap-0">
           <div className="p-8 md:p-12 lg:p-16">
-            <div className="flex flex-wrap items-center gap-3 mb-8">
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
               <span className="text-[10px] uppercase tracking-[0.2em] text-accent font-body border border-accent/30 px-2 py-1">
                 {project.label}
               </span>
@@ -64,7 +64,7 @@ function ProjectCard({ project, index, inView }) {
 
             {/* Key finding callout */}
             {project.highlight && (
-              <div className="border-l-2 border-electric pl-4 mb-6">
+              <div className="border-y border-electric/30 py-3 mb-6">
                 <p className="text-sm font-body text-electric/90 font-medium leading-snug">
                   {project.highlight}
                 </p>
@@ -86,7 +86,7 @@ function ProjectCard({ project, index, inView }) {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
               {project.tech.map((t) => (
                 <span key={t} className="text-[10px] uppercase tracking-[0.12em] text-offwhite/50 font-body border border-offwhite/10 px-2.5 py-1">
                   {t}
@@ -94,7 +94,7 @@ function ProjectCard({ project, index, inView }) {
               ))}
             </div>
 
-            <div className="flex items-center gap-5">
+            <div className="flex items-center justify-center gap-5">
               {project.link && (
                 <a href={project.link} target="_blank" rel="noopener noreferrer"
                   className="text-sm font-body text-offwhite/70 hover:text-offwhite transition-colors duration-200 tracking-wide">
@@ -135,7 +135,7 @@ function ProjectCard({ project, index, inView }) {
 
   return (
     <motion.div
-      className={`border border-offwhite/10 p-8 md:p-10 bg-offwhite/[0.01] hover:bg-offwhite/[0.03] transition-colors duration-300 ${project.id === 'nutricook-ai' ? 'md:col-span-2 md:grid md:grid-cols-2 md:items-center md:gap-10' : ''}`}
+      className={`data-card border border-offwhite/15 p-8 md:p-10 bg-offwhite/[0.01] hover:bg-offwhite/[0.03] transition-colors duration-300 ${project.id === 'nutricook-ai' ? 'md:col-span-2 md:grid md:grid-cols-2 md:items-center md:gap-10' : ''}`}
       variants={fadeUp}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
@@ -155,11 +155,11 @@ function ProjectCard({ project, index, inView }) {
       )}
 
       <div className="min-w-0">
-      <div className="flex flex-wrap items-center gap-3 mb-6">
-        <span className="text-[10px] uppercase tracking-[0.2em] text-offwhite/50 font-body border border-offwhite/15 px-2 py-1">
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+        <span className="text-[10px] uppercase tracking-[0.2em] text-accent font-body border border-accent/30 px-2 py-1">
           {project.label}
         </span>
-        <span className="text-[10px] uppercase tracking-[0.15em] text-offwhite/30 font-body">
+        <span className="text-[10px] uppercase tracking-[0.15em] text-offwhite/60 font-body">
           {project.status}
         </span>
       </div>
@@ -193,7 +193,7 @@ function ProjectCard({ project, index, inView }) {
       )}
 
       {project.highlight && (
-        <div className="border-l-2 border-offwhite/20 pl-4 mb-5">
+        <div className="border-y border-accent/20 py-3 mb-5">
           <p className="text-sm font-body text-offwhite/85 font-medium leading-snug">{project.highlight}</p>
         </div>
       )}
@@ -201,7 +201,7 @@ function ProjectCard({ project, index, inView }) {
       {project.contents ? (
         <div className="mb-6">
           <p className="text-[10px] uppercase tracking-[0.15em] text-offwhite/60 font-body mb-3">What's inside</p>
-          <ul className="list-disc pl-5 space-y-3 text-offwhite/75 font-body text-sm leading-relaxed">
+          <ul className="space-y-3 text-offwhite/75 font-body text-sm leading-relaxed">
             {project.contents.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
@@ -222,7 +222,7 @@ function ProjectCard({ project, index, inView }) {
       </div>
       )}
 
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div className="flex flex-wrap justify-center gap-2 mb-6">
         {project.tech.map((t) => (
           <span key={t} className="text-[10px] uppercase tracking-[0.12em] text-offwhite/40 font-body border border-offwhite/8 px-2 py-0.5">
             {t}
@@ -230,7 +230,7 @@ function ProjectCard({ project, index, inView }) {
         ))}
       </div>
 
-      <div className="flex items-center gap-5 mt-6">
+      <div className="flex items-center justify-center gap-5 mt-6">
         {project.link && (
           <a href={project.link} target="_blank" rel="noopener noreferrer"
             className="text-sm font-body text-offwhite/70 hover:text-offwhite transition-colors duration-200 tracking-wide">
@@ -255,7 +255,7 @@ export default function Projects() {
 
   return (
     <section id="projects" ref={ref} className="px-6 md:px-12 lg:px-20 py-28 md:py-36">
-      <div className="max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <motion.p
           className="text-sm uppercase tracking-[0.2em] text-offwhite/60 mb-10 font-body"
           variants={fadeUp}

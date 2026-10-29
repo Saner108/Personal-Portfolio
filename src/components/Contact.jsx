@@ -30,7 +30,7 @@ export default function Contact() {
 
   return (
     <section id="contact" ref={ref} className="px-6 md:px-12 lg:px-20 py-28 md:py-36 border-t border-offwhite/8">
-      <div className="max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <motion.p
           className="text-sm uppercase tracking-[0.2em] text-offwhite/60 mb-10 font-body"
           variants={fadeUp}
@@ -41,7 +41,7 @@ export default function Contact() {
           Contact
         </motion.p>
 
-        <div className="grid lg:grid-cols-[1fr_auto] gap-16 items-start">
+        <div className="space-y-10">
           <div>
             <motion.h2
               className="font-display font-semibold text-offwhite leading-tight tracking-tight mb-6"
@@ -55,7 +55,7 @@ export default function Contact() {
             </motion.h2>
 
             <motion.p
-              className="font-body text-offwhite/70 text-base md:text-lg max-w-md leading-relaxed mb-12"
+              className="mx-auto font-body text-offwhite/70 text-base md:text-lg max-w-2xl leading-relaxed mb-12"
               variants={fadeUp}
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
@@ -66,22 +66,22 @@ export default function Contact() {
             </motion.p>
 
             <motion.div
-              className="space-y-6"
+              className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3"
               variants={fadeUp}
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
               custom={3}
             >
               {links.map(({ label, value, href }) => (
-                <div key={label} className="flex items-baseline gap-6 border-t border-offwhite/8 pt-5">
-                  <span className="text-xs uppercase tracking-[0.15em] text-offwhite/60 font-body w-20 shrink-0">
+                <div key={label} className="data-card flex min-w-0 flex-col items-center justify-center gap-3 border border-offwhite/15 p-6">
+                  <span className="text-xs uppercase tracking-[0.15em] text-offwhite/60 font-body">
                     {label}
                   </span>
                   <a
                     href={href}
                     target={href.startsWith('http') ? '_blank' : undefined}
                     rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="font-body text-offwhite/75 hover:text-offwhite transition-colors duration-200 text-sm"
+                    className="break-all font-body text-offwhite/75 hover:text-offwhite transition-colors duration-200 text-sm"
                   >
                     {value}
                   </a>
@@ -91,7 +91,7 @@ export default function Contact() {
           </div>
 
           <motion.div
-            className="lg:pt-16"
+            className="flex justify-center"
             variants={fadeUp}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
@@ -124,7 +124,7 @@ export default function Contact() {
         </div>
 
         <motion.div
-          className="mt-24 border-t border-offwhite/8 pt-8 flex flex-col sm:flex-row justify-between gap-4 text-xs text-offwhite/60 font-body"
+          className="mt-20 border-t border-offwhite/10 pt-8 flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-xs text-offwhite/60 font-body"
           variants={fadeUp}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}

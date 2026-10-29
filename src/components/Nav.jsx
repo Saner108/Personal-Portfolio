@@ -106,7 +106,7 @@ export default function Nav() {
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <div
-          className={`px-6 md:px-12 lg:px-20 h-16 flex items-center justify-between transition-colors duration-500 ${
+          className={`mx-auto max-w-7xl px-6 md:px-12 lg:px-20 h-16 flex items-center justify-between transition-colors duration-500 ${
             atTop && !menuOpen ? 'bg-transparent' : 'bg-graphite/90 backdrop-blur-sm border-b border-offwhite/5'
           }`}
         >
@@ -212,7 +212,7 @@ export default function Nav() {
                     key={label}
                     href={href}
                     onClick={closeMenu}
-                    className={`flex items-center justify-between px-8 py-5 text-sm uppercase tracking-[0.18em] border-b border-offwhite/5 font-body transition-colors duration-150 ${
+                    className={`flex items-center justify-center gap-3 px-8 py-5 text-sm uppercase tracking-[0.18em] border-b border-offwhite/5 font-body transition-colors duration-150 ${
                       isActive ? 'text-offwhite' : 'text-offwhite/60 hover:text-offwhite'
                     }`}
                     initial={{ opacity: 0, x: -12 }}

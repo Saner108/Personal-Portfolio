@@ -37,6 +37,59 @@
   }
 }
 
+@layer components {
+  .hero-banner {
+    background: linear-gradient(110deg, rgb(var(--color-accent) / 0.10), rgb(var(--color-text) / 0.025));
+  }
+
+  .data-card {
+    position: relative;
+    background-image: linear-gradient(145deg, rgb(var(--color-accent) / 0.035), transparent 55%);
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+  }
+
+  .data-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 2px;
+    background: linear-gradient(90deg, rgb(var(--color-accent) / 0.85), #3D8BFF);
+    pointer-events: none;
+  }
+
+  .data-card:hover {
+    border-color: rgb(var(--color-accent) / 0.5);
+    box-shadow: 0 12px 36px -24px rgb(var(--color-accent) / 0.35);
+  }
+
+  .page-ornaments {
+    background: radial-gradient(ellipse at 0% 35%, rgb(var(--color-accent) / 0.06), transparent 45%),
+      radial-gradient(ellipse at 100% 75%, rgb(var(--color-text) / 0.035), transparent 45%);
+  }
+
+  @media (min-width: 1280px) {
+    .page-ornaments::before,
+    .page-ornaments::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      background-image: radial-gradient(rgb(var(--color-text) / 0.16) 1px, transparent 1px);
+      background-size: 18px 18px;
+      mask-image: linear-gradient(transparent, black 20%, black 80%, transparent);
+    }
+
+    .page-ornaments::before {
+      left: 12px;
+    }
+
+    .page-ornaments::after {
+      right: 12px;
+    }
+  }
+}
+
 @layer utilities {
   .font-display {
     font-family: 'General Sans', system-ui, sans-serif;
