@@ -2,7 +2,9 @@
 
 A modern, animated single-page React portfolio for Cesar Sanchez, created to showcase my past projects, skills, and experience to recruiters, employers, and collaborators.
 
-**Live demo:** https://cesarsanchez1.me
+**Live website:** [www.cesarsanchez1.me](https://www.cesarsanchez1.me/)
+
+[cesarsanchez1.me](https://cesarsanchez1.me/) redirects to the `www` address.
 
 ---
 
@@ -154,6 +156,22 @@ This site is deployed on Vercel and auto-deploys on pushes to the default branch
 2. Connect the repo in Vercel
 3. Configure a custom domain in Vercel if desired
 
+### Portfolio domain setup
+
+| Setting | Current configuration |
+| --- | --- |
+| Production website | [https://www.cesarsanchez1.me/](https://www.cesarsanchez1.me/) |
+| Bare domain | `https://cesarsanchez1.me/` redirects to the production website with HTTP 308 |
+| Hosting | Vercel project `personal-brand` |
+| DNS provider | Namecheap BasicDNS |
+| Alternate website address | [personal-brand-six-coral.vercel.app](https://personal-brand-six-coral.vercel.app/) |
+
+The website's DNS records point to Vercel, not GitHub Pages. Domain assignment and the redirect are configured in Vercel; the website A/CNAME records are managed in Namecheap. Use the DNS values recommended for the project in Vercel when making future changes, and preserve unrelated email records and nameserver settings.
+
+**Verified October 29, 2026:** HTTPS certificate validation passed against both configured Vercel addresses for each hostname. The bare domain returned HTTP 308 to `www`, which returned HTTP 200. The portfolio HTML and its JavaScript/CSS assets loaded successfully, and Chrome displayed all six project entries. This verifies the live website at that time, not every visitor's DNS cache or every application interaction.
+
+After DNS changes, a device may temporarily retain the previous hosting address. Compare its cached address with authoritative DNS before diagnosing an HTTPS error as a deployment problem. Do not disable certificate validation to work around a stale DNS cache.
+
 ---
 
 ## 🤝 Contributing
@@ -172,7 +190,7 @@ Open for personal use. Please contact me for reuse or commercial questions.
 
 **Cesar Sanchez** — Finance | Business Analytics | AI Developer
 
-- Website: https://cesarsanchez1.me
+- Website: [https://www.cesarsanchez1.me/](https://www.cesarsanchez1.me/)
 - GitHub: https://github.com/Saner108
 
 Contact via the contact section of the site or GitHub.
