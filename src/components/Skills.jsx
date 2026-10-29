@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ProficiencyDots } from './DataVisual'
+import Education from './Education'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -65,7 +66,7 @@ export default function Skills() {
 
   return (
     <section id="skills" ref={ref} className="px-6 md:px-12 lg:px-20 py-28 md:py-36">
-      <div className="max-w-5xl">
+      <div className="max-w-6xl">
         <motion.p
           className="text-sm uppercase tracking-[0.2em] text-offwhite/60 mb-10 font-body"
           variants={fadeUp}
@@ -73,7 +74,7 @@ export default function Skills() {
           animate={inView ? 'visible' : 'hidden'}
           custom={0}
         >
-          Skills
+          Toolkit & Degrees
         </motion.p>
 
         <motion.h2
@@ -84,47 +85,49 @@ export default function Skills() {
           animate={inView ? 'visible' : 'hidden'}
           custom={1}
         >
-          The toolkit.
+          The toolkit & degrees.
         </motion.h2>
 
-        {/* 2×2 grid at lg — 4 groups fill it cleanly with no orphaned gap */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-offwhite/10 border-t border-offwhite/10">
-          {groups.map((group, gi) => (
-            <motion.div
-              key={group.category}
-              className="py-10 px-6 sm:px-10 bg-graphite"
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
-              custom={gi + 2}
-            >
-              <h3 className="font-body font-medium text-xs uppercase tracking-[0.18em] text-offwhite/60 mb-6">
-                {group.category}
-              </h3>
-              <ul className="space-y-4">
-                {group.skills.map((skill) => (
-                  <li key={skill.name} className="font-body text-offwhite/75 text-sm leading-snug">
-                    {skill.name}
-                    <ProficiencyDots level={skill.level} />
-                  </li>
-                ))}
-              </ul>
-              {group.tools && (
-                <div className="mt-8">
-                  <h4 className="font-body text-xs uppercase tracking-[0.15em] text-offwhite/60 mb-4">
-                    AI & Development Platforms
-                  </h4>
-                  <ul className="flex flex-wrap gap-2">
-                    {group.tools.map((tool) => (
-                      <li key={tool} className="border border-offwhite/15 px-3 py-2 font-body text-sm text-offwhite/75">
-                        {tool}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </motion.div>
-          ))}
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-10 lg:gap-12 items-start">
+          <Education />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-offwhite/10 border-t border-offwhite/10">
+            {groups.map((group, gi) => (
+              <motion.div
+                key={group.category}
+                className="py-10 px-6 sm:px-10 bg-graphite"
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? 'visible' : 'hidden'}
+                custom={gi + 2}
+              >
+                <h3 className="font-body font-medium text-xs uppercase tracking-[0.18em] text-offwhite/60 mb-6">
+                  {group.category}
+                </h3>
+                <ul className="space-y-4">
+                  {group.skills.map((skill) => (
+                    <li key={skill.name} className="font-body text-offwhite/75 text-sm leading-snug">
+                      {skill.name}
+                      <ProficiencyDots level={skill.level} />
+                    </li>
+                  ))}
+                </ul>
+                {group.tools && (
+                  <div className="mt-8">
+                    <h4 className="font-body text-xs uppercase tracking-[0.15em] text-offwhite/60 mb-4">
+                      AI & Development Platforms
+                    </h4>
+                    <ul className="flex flex-wrap gap-2">
+                      {group.tools.map((tool) => (
+                        <li key={tool} className="border border-offwhite/15 px-3 py-2 font-body text-sm text-offwhite/75">
+                          {tool}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

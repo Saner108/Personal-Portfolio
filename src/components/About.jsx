@@ -135,16 +135,13 @@ export default function About() {
               <h3 id="leadership-heading" className="font-display text-xl font-semibold text-offwhite mb-2">
                 Teams, events & operations
               </h3>
-              <p className="font-body text-xs text-offwhite/60 mb-4">TAMUCC campus roles · August 2023–August 2026</p>
+              <p className="font-body text-xs text-offwhite/60 mb-4">Campus wellness & program support</p>
               <ul className="list-disc pl-5 space-y-3 font-body text-sm md:text-base text-offwhite/80 leading-relaxed">
-                <li><strong className="font-medium text-offwhite">Team development:</strong> Trained three staff members to run nutrition-coaching workflows independently.</li>
+                <li><strong className="font-medium text-offwhite">Team development:</strong> Trained a small team to run nutrition-coaching workflows independently.</li>
                 <li><strong className="font-medium text-offwhite">Events & classes:</strong> Organized wellness events, oversaw cooking classes, and led HIIT sessions.</li>
                 <li><strong className="font-medium text-offwhite">Inventory:</strong> Managed inventory as part of the nutrition-coaching program.</li>
                 <li><strong className="font-medium text-offwhite">Coaching & youth activities:</strong> Designed individualized training programs and led seasonal sports and fitness activities for children.</li>
               </ul>
-              <a href="#experience" className="inline-block mt-4 py-3 font-body text-sm text-offwhite/75 underline underline-offset-4 hover:text-offwhite">
-                View roles & experience
-              </a>
             </section>
           </div>
         </div>

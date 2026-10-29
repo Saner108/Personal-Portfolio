@@ -5,10 +5,8 @@ import ThemeToggle from './ThemeToggle'
 const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
+  { label: 'Toolkit & Degrees', href: '#skills' },
   { label: 'Certifications', href: '#certifications' },
-  { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -122,7 +120,7 @@ export default function Nav() {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map(({ label, href }) => {
               const isActive = activeSection === href.slice(1)
               return (
@@ -149,7 +147,7 @@ export default function Nav() {
           </nav>
 
           {/* Mobile: theme toggle + hamburger */}
-          <div className="md:hidden flex items-center gap-5">
+          <div className="lg:hidden flex items-center gap-5">
             <ThemeToggle />
             <button
               ref={hamburgerRef}
@@ -183,7 +181,7 @@ export default function Nav() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-40 lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
