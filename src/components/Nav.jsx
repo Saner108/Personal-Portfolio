@@ -5,11 +5,16 @@ import ThemeToggle from './ThemeToggle'
 const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Certifications', href: '#certifications' },
+  { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ]
 
 export default function Nav() {
   const [hidden, setHidden] = useState(false)
+  const [atTop, setAtTop] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const { scrollY } = useScroll()
@@ -19,6 +24,7 @@ export default function Nav() {
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const prev = scrollY.getPrevious()
     setHidden(latest > prev && latest > 80 && !menuOpen)
+    setAtTop(latest < 40)
   })
 
   // Active section tracking via IntersectionObserver
@@ -102,7 +108,11 @@ export default function Nav() {
         animate={hidden ? { y: -100, opacity: 0 } : { y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="px-6 md:px-10 h-16 flex items-center justify-between">
+        <div
+          className={`px-6 md:px-12 lg:px-20 h-16 flex items-center justify-between transition-colors duration-500 ${
+            atTop && !menuOpen ? 'bg-transparent' : 'bg-graphite/90 backdrop-blur-sm border-b border-offwhite/5'
+          }`}
+        >
           <a
             href="#hero"
             className="font-display font-semibold text-offwhite text-sm tracking-wide"
@@ -111,29 +121,32 @@ export default function Nav() {
             Cesar Sanchez
           </a>
 
-          {/* Desktop: pill nav + theme toggle */}
-          <div className="hidden md:flex items-center gap-4">
-            <nav className="flex items-center gap-2" aria-label="Main navigation">
-              {navLinks.map(({ label, href }) => {
-                const isActive = activeSection === href.slice(1)
-                return (
-                  <a
-                    key={href}
-                    href={href}
-                    className={[
-                      'px-4 py-1.5 rounded-full text-sm font-body font-medium transition-all duration-200',
-                      isActive
-                        ? 'bg-offwhite text-graphite'
-                        : 'bg-offwhite/10 text-offwhite/70 hover:bg-offwhite/20 hover:text-offwhite',
-                    ].join(' ')}
-                  >
-                    {label}
-                  </a>
-                )
-              })}
-            </nav>
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map(({ label, href }) => {
+              const isActive = activeSection === href.slice(1)
+              return (
+                <a
+                  key={label}
+                  href={href}
+                  className={`relative text-xs uppercase tracking-[0.15em] font-body transition-colors duration-200 ${
+                    isActive ? 'text-offwhite' : 'text-offwhite/50 hover:text-offwhite'
+                  }`}
+                >
+                  {label}
+                  {/* Underline dot for active section */}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-active"
+                      className="absolute -bottom-1 left-0 right-0 h-px bg-accent"
+                      transition={{ type: 'spring', stiffness: 380, damping: 34 }}
+                    />
+                  )}
+                </a>
+              )
+            })}
             <ThemeToggle />
-          </div>
+          </nav>
 
           {/* Mobile: theme toggle + hamburger */}
           <div className="md:hidden flex items-center gap-5">
