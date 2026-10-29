@@ -1,6 +1,6 @@
 # 💼 Personal Brand Website
 
-A modern, animated single-page React portfolio for Cesar Sanchez, showcasing work in finance, business analytics, and artificial intelligence.
+A modern, animated single-page React portfolio for Cesar Sanchez, created to showcase my past projects, skills, and experience to recruiters, employers, and collaborators.
 
 **Live demo:** https://cesarsanchez1.me
 
