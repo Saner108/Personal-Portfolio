@@ -2,7 +2,7 @@
 
 A modern, animated single-page React portfolio for Cesar Sanchez, showcasing work in finance, business analytics, and artificial intelligence.
 
-**Live demo:** https://personal-brand-six-coral.vercel.app
+**Live demo:** https://cesarsanchez1.me
 
 ---
 
@@ -172,7 +172,7 @@ Open for personal use. Please contact me for reuse or commercial questions.
 
 **Cesar Sanchez** — Finance | Business Analytics | AI Developer
 
-- Website: https://personal-brand-six-coral.vercel.app
+- Website: https://cesarsanchez1.me
 - GitHub: https://github.com/Saner108
 
 Contact via the contact section of the site or GitHub.
