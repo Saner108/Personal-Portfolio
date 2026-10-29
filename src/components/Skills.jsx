@@ -38,6 +38,7 @@ const groups = [
   },
   {
     category: 'Technical & AI',
+    tools: ['ChatGPT', 'Claude', 'Vercel (hosting & deployment)', 'Supabase (database & authentication)'],
     skills: [
       { name: 'Python (pandas, data manipulation, ML coursework)', level: 3 },
       { name: 'VBA (Excel & Access automation)', level: 4 },
@@ -108,6 +109,20 @@ export default function Skills() {
                   </li>
                 ))}
               </ul>
+              {group.tools && (
+                <div className="mt-8">
+                  <h4 className="font-body text-xs uppercase tracking-[0.15em] text-offwhite/60 mb-4">
+                    AI & Development Platforms
+                  </h4>
+                  <ul className="flex flex-wrap gap-2">
+                    {group.tools.map((tool) => (
+                      <li key={tool} className="border border-offwhite/15 px-3 py-2 font-body text-sm text-offwhite/75">
+                        {tool}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
