@@ -33,6 +33,7 @@ A modern, animated single-page React portfolio for Cesar Sanchez, created to sho
 - 🎯 Smooth scrolling and smart header show/hide behavior
 - ♿ Accessibility-minded markup and ARIA where appropriate
 - 🔍 SEO-friendly semantic structure
+- 📷 Personal photo gallery in About, with responsive layouts, descriptive captions, and full-size photo links
 
 ---
 
@@ -144,6 +145,8 @@ npm run lint
 - Edit text and content in `src/components/` (e.g., `Nav.jsx`, `Hero.jsx`, `About.jsx`, `Projects.jsx`).
 - Change colors and tokens in `tailwind.config.js`.
 - Global styles: `src/index.css`.
+- The About photo gallery is defined in `src/components/About.jsx`, using the supplied fitness, cooking, and group-training photos in `public/images/`. Gallery images load lazily and open the original photo in a new tab; the hero portrait and existing team photo are unchanged.
+- TAMUCC experience dates and descriptions in `src/components/Experience.jsx` follow the LinkedIn excerpt supplied on October 29, 2026: Head Nutrition Coach, Group Fitness Instructor, seasonal Kids Camp Instructor, and Personal Trainer all ended in August 2026. The About introduction uses past tense for these roles.
 - Adjust Framer Motion timings and easing inside the animated components.
 
 ---

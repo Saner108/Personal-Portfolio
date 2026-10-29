@@ -20,24 +20,31 @@ const roles = [
   },
   {
     title: 'Head Nutrition Coach',
-    org: 'TAMUCC · Jun 2025–Present',
-    tags: ['Systems Design', 'Data Tracking', 'Operations'],
+    org: 'TAMUCC · Jun 2025–Aug 2026',
+    tags: ['Inventory Management', 'Operations', 'Team Development'],
     description:
-      'Built and own the analytics infrastructure for the program: an Excel system tracking 50+ ingredient SKUs, session consumption rates, and reorder thresholds across weekly recurring sessions. Designed the coaching intake and progress tracking workflow from scratch, enabling 3 staff members to run sessions independently. Deliver personalized nutrition guidance to the campus community with measurable habit-change outcomes.',
+      'Oversaw personalized nutrition coaching and cooking classes to promote sustainable health strategies. Managed inventory and organized wellness events. Trained and enabled 3 staff members to independently run coaching workflows.',
   },
   {
     title: 'Group Fitness Instructor',
-    org: 'TAMUCC · Sep 2024–Present',
+    org: 'TAMUCC · Sep 2024–Aug 2026',
     tags: ['Program Design'],
     description:
-      'Design and lead HIIT sessions for a consistent recurring member base. Track attendance trends and member retention patterns to adjust session structure and timing.',
+      'Led high-energy HIIT classes focused on functional movement, cardio, and strength training.',
+  },
+  {
+    title: 'Kids Camp Instructor',
+    org: 'TAMUCC · Jun 2024–Aug 2026 · Seasonal',
+    tags: ['Activity Planning', 'Youth Development'],
+    description:
+      'Served as a seasonal Physical Education Instructor, leading engaging sports and fitness activities for children.',
   },
   {
     title: 'Personal Trainer',
-    org: 'TAMUCC · Aug 2023–Present',
-    tags: ['Data-Driven Coaching', 'Progress Analytics'],
+    org: 'TAMUCC · Aug 2023–Aug 2026',
+    tags: ['Fitness Training', 'Customer Communication'],
     description:
-      'Design individualized programs using structured intake data (baseline measurements, movement assessment, goal timelines). Adjust programs based on logged progress metrics — the same hypothesis-test-adjust loop that applies to any analytical workflow.',
+      'Designed individualized training programs focused on fat loss, muscle building, and functional fitness. Helped clients develop sustainable fitness habits for long-term success.',
   },
   {
     title: 'Member Ambassador',

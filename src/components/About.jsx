@@ -16,6 +16,30 @@ const stats = [
   { label: 'Years designing systems and coaching real clients', value: '3+' },
 ]
 
+const photos = [
+  {
+    src: '/images/fitness-studio.jpeg',
+    alt: 'Seated mirror photo in a purple-lit fitness studio',
+    caption: 'Fitness',
+    width: 2520,
+    height: 3360,
+  },
+  {
+    src: '/images/prepared-meal.jpeg',
+    alt: 'A prepared meal with cucumber and watermelon in a kitchen',
+    caption: 'In the kitchen',
+    width: 3024,
+    height: 4032,
+  },
+  {
+    src: '/images/training-group.jpg',
+    alt: 'A group posing together in a gym mirror',
+    caption: 'Training together',
+    width: 1320,
+    height: 2184,
+  },
+]
+
 export default function About() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-15% 0px' })
@@ -63,13 +87,12 @@ export default function About() {
                 tools that make the analysis accessible to people who don't live in spreadsheets.
               </p>
               <p>
-                Outside of school, fitness has been a genuine hobby that turned into real work:
-                three years as a personal trainer, group fitness instructor, and now Head
-                Nutrition Coach at TAMUCC — designing individualized programs and building the
-                systems (including the Excel tracking infrastructure) that make the program run.
-                That's where most of my real operational analytics experience comes from: an
-                environment with no existing systems, real users, and a need to make data
-                actionable fast.
+                Outside of school, fitness became both a personal interest and three years of
+                campus work. From August 2023 through August 2026, I worked in personal training,
+                group fitness, seasonal kids camps, and nutrition coaching at TAMUCC. As Head
+                Nutrition Coach, I oversaw personalized coaching and cooking classes, managed
+                inventory and wellness events, and trained three staff members to run coaching
+                workflows independently.
               </p>
             </motion.div>
 
@@ -119,6 +142,41 @@ export default function About() {
             </div>
           </motion.div>
         </div>
+
+        <section aria-labelledby="personal-photos-heading" className="mt-16 border-t border-offwhite/10 pt-10">
+          <h3 id="personal-photos-heading" className="font-display text-2xl font-semibold tracking-tight text-offwhite mb-3">
+            Beyond the spreadsheets.
+          </h3>
+          <p className="font-body text-sm text-offwhite/70 mb-6">
+            A few moments from fitness, cooking, and training together. Select a photo to view it in full.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {photos.map((photo) => (
+              <figure key={photo.src}>
+                <a
+                  href={photo.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open full-size photo: ${photo.caption} (opens in a new tab)`}
+                  className="block border border-offwhite/10 hover:border-offwhite/40 transition-colors"
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={photo.width}
+                    height={photo.height}
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-[3/4] w-full object-cover"
+                  />
+                </a>
+                <figcaption className="mt-3 font-body text-sm text-offwhite/70">
+                  {photo.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   )
