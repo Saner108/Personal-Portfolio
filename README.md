@@ -36,6 +36,7 @@ The portfolio has been revised in small, source-backed updates through October 2
 | Experience wording | Aligned campus-role descriptions with the supplied LinkedIn excerpt, then removed the displayed past-jobs section at the owner's request. The short team-development statement now refers to training a small team, without a numerical staff claim. |
 | Toolkit and degrees | Combined both schools and four toolkit categories into six matching rectangular cards. Retained coursework, existing proficiency ratings, ChatGPT, Claude, Vercel, and Supabase. Removed the separate Credentials section and its navigation link. |
 | Centered visual design | Centered the section containers, typography, card content, tags, buttons, and proficiency dots. Added a hero banner, gradient headline/card accents, decorative rings, dots, chart bars, a database symbol, and subtle side patterns while retaining the block layout. |
+| Dark-only appearance | Kept the graphite background and light text permanently. Removed desktop/mobile theme switches and light-mode styles; saved theme choices and device appearance no longer change the portfolio. |
 | Public domain | Corrected Namecheap website DNS from GitHub Pages to Vercel, restored HTTPS for the custom domain, and verified the bare-domain redirect to `www.cesarsanchez1.me`. No database migration was involved. |
 
 Project facts and sample/synthetic/demo disclosures are retained. Original photos are not altered by the layout changes. Experience and Certifications source files remain in the repository for reference but are not rendered as separate sections.
@@ -45,7 +46,7 @@ Project facts and sample/synthetic/demo disclosures are retained. Original photo
 ## 🎨 Features
 
 - ✨ Smooth Framer Motion animations for engaging UI
-- 🎭 Dark / Light theme with localStorage persistence
+- 🎭 Dark-only graphite theme, independent of saved theme choices or device appearance
 - 📱 Fully responsive — mobile-first design
 - ⚡ Fast development and optimized production builds (Vite)
 - 🎯 Smooth scrolling and smart header show/hide behavior
@@ -85,8 +86,7 @@ Project facts and sample/synthetic/demo disclosures are retained. Original photo
 │   │   ├── Education.jsx
 │   │   ├── Contact.jsx
 │   │   ├── DataVisual.jsx
-│   │   ├── GradientThread.jsx
-│   │   └── ThemeToggle.jsx
+│   │   └── GradientThread.jsx
 │   ├── data/
 │   │   └── projects.js       # Project facts, links, and image references
 │   ├── App.jsx

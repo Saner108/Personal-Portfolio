@@ -3,17 +3,10 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: dark;
   --color-bg: 11 13 16;
   --color-text: 245 243 238;
-  /* Accent used for small labels/badges. The clay tone clears AA on the dark
-     background, but not on the light one, so light mode gets a darker shade. */
   --color-accent: 232 120 90;
-}
-
-:root.light {
-  --color-bg: 245 243 238;
-  --color-text: 11 13 16;
-  --color-accent: 180 71 42;
 }
 
 @layer base {
@@ -129,7 +122,6 @@
   border-radius: 2px;
 }
 
-/* Scrollbar — adapts to light/dark via CSS custom property */
 ::-webkit-scrollbar {
   width: 4px;
 }

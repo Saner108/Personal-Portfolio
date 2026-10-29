@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion'
-import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -142,12 +141,9 @@ export default function Nav() {
                 </a>
               )
             })}
-            <ThemeToggle />
           </nav>
 
-          {/* Mobile: theme toggle + hamburger */}
           <div className="lg:hidden flex items-center gap-5">
-            <ThemeToggle />
             <button
               ref={hamburgerRef}
               onClick={() => setMenuOpen((o) => !o)}
