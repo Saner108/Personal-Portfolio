@@ -1,234 +1,131 @@
-# 💼 Personal Brand Website
+# Cesar Sanchez — Personal Portfolio
 
-A modern, animated single-page React portfolio for Cesar Sanchez, created to showcase my past projects, skills, and experience to recruiters, employers, and collaborators.
+A dark, responsive single-page portfolio for Cesar Sanchez, focused on business analytics, finance, databases, and AI-powered applications.
 
-**Live website:** [www.cesarsanchez1.me](https://www.cesarsanchez1.me/)
+**Live site:** [cesarsanchez1.me](https://cesarsanchez1.me/)
 
-[cesarsanchez1.me](https://cesarsanchez1.me/) redirects to the `www` address.
+**GitHub:** [Saner108](https://github.com/Saner108)
 
----
+The site presents Cesar's academic background, leadership experience, analytics and database projects, toolkit, contact links, and downloadable resume.
 
-## Table of contents
+## Features
 
-- [Recent updates](#recent-updates)
-- <a>Features</a>
-- <a>Tech stack</a>
-- <a>Project structure</a>
-- <a>Featured projects</a>
-- <a>Getting started</a>
-- <a>Available scripts</a>
-- <a>Customization</a>
-- <a>Deployment</a>
-- <a>Contributing</a>
-- <a>About &amp; contact</a>
-- <a>License</a>
+- Responsive React single-page layout with smooth section navigation
+- Dark-only graphite visual system with General Sans and Inter typography
+- Framer Motion entrance, scroll, hover, and ambient background animations
+- Reduced-motion support through Framer Motion and CSS media queries
+- Mobile navigation drawer with focus management, keyboard trapping, and Escape-to-close behavior
+- Lazy-loaded Toolkit & Degrees and Contact sections
+- Project cards with GitHub links, live demos, screenshots, image placeholders, and project-scope disclosures
+- Accessible labels, semantic sections, focus-visible states, and descriptive image text
+- SEO metadata, Open Graph/Twitter preview metadata, favicon, sitemap, and robots file
+- Vercel deployment configuration with SPA rewrites, security headers, immutable asset caching, and resume download headers
 
----
-
-## Recent updates
-
-The portfolio has been revised in small, source-backed updates through October 29, 2026:
-
-| Area | What changed |
-| --- | --- |
-| Project showcase | Added the six project repositories with accurate summaries, real screenshots where available, an explicit SLP image placeholder, and direct highlights of the three Python scripts. NorthStar remains the flagship; NutriCook keeps its full-width image-and-details layout. |
-| Personal introduction | Added the supplied fitness, cooking, and group photos, then combined them with the headshot and campus team image into one five-photo collage. School and small-team/event/inventory highlights accompany the images. |
-| Experience wording | Aligned campus-role descriptions with the supplied LinkedIn excerpt, then removed the displayed past-jobs section at the owner's request. The short team-development statement now refers to training a small team, without a numerical staff claim. |
-| Toolkit and degrees | Initially combined both schools and four toolkit categories into six cards, then condensed them into two balanced panels: Degrees and Toolkit. Kept school details and expandable coursework; replaced visual proficiency ratings and repeated tags with short grouped lists. Retained ChatGPT, Claude, Vercel, and Supabase. No separate Credentials section is displayed. |
-| Concise introduction | Rephrased the school summary as Academic foundation and the team/event/operations summary as Leadership in practice. Kept supported responsibilities and small-team wording; project content and photos are unchanged. |
-| Centered visual design | Centered the section containers, typography, card content, tags, buttons, and proficiency dots. Added a hero banner, gradient headline/card accents, decorative rings, dots, chart bars, a database symbol, and subtle side patterns while retaining the block layout. |
-| Dark-only appearance | Kept the graphite background and light text permanently. Removed desktop/mobile theme switches and light-mode styles; saved theme choices and device appearance no longer change the portfolio. |
-| Public domain | Corrected Namecheap website DNS from GitHub Pages to Vercel, restored HTTPS for the custom domain, and verified the bare-domain redirect to `www.cesarsanchez1.me`. No database migration was involved. |
-
-Project facts and sample/synthetic/demo disclosures are retained. Original photos are not altered by the layout changes. Experience and Certifications source files remain in the repository for reference but are not rendered as separate sections.
-
----
-
-## 🎨 Features
-
-- ✨ Smooth Framer Motion animations for engaging UI
-- 🎭 Dark-only graphite theme, independent of saved theme choices or device appearance
-- 📱 Fully responsive — mobile-first design
-- ⚡ Fast development and optimized production builds (Vite)
-- 🎯 Smooth scrolling and smart header show/hide behavior
-- ♿ Accessibility-minded markup and ARIA where appropriate
-- 🔍 SEO-friendly semantic structure
-- 📷 One personal photo collage in About, with education and team/event experience alongside it on desktop and stacked on mobile
-- 🎓 One compact Toolkit & Degrees section with two rectangular panels: Degrees and Toolkit. Coursework expands on request; grouped tool lists replace ratings and individual tags. Panels sit side by side on desktop and stack on smaller screens; no separate past-jobs or credentials section is displayed.
-- 🎯 Centered section frames and text, balanced card layouts, centered links/tags, and a prominent introductory banner
-- ◌ Data-inspired SVG/CSS decoration: rings, dots, chart bars, a database outline, and wide-screen side patterns. Decoration is non-interactive, hidden from assistive technology, and animated hero shapes respect reduced-motion preferences.
-
----
-
-## 🛠️ Tech stack
+## Tech stack
 
 - React 18
-- Vite
-- Tailwind CSS
-- Framer Motion
-- JavaScript (JSX)
+- Vite 5
+- Tailwind CSS 3
+- Framer Motion 11
+- JavaScript and JSX
+- Vercel Speed Insights
 
----
+## Project content
 
-## 📁 Project structure
+The Projects section is driven by the single source of truth in [`src/data/projects.js`](src/data/projects.js):
 
-```
-├── public/                 # Static assets
+1. [NorthStar Enterprise Analytics](https://github.com/Saner108/NorthStar-Enterprise-Analytics) — synthetic-data retail inventory analytics pilot using Python, SQL, SQLite, dimensional modeling, and validation checks. Includes a live dashboard.
+2. [Excel Business Analytics Portfolio](https://github.com/Saner108/Excel-Business-Analytics-Portfolio) — financial modeling, budgeting, and kitchen inventory workbooks.
+3. [SLP Inventory Demo](https://github.com/Saner108/slp-inventory-demo) — coursework data-preparation demo using Excel and CSV files.
+4. [WaveWare Access Database Demo](https://github.com/Saner108/waveware-access-demo) — representative Microsoft Access workflows for diet, inventory, weight tracking, and reporting.
+5. [Python Projects](https://github.com/Saner108/Python-Projects) — rental calculator, credit payment schedule, and Lucky Sevens simulation.
+6. [NutriCook AI](https://github.com/Saner108/nutricook-ai) — React meal-planning application using Claude, with optional Supabase and Stripe integrations. Includes a live demo.
+
+Project descriptions intentionally identify synthetic, coursework, representative, demo, and AI-estimated content where applicable.
+
+## Repository structure
+
+```text
+├── public/
+│   ├── images/             # Portfolio and project screenshots
+│   ├── resume.pdf          # Downloadable resume
+│   ├── og-image.png        # Social sharing image
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── src/
-│   ├── components/        # React components
-│   │   ├── Nav.jsx
-│   │   ├── Hero.jsx
-│   │   ├── HeroAmbient.jsx
-│   │   ├── About.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Skills.jsx
-│   │   ├── Experience.jsx
-│   │   ├── Certifications.jsx
-│   │   ├── Education.jsx
-│   │   ├── Contact.jsx
-│   │   ├── DataVisual.jsx
-│   │   └── GradientThread.jsx
-│   ├── data/
-│   │   └── projects.js       # Project facts, links, and image references
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── index.html
+│   ├── components/         # Page sections and shared UI
+│   ├── data/projects.js    # Project catalog
+│   ├── App.jsx             # Root layout and section order
+│   ├── main.jsx            # React entry point
+│   └── index.css           # Tailwind layers and global styles
+├── index.html              # Document metadata and font loading
+├── tailwind.config.js      # Design tokens and font families
+├── vercel.json             # Deployment, headers, rewrites, and caching
 ├── vite.config.js
-├── tailwind.config.js
 └── package.json
 ```
 
----
+`src/components/Experience.jsx` and `src/components/Certifications.jsx` remain in the repository as reference components but are not currently rendered by `App.jsx`.
 
-## 📌 Featured projects
-
-The projects section highlights six project repositories on [Saner108's GitHub profile](https://github.com/Saner108), reviewed on October 28, 2026. NorthStar leads the section; supporting cards use a responsive two-column layout, followed by a full-width NutriCook card with its screenshot on the left and details on the right. On mobile, NutriCook stacks vertically. Python lists its three scripts directly; the other cards describe the problem, method, value and scope.
-
-- [NorthStar Enterprise Analytics](https://github.com/Saner108/NorthStar-Enterprise-Analytics) — Python and SQLite retail inventory pilot with approximately 1.6 million synthetic rows, 17 integrity checks, and an executive web dashboard. Results describe simulated data, not real company performance.
-- [Excel Business Analytics Portfolio](https://github.com/Saner108/Excel-Business-Analytics-Portfolio) — Financial solver and capital budgeting workbooks, kitchen inventory tracking, and monthly/yearly budget reporting on the `Personal-Budgeting` branch.
-- [SLP Inventory Demo](https://github.com/Saner108/slp-inventory-demo) — v1 coursework data preparation: 27 categories, 273 source model groupings, and 700 item rows in Excel and CSV. Sample serial placeholders and unverified inventory; no finished Access application.
-- [WaveWare Access Database Demo](https://github.com/Saner108/waveware-access-demo) — Near-final representative Access application with diet, inventory, weight, and reporting workflows. Not a current aquarium system or animal-care guidance; native Access workflows were not re-tested after the sharing edit.
-- [Python Projects](https://github.com/Saner108/Python-Projects) — Rental calculator, credit payment schedule, and Lucky Sevens simulation on the `Python_Based_Assignments` default branch.
-- [NutriCook AI](https://github.com/Saner108/nutricook-ai) — React meal-planning application with Claude recipe generation and optional service integrations. Nutrition values are AI estimates; unconfigured services use demo data.
-
-Descriptions are based on each repository's README. Listings are maintained in `src/data/projects.js` and rendered by `src/components/Projects.jsx`; they do not update automatically. Representative/coursework demos are labeled explicitly. The profile README is intentionally excluded.
-
-Excel includes the existing yearly budget and cooking inventory screenshots, with captions and full-size image links. WaveWare displays its main-menu screenshot directly from the public repository README asset; loading that image requires GitHub's raw-content host. SLP has an explicit image placeholder. NorthStar and NutriCook retain their screenshots. Add more screenshots to a card's `images` array using `src` and `caption`; use local assets in `public/images/` or verified project image URLs.
-
----
-
-## 🚀 Getting started
+## Getting started
 
 ### Prerequisites
-- Node.js (v16+ recommended)
-- npm or yarn
+
+- Node.js 16 or newer
+- npm
 
 ### Install and run locally
 
-1. Clone the repository
 ```bash
 git clone https://github.com/Saner108/Personal-Portfolio.git
 cd Personal-Portfolio
-```
-
-2. Install dependencies
-```bash
 npm install
-# or
-# yarn
-```
-
-3. Start development server
-```bash
 npm run dev
-# The site will be available at http://localhost:5173
 ```
 
----
+Open [http://localhost:5173](http://localhost:5173) in a browser.
 
-## 📦 Available scripts
+## Available scripts
 
 ```bash
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build locally
-npm run preview
-
-# Lint (if configured)
-npm run lint
+npm run dev      # Start the Vite development server
+npm run build    # Create the production build in dist/
+npm run preview  # Preview the production build locally
 ```
 
----
+There is currently no `lint` script in `package.json`.
 
-## ✏️ Customization
+## Customization
 
-- The toolkit lists ChatGPT, Claude / Claude Code, Vercel, and Supabase under Platforms I use, without assigning proficiency ratings.
-- Edit text and content in `src/components/` (e.g., `Nav.jsx`, `Hero.jsx`, `About.jsx`, `Projects.jsx`).
-- Change colors and tokens in `tailwind.config.js`.
-- Global styles: `src/index.css`.
-- Centered typography is set in `src/App.jsx`; each displayed section centers its own maximum-width frame. The shared `data-card` styling, banner background, and wide-screen side patterns live in `src/index.css`. Hero-only data illustrations live in `src/components/HeroAmbient.jsx` and are decorative, not project metrics.
-- The introductory photo collage in `src/components/About.jsx` combines the headshot, campus team photo, fitness, cooking, and group-training photos from `public/images/`. Images load lazily and open the original photo in a new tab. All five personal photos appear once in this section, rather than being split across the hero and separate galleries. School/coursework and supported team-development, event, inventory, and coaching highlights sit beside the collage on desktop and below it on mobile. Project screenshots remain in Projects.
-- About keeps a concise leadership summary, including training a small team to run nutrition-coaching workflows independently. Past-job history is no longer rendered or linked in navigation; `src/components/Experience.jsx` remains in the repository for reference.
-- `src/components/Skills.jsx` renders the compact Toolkit & Degrees section at `#skills`, reusing `src/components/Education.jsx` for one Degrees panel beside one Toolkit panel. Matching borders and padding keep the blocks organized. The existing `#education` anchor points to the Degrees panel. Both schools, dates, locations and complete coursework lists are retained; native expandable coursework controls keep the initial view short. Toolkit categories use concise names without visual proficiency ratings or certification labels.
-- Credentials is no longer rendered or linked in navigation. `src/components/Certifications.jsx` remains in the repository for reference, without a displayed section.
-- Adjust Framer Motion timings and easing inside the animated components.
+- Update project entries, links, screenshots, and disclosures in `src/data/projects.js`.
+- Update page copy and section markup in `src/components/`.
+- Add or replace static images in `public/images/`.
+- Keep `public/resume.pdf` current; it is linked from the Contact section and served as a download.
+- Adjust colors, typography, and shared card styles in `src/index.css` and `tailwind.config.js`.
+- Keep section IDs synchronized with the navigation links in `src/components/Nav.jsx`.
+- Update the canonical URL, Open Graph metadata, sitemap, and robots file together when changing domains.
 
----
+## Deployment
 
-## 🌐 Deployment
+The project is configured for Vercel:
 
-This site is deployed on Vercel and auto-deploys on pushes to the default branch. To deploy your own copy:
+- Build command: `npm run build`
+- Output directory: `dist`
+- SPA fallback: all routes rewrite to `/index.html`
+- Production metadata currently references `https://cesarsanchez1.me/`
 
-1. Push the repo to GitHub
-2. Connect the repo in Vercel
-3. Configure a custom domain in Vercel if desired
+To deploy a copy, import the repository into Vercel or connect it to a Vercel project. Vercel will build the site from the default branch using the settings in `vercel.json`.
 
-### Portfolio domain setup
+## Contributing
 
-| Setting | Current configuration |
-| --- | --- |
-| Production website | [https://www.cesarsanchez1.me/](https://www.cesarsanchez1.me/) |
-| Bare domain | `https://cesarsanchez1.me/` redirects to the production website with HTTP 308 |
-| Hosting | Vercel project `personal-brand` |
-| DNS provider | Namecheap BasicDNS |
-| Alternate website address | [personal-brand-six-coral.vercel.app](https://personal-brand-six-coral.vercel.app/) |
+This is a personal portfolio, but focused feedback and improvements are welcome. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the contribution workflow and reporting guidelines.
 
-The website's DNS records point to Vercel, not GitHub Pages. Domain assignment and the redirect are configured in Vercel; the website A/CNAME records are managed in Namecheap. Use the DNS values recommended for the project in Vercel when making future changes, and preserve unrelated email records and nameserver settings.
+## Contact
 
-### Domain change, not a database migration
+- Email: [sanchezcesar106@gmail.com](mailto:sanchezcesar106@gmail.com)
+- LinkedIn: [linkedin.com/in/csanchez65](https://www.linkedin.com/in/csanchez65)
+- GitHub: [github.com/Saner108](https://github.com/Saner108)
 
-The old DNS records sent visitors to GitHub Pages, which returned a missing-site page and a certificate that did not match the custom domain. The website A records and `www` CNAME were corrected in Namecheap to use the targets recommended by the existing Vercel project. Vercel then issued the domain certificates; `https://cesarsanchez1.me/` redirects to `https://www.cesarsanchez1.me/` with HTTP 308.
+## License
 
-This portfolio is a static React/Vite website. The domain repair changed website routing and HTTPS configuration, **not a database**: no schema, records, Supabase configuration, or credentials were migrated or changed. Email settings and nameservers were left unchanged.
-
-**Verified October 29, 2026:** HTTPS certificate validation passed against both configured Vercel addresses for each hostname. The bare domain returned HTTP 308 to `www`, which returned HTTP 200. The portfolio HTML and its JavaScript/CSS assets loaded successfully, and Chrome displayed all six project entries. This verifies the live website at that time, not every visitor's DNS cache or every application interaction.
-
-After DNS changes, a device may temporarily retain the previous hosting address. Compare its cached address with authoritative DNS before diagnosing an HTTPS error as a deployment problem. Do not disable certificate validation to work around a stale DNS cache.
-
----
-
-## 🤝 Contributing
-
-This is a personal portfolio project. Feedback, issues, and pull requests are welcome — open an issue or submit a PR if you have suggestions.
-
----
-
-## 📄 License
-
-Open for personal use. Please contact me for reuse or commercial questions.
-
----
-
-## 👤 About &amp; contact
-
-**Cesar Sanchez** — Finance | Business Analytics | AI Developer
-
-- Website: [https://www.cesarsanchez1.me/](https://www.cesarsanchez1.me/)
-- GitHub: https://github.com/Saner108
-
-Contact via the contact section of the site or GitHub.
+No license file is currently included. Contact Cesar before reusing or redistributing the site's content, design, or assets.
