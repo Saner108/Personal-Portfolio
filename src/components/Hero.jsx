@@ -77,57 +77,36 @@ export default function Hero() {
           <span className="text-offwhite/50">AI.</span>
         </motion.h1>
 
-        <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-20 items-center">
-          <div className="max-w-xl">
-            <motion.p
-              className="font-body text-offwhite/75 text-lg md:text-xl leading-relaxed mb-10"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={2}
-            >
-              Turning raw data into decisions — through analytics, financial modeling, and AI-powered tools.
-            </motion.p>
+        <motion.p
+          className="max-w-xl font-body text-offwhite/75 text-lg md:text-xl leading-relaxed mb-10"
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={2}
+        >
+          Turning raw data into decisions — through analytics, financial modeling, and AI-powered tools.
+        </motion.p>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={3}
-            >
-              <a
-                href="#projects"
-                className="inline-block border border-offwhite/20 px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite hover:border-offwhite/50 active:scale-[0.98] transition duration-200"
-              >
-                See the work
-              </a>
-              <a
-                href="#contact"
-                className="inline-block px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite/60 hover:text-offwhite active:scale-[0.98] transition duration-200"
-              >
-                Get in touch →
-              </a>
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="hidden lg:block"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={2.5}
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4"
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={3}
+        >
+          <a
+            href="#projects"
+            className="inline-block border border-offwhite/20 px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite hover:border-offwhite/50 active:scale-[0.98] transition duration-200"
           >
-            <img
-              src="/images/headshot.jpg"
-              alt="Cesar Sanchez"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-              className="w-40 xl:w-48 border border-offwhite/10"
-            />
-          </motion.div>
-        </div>
+            See the work
+          </a>
+          <a
+            href="#contact"
+            className="inline-block px-8 py-3.5 text-sm font-body font-medium tracking-wide text-offwhite/60 hover:text-offwhite active:scale-[0.98] transition duration-200"
+          >
+            Get in touch →
+          </a>
+        </motion.div>
       </motion.div>
 
       {/* Subtle scroll indicator */}

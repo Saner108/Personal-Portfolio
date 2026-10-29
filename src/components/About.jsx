@@ -10,19 +10,23 @@ const fadeUp = {
   }),
 }
 
-const stats = [
-  { label: 'Data, analytics & AI projects shipped to production', value: '5+' },
-  { label: 'Dual BBA degrees — Finance + Business Analytics', value: '2' },
-  { label: 'Years designing systems and coaching real clients', value: '3+' },
-]
-
 const photos = [
   {
-    src: '/images/fitness-studio.jpeg',
-    alt: 'Seated mirror photo in a purple-lit fitness studio',
-    caption: 'Fitness',
-    width: 2520,
-    height: 3360,
+    src: '/images/headshot.jpg',
+    alt: 'Cesar Sanchez',
+    caption: 'Cesar Sanchez',
+    width: 1200,
+    height: 2133,
+    featured: true,
+    frame: 'flex-1',
+  },
+  {
+    src: '/images/team-photo.jpg',
+    alt: 'TAMUCC Recreational Sports staff team',
+    caption: 'Campus team',
+    width: 1600,
+    height: 1200,
+    frame: 'aspect-[4/3]',
   },
   {
     src: '/images/prepared-meal.jpeg',
@@ -30,6 +34,15 @@ const photos = [
     caption: 'In the kitchen',
     width: 3024,
     height: 4032,
+    frame: 'aspect-[4/3]',
+  },
+  {
+    src: '/images/fitness-studio.jpeg',
+    alt: 'Seated mirror photo in a purple-lit fitness studio',
+    caption: 'Fitness',
+    width: 2520,
+    height: 3360,
+    frame: 'aspect-[4/5]',
   },
   {
     src: '/images/training-group.jpg',
@@ -37,6 +50,7 @@ const photos = [
     caption: 'Training together',
     width: 1320,
     height: 2184,
+    frame: 'aspect-[4/5]',
   },
 ]
 
@@ -46,7 +60,7 @@ export default function About() {
 
   return (
     <section id="about" ref={ref} className="px-6 md:px-12 lg:px-20 py-28 md:py-36">
-      <div className="max-w-5xl">
+      <div className="max-w-6xl">
         <motion.p
           className="text-sm uppercase tracking-[0.2em] text-offwhite/60 mb-10 font-body"
           variants={fadeUp}
@@ -57,126 +71,83 @@ export default function About() {
           About
         </motion.p>
 
-        <div className="grid lg:grid-cols-[1fr_340px] gap-16 lg:gap-24">
-          <div>
-            <motion.h2
-              className="font-display font-semibold text-offwhite leading-tight tracking-tight mb-8"
-              style={{ fontSize: 'clamp(1.9rem, 4vw, 3.2rem)' }}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
-              custom={1}
-            >
-              The through-line is
-              <br />
-              always optimization.
-            </motion.h2>
+        <motion.h2
+          className="font-display font-semibold text-offwhite leading-tight tracking-tight mb-12"
+          style={{ fontSize: 'clamp(1.9rem, 4vw, 3.2rem)' }}
+          variants={fadeUp}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          custom={1}
+        >
+          Learning through data.
+          <br />
+          Leading through people.
+        </motion.h2>
 
-            <motion.div
-              className="space-y-5 text-offwhite/80 font-body leading-relaxed text-base md:text-lg mb-10"
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
-              custom={2}
-            >
-              <p>
-                I'm a double major in Finance and Business Analytics at Texas A&M
-                University–Corpus Christi. My focus is applied analytics — taking messy data
-                and turning it into decisions that change what someone actually does next. That
-                means SQL pipelines, financial models, dashboards, and increasingly, AI-powered
-                tools that make the analysis accessible to people who don't live in spreadsheets.
-              </p>
-              <p>
-                Outside of school, fitness became both a personal interest and three years of
-                campus work. From August 2023 through August 2026, I worked in personal training,
-                group fitness, seasonal kids camps, and nutrition coaching at TAMUCC. As Head
-                Nutrition Coach, I oversaw personalized coaching and cooking classes, managed
-                inventory and wellness events, and trained three staff members to run coaching
-                workflows independently.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
-              custom={3}
-            >
-              <img
-                src="/images/team-photo.jpg"
-                alt="TAMUCC Recreational Sports staff team"
-                loading="lazy"
-                width="1200"
-                height="800"
-                className="w-full border border-offwhite/10"
-              />
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="space-y-8 pt-2"
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
-            custom={4}
-          >
-            {stats.map(({ label, value }) => (
-              <div key={label} className="border-t border-offwhite/10 pt-6">
-                <div
-                  className="font-display font-semibold text-offwhite mb-1"
-                  style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)' }}
-                >
-                  {value}
-                </div>
-                <div className="text-sm text-offwhite/60 font-body tracking-wide">{label}</div>
-              </div>
-            ))}
-
-            <div className="border-t border-offwhite/10 pt-6">
-              <div className="text-sm text-offwhite/60 font-body tracking-wide mb-3">Currently</div>
-              <div className="text-offwhite/75 font-body text-sm leading-relaxed">
-                Texas A&M University–Corpus Christi
-                <br />
-                Expected graduation: Spring 2027
-              </div>
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <section aria-labelledby="personal-photos-heading">
+            <h3 id="personal-photos-heading" className="sr-only">Personal photos</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {photos.map((photo) => (
+                <figure key={photo.src} className={photo.featured ? 'row-span-2 flex min-h-0 flex-col' : ''}>
+                  <a
+                    href={photo.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open full-size photo: ${photo.caption} (opens in a new tab)`}
+                    className={`relative block min-h-0 overflow-hidden border border-offwhite/10 hover:border-offwhite/40 transition-colors ${photo.frame}`}
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      width={photo.width}
+                      height={photo.height}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  </a>
+                  <figcaption className="mt-2 font-body text-xs text-offwhite/70">
+                    {photo.caption}
+                  </figcaption>
+                </figure>
+              ))}
             </div>
-          </motion.div>
-        </div>
+            <p className="mt-4 font-body text-xs text-offwhite/60">Select a photo to view it in full.</p>
+          </section>
 
-        <section aria-labelledby="personal-photos-heading" className="mt-16 border-t border-offwhite/10 pt-10">
-          <h3 id="personal-photos-heading" className="font-display text-2xl font-semibold tracking-tight text-offwhite mb-3">
-            Beyond the spreadsheets.
-          </h3>
-          <p className="font-body text-sm text-offwhite/70 mb-6">
-            A few moments from fitness, cooking, and training together. Select a photo to view it in full.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {photos.map((photo) => (
-              <figure key={photo.src}>
-                <a
-                  href={photo.src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Open full-size photo: ${photo.caption} (opens in a new tab)`}
-                  className="block border border-offwhite/10 hover:border-offwhite/40 transition-colors"
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    width={photo.width}
-                    height={photo.height}
-                    loading="lazy"
-                    decoding="async"
-                    className="aspect-[3/4] w-full object-cover"
-                  />
-                </a>
-                <figcaption className="mt-3 font-body text-sm text-offwhite/70">
-                  {photo.caption}
-                </figcaption>
-              </figure>
-            ))}
+          <div className="space-y-8">
+            <section aria-labelledby="academic-focus-heading" className="border-t border-offwhite/10 pt-6">
+              <h3 id="academic-focus-heading" className="font-display text-xl font-semibold text-offwhite mb-4">
+                School & academic focus
+              </h3>
+              <ul className="list-disc pl-5 space-y-3 font-body text-sm md:text-base text-offwhite/80 leading-relaxed">
+                <li>Dual BBA in Finance and Business Analytics & Information Systems at Texas A&M University–Corpus Christi. Expected graduation: Spring 2027.</li>
+                <li>Coursework includes database management, financial modeling, business intelligence, and data mining & analysis.</li>
+                <li>Associate of Arts, Management Information Systems — Tarrant County College, August 2021–April 2023.</li>
+              </ul>
+              <a href="#education" className="inline-block mt-4 py-3 font-body text-sm text-offwhite/75 underline underline-offset-4 hover:text-offwhite">
+                View education & coursework
+              </a>
+            </section>
+
+            <section aria-labelledby="leadership-heading" className="border-t border-offwhite/10 pt-6">
+              <h3 id="leadership-heading" className="font-display text-xl font-semibold text-offwhite mb-2">
+                Teams, events & operations
+              </h3>
+              <p className="font-body text-xs text-offwhite/60 mb-4">TAMUCC campus roles · August 2023–August 2026</p>
+              <ul className="list-disc pl-5 space-y-3 font-body text-sm md:text-base text-offwhite/80 leading-relaxed">
+                <li><strong className="font-medium text-offwhite">Team development:</strong> Trained three staff members to run nutrition-coaching workflows independently.</li>
+                <li><strong className="font-medium text-offwhite">Events & classes:</strong> Organized wellness events, oversaw cooking classes, and led HIIT sessions.</li>
+                <li><strong className="font-medium text-offwhite">Inventory:</strong> Managed inventory as part of the nutrition-coaching program.</li>
+                <li><strong className="font-medium text-offwhite">Coaching & youth activities:</strong> Designed individualized training programs and led seasonal sports and fitness activities for children.</li>
+              </ul>
+              <a href="#experience" className="inline-block mt-4 py-3 font-body text-sm text-offwhite/75 underline underline-offset-4 hover:text-offwhite">
+                View roles & experience
+              </a>
+            </section>
           </div>
-        </section>
+        </div>
       </div>
     </section>
   )
