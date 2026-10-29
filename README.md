@@ -34,7 +34,7 @@ A modern, animated single-page React portfolio for Cesar Sanchez, created to sho
 - ♿ Accessibility-minded markup and ARIA where appropriate
 - 🔍 SEO-friendly semantic structure
 - 📷 One personal photo collage in About, with education and team/event experience alongside it on desktop and stacked on mobile
-- 🎓 A combined Toolkit & Degrees section with academic background, coursework, skills, and AI/development platforms; no separate past-jobs section
+- 🎓 A single Toolkit & Degrees grid with six matching rectangular cards: two degrees and four toolkit groups. Cards share desktop/tablet heights and stack naturally on phones; no separate past-jobs or credentials section is displayed.
 
 ---
 
@@ -148,7 +148,8 @@ npm run lint
 - Global styles: `src/index.css`.
 - The introductory photo collage in `src/components/About.jsx` combines the headshot, campus team photo, fitness, cooking, and group-training photos from `public/images/`. Images load lazily and open the original photo in a new tab. All five personal photos appear once in this section, rather than being split across the hero and separate galleries. School/coursework and supported team-development, event, inventory, and coaching highlights sit beside the collage on desktop and below it on mobile. Project screenshots remain in Projects.
 - About keeps a concise leadership summary, including training a small team to run nutrition-coaching workflows independently. Past-job history is no longer rendered or linked in navigation; `src/components/Experience.jsx` remains in the repository for reference.
-- `src/components/Skills.jsx` renders the combined Toolkit & Degrees section at `#skills`, reusing `src/components/Education.jsx` for the academic panel. The existing `#education` anchor still points to that panel; there is no separate education page section or navigation entry.
+- `src/components/Skills.jsx` renders the combined Toolkit & Degrees grid at `#skills`, reusing `src/components/Education.jsx` for two degree cards alongside four toolkit cards. Shared borders, padding, and equal grid rows keep the blocks aligned. The existing `#education` anchor points to the first degree card; school details, coursework, tools, and existing proficiency ratings are retained.
+- Credentials is no longer rendered or linked in navigation. `src/components/Certifications.jsx` remains in the repository for reference, without a displayed section.
 - Adjust Framer Motion timings and easing inside the animated components.
 
 ---

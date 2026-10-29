@@ -11,7 +11,6 @@ import Section from './components/Section'
 
 // Below-fold sections lazy-loaded — deferred until after first paint
 const Skills         = lazy(() => import('./components/Skills'))
-const Certifications = lazy(() => import('./components/Certifications'))
 const Contact        = lazy(() => import('./components/Contact'))
 
 export default function App() {
@@ -32,9 +31,6 @@ export default function App() {
             <Suspense fallback={null}>
               <Section>
                 <Skills />
-              </Section>
-              <Section>
-                <Certifications />
               </Section>
               <Section>
                 <Contact />

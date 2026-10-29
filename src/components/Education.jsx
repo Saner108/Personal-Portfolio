@@ -1,15 +1,3 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  }),
-}
-
 const schools = [
   {
     name: 'Texas A&M University–Corpus Christi',
@@ -42,71 +30,55 @@ const schools = [
 ]
 
 export default function Education() {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-10% 0px' })
-
   return (
-    <section id="education" ref={ref} aria-labelledby="degrees-heading" className="min-w-0 border-t border-offwhite/10 pt-8">
-      <motion.h3
-        id="degrees-heading"
-        className="font-display font-semibold text-xl text-offwhite leading-tight tracking-tight mb-8"
-        variants={fadeUp}
-        initial="hidden"
-        animate={inView ? 'visible' : 'hidden'}
-        custom={1}
-      >
-        Academic foundation
-      </motion.h3>
+    <>
+      {schools.map((school, index) => (
+        <article
+          key={school.name}
+          id={index === 0 ? 'education' : undefined}
+          aria-labelledby={`degree-${index}`}
+          className="h-full min-w-0 border border-offwhite/15 bg-graphite p-6 sm:p-8"
+        >
+          <p className="font-body text-xs uppercase tracking-[0.18em] text-offwhite/60 mb-3">Degree</p>
+          <div className="space-y-3 mb-6">
+            <div>
+              <h3
+                id={`degree-${index}`}
+                className="font-display font-semibold text-lg text-offwhite leading-tight sm:min-h-[2.5em] mb-6"
+              >
+                {school.name}
+              </h3>
+              <p className="text-offwhite/75 font-body text-sm leading-relaxed mb-1">
+                {school.degree}
+              </p>
+              <p className="text-offwhite/50 font-body text-sm tracking-wide">{school.detail}</p>
+            </div>
+            <div>
+              <span className="text-offwhite/50 font-body text-sm tracking-wide whitespace-nowrap">
+                {school.dates}
+              </span>
+            </div>
+          </div>
 
-      <div className="space-y-10">
-        {schools.map((school, i) => (
-          <motion.div
-            key={school.name}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
-            custom={i + 2}
-            className="border-t border-offwhite/10 pt-6"
-          >
-            <div className="space-y-3 mb-6">
-              <div>
-                <h4
-                  className="font-display font-semibold text-lg text-offwhite leading-tight tracking-tight mb-2"
-                >
-                  {school.name}
-                </h4>
-                <p className="text-offwhite/75 font-body text-sm leading-relaxed mb-1">
-                  {school.degree}
-                </p>
-                <p className="text-offwhite/50 font-body text-sm tracking-wide">{school.detail}</p>
-              </div>
-              <div>
-                <span className="text-offwhite/50 font-body text-sm tracking-wide whitespace-nowrap">
-                  {school.dates}
-                </span>
+          {school.coursework && (
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.18em] text-offwhite/40 font-body mb-3">
+                Relevant Coursework
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {school.coursework.map(course => (
+                  <span
+                    key={course}
+                    className="text-xs font-body text-offwhite/75 border border-offwhite/15 px-3 py-1.5 leading-none"
+                  >
+                    {course}
+                  </span>
+                ))}
               </div>
             </div>
-
-            {school.coursework && (
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.18em] text-offwhite/40 font-body mb-3">
-                  Relevant Coursework
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {school.coursework.map(course => (
-                    <span
-                      key={course}
-                      className="text-xs font-body text-offwhite/75 border border-offwhite/15 px-3 py-1.5 leading-none"
-                    >
-                      {course}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-          </motion.div>
-        ))}
-      </div>
-    </section>
+          )}
+        </article>
+      ))}
+    </>
   )
 }

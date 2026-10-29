@@ -12,9 +12,6 @@ const fadeUp = {
   }),
 }
 
-// 4 groups — fits a clean 2×2 grid at lg.
-// SQL was duplicated across Data Analytics and Programming; consolidated here.
-// AI and Programming merged into Technical to remove the orphaned 5th slot.
 const groups = [
   {
     category: 'Data Analytics & Business Systems',
@@ -88,46 +85,45 @@ export default function Skills() {
           The toolkit & degrees.
         </motion.h2>
 
-        <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-10 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 sm:auto-rows-fr gap-5">
           <Education />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-offwhite/10 border-t border-offwhite/10">
-            {groups.map((group, gi) => (
-              <motion.div
-                key={group.category}
-                className="py-10 px-6 sm:px-10 bg-graphite"
-                variants={fadeUp}
-                initial="hidden"
-                animate={inView ? 'visible' : 'hidden'}
-                custom={gi + 2}
-              >
-                <h3 className="font-body font-medium text-xs uppercase tracking-[0.18em] text-offwhite/60 mb-6">
-                  {group.category}
-                </h3>
-                <ul className="space-y-4">
-                  {group.skills.map((skill) => (
-                    <li key={skill.name} className="font-body text-offwhite/75 text-sm leading-snug">
-                      {skill.name}
-                      <ProficiencyDots level={skill.level} />
-                    </li>
-                  ))}
-                </ul>
-                {group.tools && (
-                  <div className="mt-8">
-                    <h4 className="font-body text-xs uppercase tracking-[0.15em] text-offwhite/60 mb-4">
-                      AI & Development Platforms
-                    </h4>
-                    <ul className="flex flex-wrap gap-2">
-                      {group.tools.map((tool) => (
-                        <li key={tool} className="border border-offwhite/15 px-3 py-2 font-body text-sm text-offwhite/75">
-                          {tool}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
+          {groups.map((group, gi) => (
+            <motion.article
+              key={group.category}
+              className="h-full min-w-0 border border-offwhite/15 bg-graphite p-6 sm:p-8"
+              variants={fadeUp}
+              initial="hidden"
+              animate={inView ? 'visible' : 'hidden'}
+              custom={gi + 2}
+            >
+              <p className="font-body text-xs uppercase tracking-[0.18em] text-offwhite/60 mb-3">Toolkit</p>
+              <h3 className="font-display font-semibold text-lg text-offwhite leading-tight sm:min-h-[2.5em] mb-6">
+                {group.category}
+              </h3>
+              <ul className="space-y-4">
+                {group.skills.map((skill) => (
+                  <li key={skill.name} className="font-body text-offwhite/75 text-sm leading-snug">
+                    {skill.name}
+                    <ProficiencyDots level={skill.level} />
+                  </li>
+                ))}
+              </ul>
+              {group.tools && (
+                <div className="mt-8">
+                  <h4 className="font-body text-xs uppercase tracking-[0.15em] text-offwhite/60 mb-4">
+                    AI & Development Platforms
+                  </h4>
+                  <ul className="flex flex-wrap gap-2">
+                    {group.tools.map((tool) => (
+                      <li key={tool} className="border border-offwhite/15 px-3 py-2 font-body text-sm text-offwhite/75">
+                        {tool}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>
